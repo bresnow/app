@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+	--green: #96eaa3;
+	--yellow: #eae086;
+	--red: #f3646d;
+	--blue: #649ef3;
+	--white: #ffffff;
+	--black: #121212;
+	--slate: #707070;
+	--neutral: #f6f6f6;
+
+	--text: var(--black);
+	--background: var(--white);
+	--primary: var(--green);
+	--secondary: var(--yellow);
+	--accent: var(--red);
+
+	--radius: 0.75rem;
+}
+
+html,
+* {
+	font-family: "Nunito", sans-serif;
+}
+
+html[data-theme="light"] {
+	--text: #121212;
+	--background: #fff;
+	--primary: #649ef3;
+	--secondary: #eae086;
+	--accent: #f3646d;
+	--surface: #ebe9e9;
+}
+
+html[data-theme="dark"] {
+	--text: #fff;
+	--background: #121212;
+	--primary: #82b4ff;
+	--secondary: #dcde87;
+	--accent: #de8787;
+	--surface: #2f2f2f;
+}
+
+body {
+	background: var(--background);
+	color: var(--text);
+}
+
+button {
+	padding: 0.25em 1em;
+	background: var(--primary);
+	border-radius: var(--radius);
+	color: var(--text);
+	margin: 1em;
+	margin-bottom: 0;
+	cursor: pointer;
+}
+input {
+	padding: 0.5em 1em;
+	background: var(--surface);
+	border-radius: var(--radius);
+	color: var(--text);
+	cursor: pointer;
+}
+button:hover,
+input:hover {
+	transform: scale(1.03);
+}
