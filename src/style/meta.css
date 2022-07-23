@@ -4,7 +4,7 @@
 	bottom: 1em;
 	right: 2em;
 	font-size: 14pt;
-	color: #707070;
+	color: var(--text);
 	border-radius: 1em;
 	text-align: center;
 	z-index: 999999;
@@ -41,6 +41,10 @@
 	flex-direction: column;
 }
 #meta .meta-menu ul li {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 	display: inline-block;
 	float: right;
 	padding: 0.5em 1em;
@@ -55,7 +59,7 @@
 	cursor: pointer;
 }
 #meta .meta-menu ul li:hover {
-	background: rgba(0, 0, 0, 0.5);
+	background: var(--surface);
 }
 #meta a {
 	color: black;
@@ -79,7 +83,7 @@
 		position: fixed;
 		bottom: 0.5em;
 		font-size: 14pt;
-		color: #707070;
+		color: var(--text);
 		text-align: center;
 		z-index: 999999;
 		-webkit-tap-highlight-color: transparent;
@@ -113,6 +117,10 @@
 		overflow-x: hidden;
 	}
 	#meta .meta-menu ul li {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
 		animation: none;
 		animation-delay: 0ms;
 		display: inline;
@@ -123,7 +131,7 @@
 		cursor: pointer;
 	}
 	#meta .meta-menu ul li:hover {
-		background: rgba(0, 0, 0, 0.5);
+		background: var(--surface);
 	}
 	#meta a {
 		color: black;

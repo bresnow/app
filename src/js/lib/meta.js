@@ -85,8 +85,8 @@
 		if (edit[how]) {
 			if (tmp.fake && !edit.fake) {
 				console.log("fake");
+				console.log(edit);
 				m.tap.edit = edit;
-				// edit[how](m.eve);
 			} else {
 				edit[how](m.eve);
 				if (k.at !== m.edit && "up" === how) {
@@ -143,20 +143,13 @@
 			m.flip(true);
 		}
 
-		let back = $("<li>")
-			.html(
-				`
-				<div style='display:flex; flex-direction: row; align-items: center; justify-content: flex-end; gap: 0.75em;'>
-					<p class='key-none'><kbd>&larr;</kbd></p>
-					<i class="fa-solid fa-solid fa-chevron-left"></i>
-				</div>
-			`
-			)
-			.one("click", function () {
-				m.list((k.at = at.back));
-			});
-		back.get(0).style.setProperty("--meta-key", 0);
-		$ul.append(back);
+		$ul.append(
+			$("<li>")
+				.html("&larr;")
+				.on("click", function () {
+					m.list((k.at = at.back));
+				})
+		);
 	};
 	m.ask = function (help, cb) {
 		var $ul = $("#meta .meta-menu ul").empty();
@@ -194,7 +187,6 @@
 			.or($(document.elementFromPoint(meta.tap.x, meta.tap.y)));
 		return on;
 	};
-
 	// $(window).on("blur", k.wipe).on("focus", k.wipe);
 	$(document)
 		.on("mousedown mousemove mouseup touchstart touchend", function (eve) {
@@ -204,17 +196,27 @@
 			m.tap.on = $(eve.target);
 		})
 		.on("mousedown touchend", function (eve) {
+			console.log("clicked", m.tap.edit);
 			var tmp = m.tap.edit;
+
 			if (!tmp || !tmp.on) {
 				return;
 			}
+			if (!eve.target.closest(".meta-menu")) {
+				return;
+			}
 			tmp.on(eve);
+			// console.log("click: ", m.tap.stun);
 			m.tap.edit = null;
 		});
+	$(document).on("touchend", "#meta .meta-start", function (eve) {
+		if (m.tap.stun) {
+			return (m.tap.stun = false);
+		}
+	});
 	$(document).on("click", "#meta .meta-menu li", function (eve) {
-		var at = $(eve.target).text();
-		if (m.stun) {
-			return (m.stun = false);
+		if (m.tap.stun) {
+			return (m.tap.stun = false);
 		}
 		if (
 			!(eve.fake = eve.which =
@@ -224,13 +226,11 @@
 		) {
 			return;
 		}
-		// $(".meta-start").text(at).data({ as: at });
-		// console.log(at.name);
-
-		// eve.tap = true;
+		eve.tap = true;
 		k.down(eve);
 		k.up(eve);
 	});
+
 	$(document).on("keydown", k.down).on("keyup", k.up);
 	meta.edit = function (edit) {
 		var tmp = (edit.combow = []);
@@ -273,8 +273,7 @@
 			combo && combo.slice(-1)[0].toUpperCase().charCodeAt(0);
 		eve.tap = true;
 		k.down(eve);
-		k.up(eve);
-		// $(document).one(end, () => k.up(eve));
+		$(document).one(end, () => k.up(eve));
 		return;
 	});
 	$(document).on("keydown", k.down).on("keyup", k.up);
