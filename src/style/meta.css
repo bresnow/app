@@ -15,7 +15,7 @@
 	outline: none;
 	cursor: pointer;
 	overflow: none;
-	transition: all 0.2s ease-in;
+	transition: all 0.1s ease-in;
 }
 #meta * {
 	outline: none;
@@ -59,7 +59,7 @@
 	cursor: pointer;
 }
 #meta .meta-menu ul li:hover {
-	background: var(--surface);
+	background: var(--secondary);
 }
 #meta a {
 	color: black;
@@ -87,7 +87,7 @@
 		text-align: center;
 		z-index: 999999;
 		-webkit-tap-highlight-color: transparent;
-		margin: 0;
+		margin: 0 1em;
 		padding: 0;
 		height: 2em;
 		outline: none;
@@ -121,17 +121,12 @@
 		-moz-user-select: none;
 		-ms-user-select: none;
 		user-select: none;
-		animation: none;
-		animation-delay: 0ms;
 		display: inline;
 		padding: 0.5em;
 		font-size: 14pt;
 		border-radius: 0.75em;
 		text-align: center;
 		cursor: pointer;
-	}
-	#meta .meta-menu ul li:hover {
-		background: var(--surface);
 	}
 	#meta a {
 		color: black;

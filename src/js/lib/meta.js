@@ -84,8 +84,6 @@
 		}
 		if (edit[how]) {
 			if (tmp.fake && !edit.fake) {
-				console.log("fake");
-				console.log(edit);
 				m.tap.edit = edit;
 			} else {
 				edit[how](m.eve);
@@ -146,7 +144,13 @@
 		$ul.append(
 			$("<li>")
 				.html("&larr;")
+				.addClass('meta-back')
 				.on("click", function () {
+				  console.log("back ", k.at)
+					if (k.at.page) {
+					  console.log(k.at.page)
+					  history.back()
+					}
 					m.list((k.at = at.back));
 				})
 		);

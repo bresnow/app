@@ -48,6 +48,7 @@ body {
 }
 
 button {
+  -webkit-tap-highlight-color: transparent;
 	padding: 0.25em 1em;
 	background: var(--primary);
 	border-radius: var(--radius);

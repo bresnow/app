@@ -23,8 +23,6 @@ img {
 	padding: 0;
 	position: relative;
 	vertical-align: inherit;
-	-webkit-transition: all 0.3s;
-	transition: all 0.3s;
 	box-sizing: border-box;
 	font: inherit;
 }
@@ -70,6 +68,14 @@ p + p {
 .hint {
 	color: inherit;
 	opacity: 0.3;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
 }
 
 .model,
