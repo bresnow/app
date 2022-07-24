@@ -74,6 +74,7 @@
 	m.flip.wait = 500;
 	m.check = function (how, key, at) {
 		at = k.at || m.edit;
+
 		var edit = at[key];
 		if (!edit) {
 			return;
@@ -144,17 +145,26 @@
 		$ul.append(
 			$("<li>")
 				.html("&larr;")
-				.addClass('meta-back')
+				.addClass("meta-back")
 				.on("click", function () {
-				  console.log("back ", k.at)
-					if (k.at.page) {
-					  console.log(k.at.page)
-					  history.back()
-					}
+					//   console.log("back ", k.at)
+					// if (k.at.page) {
+					// 	//   console.log(k.at.page)
+					// 	history.back();
+					// }
 					m.list((k.at = at.back));
 				})
 		);
+		function back() {
+			//   console.log("back ", k.at)
+			if (k.at.page) {
+				//   console.log(k.at.page)
+				history.back();
+			}
+			m.list((k.at = at.back));
+		}
 	};
+
 	m.ask = function (help, cb) {
 		var $ul = $("#meta .meta-menu ul").empty();
 		var $put = $("<input class='min'>")
@@ -200,7 +210,7 @@
 			m.tap.on = $(eve.target);
 		})
 		.on("mousedown touchend", function (eve) {
-			console.log("clicked", m.tap.edit);
+			// console.log("clicked", m.tap.edit);
 			var tmp = m.tap.edit;
 
 			if (!tmp || !tmp.on) {
@@ -258,6 +268,7 @@
 	$.fn.or = function (s) {
 		return this.length ? this : $(s || "body");
 	};
+
 	var m = meta,
 		k = m.key;
 	//$(window).on('focus', k.wipe.bind(null, false)); // .on('blur', k.wipe.bind(null, false))

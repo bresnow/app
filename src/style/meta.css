@@ -112,7 +112,7 @@
 		width: 100%;
 		white-space: nowrap;
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		overflow-y: auto;
 		overflow-x: hidden;
 	}

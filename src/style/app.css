@@ -16,7 +16,7 @@
 	--secondary: var(--yellow);
 	--accent: var(--red);
 
-	--radius: 0.75rem;
+	--radius: 0.5em;
 }
 
 html,
@@ -27,7 +27,7 @@ html,
 html[data-theme="light"] {
 	--text: #121212;
 	--background: #fff;
-	--primary: #649ef3;
+	--primary: var(--green);
 	--secondary: #eae086;
 	--accent: #f3646d;
 	--surface: #ebe9e9;
@@ -36,7 +36,7 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
 	--text: #fff;
 	--background: #121212;
-	--primary: #82b4ff;
+	--primary: var(--blue);
 	--secondary: #dcde87;
 	--accent: #de8787;
 	--surface: #2f2f2f;
@@ -48,7 +48,7 @@ body {
 }
 
 button {
-  -webkit-tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: transparent;
 	padding: 0.25em 1em;
 	background: var(--primary);
 	border-radius: var(--radius);

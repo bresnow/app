@@ -71,11 +71,11 @@ p + p {
 }
 
 .bold {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 .italic {
-  font-style: italic;
+	font-style: italic;
 }
 
 .model,
@@ -189,7 +189,7 @@ p + p {
 	vertical-align: inherit;
 }
 .sap {
-	border-radius: 0.1em;
+	border-radius: var(--radius);
 }
 .jot {
 	border-bottom: 1px dashed #95b2ca;
