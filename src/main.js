@@ -7,11 +7,11 @@ import "./style/meta.css";
 import "gun/gun.js";
 import "gun/sea.js";
 import "./js/lib/as.js";
-import "./js/lib/meta.js";
-import "./js/lib/meta.ui.js";
+// import "./js/lib/meta.js";
+// import "./js/lib/meta.ui.js";
 import app from "./js/app.js";
 const logo = (size) => {
-	return `
+  return `
   <svg class="unit max" width="${size}em" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect  width="48" height="48" rx="17.431" fill="var(--background)"/>
       <path d="M20.3868 13.1076C20.3868 14.8555 18.9699 16.2725 17.222 16.2725C15.4741 16.2725 14.0571 14.8555 14.0571 13.1076C14.0571 11.3597 15.4741 9.9428 17.222 9.9428C18.9699 9.9428 20.3868 11.3597 20.3868 13.1076Z" fill="var(--green)"/>
@@ -22,61 +22,23 @@ const logo = (size) => {
 };
 
 // HTML
+
+// ${key ? app.navBar : app.auth}
 $("#app").html(`
-  <div id="home" class="page full center gap">
-    <div class="unit row center">
-      <div class="unit col left">
-        <a href="#home" class="unit act">${logo(2)}</a>
-        <p class="unit gap bold">Home</p>
-      </div>
-    </div>
-    
-    ${app.template}
-  </div>
-  
-  <div id="settings" class="page full center gap">
-    <div class="unit row center">
-      <div class="unit col left">
-        <a href="#home" class="unit act">${logo(2)}</a>
-        <p class="unit gap bold">Settings</p>
-      </div>
-    </div>
-    
-    <div class="center pad">
-      <p>Settings</p>
-    </div>
-  </div>
+   <div id="home" class="page full center">
+      ${app.auth}
+  </div> 
+  ${app.navBar}
 `);
 
 // Theme
-var storedTheme =
-	localStorage.getItem("theme") ||
-	(window.matchMedia("(prefers-color-scheme: dark)").matches
-		? "dark"
-		: "light");
-if (storedTheme)
-	document.documentElement.setAttribute("data-theme", storedTheme);
+app.authLogic();
 app.script();
+var storedTheme =
+  localStorage.getItem("theme") ||
+  (window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light");
+if (storedTheme)
+  document.documentElement.setAttribute("data-theme", storedTheme);
 // Events
-meta.edit({
-	name: "Settings",
-	combo: ["S"],
-	fake: -1,
-	page: true,
-	on: () => {
-		as.route("settings");
-	},
-});
-
-meta.edit({
-	name: "Theme",
-	combo: ["S", "T"],
-	fake: -1,
-	on: function () {
-		var currentTheme = document.documentElement.getAttribute("data-theme");
-		var newTheme = currentTheme === "light" ? "dark" : "light";
-		document.documentElement.setAttribute("data-theme", newTheme);
-		localStorage.setItem("theme", newTheme);
-		// return;
-	},
-});
