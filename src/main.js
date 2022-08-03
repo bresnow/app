@@ -32,8 +32,16 @@ $("#app").html(`
 `);
 
 // Theme
+
 app.authLogic();
-app.script();
+
+// as.route.page("main", function () {
+//   console.log("main");
+
+//   app.script();
+// });
+
+// gun.on("auth", app.script());
 var storedTheme =
   localStorage.getItem("theme") ||
   (window.matchMedia("(prefers-color-scheme: dark)").matches
