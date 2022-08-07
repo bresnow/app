@@ -1,7 +1,7 @@
 import { SEA } from "gun";
 
 const app = {};
-const gun = Gun({ peers: ["https://tenthous3.herokuapp.com/gun"] });
+const gun = Gun({ peers: ["http://localhost:8765/gun"] });
 const user = gun.user();
 var liveStreams = {};
 const saveUser = (key) => {
@@ -60,14 +60,17 @@ app.auth = `
 `;
 
 app.template = `
+
 <select id="select"><option id="from">from</option></select>
-    <div class="center pad">
-      <div id="streams" class="unit max">
-       
+<div class="center pad">
+      <div id="streams" class="unit gap">
+
       </div>
-      <img id="img" width="50%" class="unit col sap"><br/>
-      <video id="video" width="100%" controls autoplay style="display: none;"></video>
-      <canvas id="canvas" width="0" style="display: none;"></canvas>
+      <div id="overlay">
+        <img id="img" width="100%" class="unit col sap"><br/>
+      </div>
+        <video id="video" width="100%" controls autoplay style="display: none;"></video>
+        <canvas id="canvas" width="0" style="display: none;"></canvas>
       <div class="gap col center">
         <input id="pass" placeholder="password" type="password"  class="unit col rim">
         <input id="res" value="240" step="32" max="1080" type="number" class="unit col rim" >
@@ -77,9 +80,10 @@ app.template = `
     `;
 
 app.navBar = `
-  <div id="main" class="page center">
+  <div id="main" class="page full center">
   
     <main>
+   
       ${app.template}
     </main>
 
@@ -159,6 +163,8 @@ app.authLogic = () => {
     });
   });
 };
+
+// live stream
 app.script = async () => {
   var stream = canvas.getContext("2d");
   (stream = canvas.getContext("2d")), (stream.from = navigator.mediaDevices);
@@ -190,6 +196,7 @@ app.script = async () => {
   if (!user.is) {
     return;
   }
+  // unique id
   var id = await SEA.work(user.is.pub, null, null, { name: "SHA-256" });
 
   setInterval(async (tmp) => {
@@ -219,6 +226,7 @@ app.script = async () => {
     .map()
     .once(async (data, key) => {
       var pub = key.split("#")[0];
+
       var username = await gun.user(pub).get("profile").get("username");
       if (!(user.is.pub == pub))
         liveStreams[pub] = { name: username, key: data };
@@ -243,18 +251,46 @@ app.script = async () => {
       liveData.put(id);
     }
   }
+  function on() {
+    document.getElementById("overlay").style.display = "block";
+  }
+
+  function off() {
+    document.getElementById("overlay").style.display = "none";
+  }
   function updateLiveStreams(streams) {
     for (const key in streams) {
       if (!$(`button#${key}`).length) {
-        var $b = $("<button>").attr("id", key).text(streams[key].name);
+        var $b = $("<img>").attr("id", key); //.text(streams[key].name);
+        $b.css({
+          width: "15rem",
+          height: "10rem",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: "1rem",
+          backgroundColor: "var(--blue)",
+          borderRadius: "var(--radius)",
+          opacity: ".7",
+        });
 
         if ($("#streams").length == streams.length) {
           return;
         }
+        // console.log("img: ", img);
+
+        // console.log("KKK: ", streams[key].key);
+        // console.log("k: ", key);
+
         $b.on("click", function () {
-          console.log("CLICKED: ", key);
-          live(key, streams[key].key);
+          // on();
         });
+
+        // var rand = Math.random().toString(32).substring(2);
+
+        // // $b.append($("#img"));
+        // as.route.render(rand, ".img", $b, {});
+        live(key, streams[key].key, $b);
         $("#streams").append($b);
       }
     }
@@ -271,12 +307,13 @@ app.script = async () => {
 
     console.log("STREAMS: ", streams);
   }
-  function getLiveStreams() {
-    console.log("livestreams: ", liveStreams);
-    return liveStreams;
-  }
+  // $("#overlay").click(off);
 
-  function live(pub, key) {
+  function live(pub, key, el) {
+    console.log("el: ");
+    // var i = $(`#${r}`);
+    // var newimg = $("#img").clone();
+    // el.append($("#img"));
     gun
       .user(pub)
       .get("test")
@@ -286,22 +323,12 @@ app.script = async () => {
         if (pass.value) {
           data = await SEA.decrypt(data, pass.value);
         }
-        console.log("data", data);
-
-        img.src = data; // Beware: Some browsers memory leak fast src updates.
+        el.attr("src", data); // = data;
+        // console.log("img: ", img);
+        console.log("data", i);
+        // as.route.render(pub, '.')
+        // $("#img").src = data; // Beware: Some browsers memory leak fast src updates.
       });
-    // gun
-    //   .get("test")
-    //   .get("video")
-    //   .get(key)
-    //   .on(async (data) => {
-    //     if (pass.value) {
-    //       data = await SEA.decrypt(data, pass.value);
-    //     }
-    //     console.log("data", data);
-
-    //     img.src = data; // Beware: Some browsers memory leak fast src updates.
-    //   });
   }
 };
 

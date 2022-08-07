@@ -26,9 +26,10 @@ const logo = (size) => {
 // ${key ? app.navBar : app.auth}
 $("#app").html(`
    <div id="home" class="page full center">
-      ${app.auth}
-  </div> 
-  ${app.navBar}
+   ${app.auth}
+   </div> 
+   ${app.navBar}
+  
 `);
 
 // Theme
