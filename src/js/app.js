@@ -59,13 +59,9 @@ app.auth = `
 
 `;
 
-app.template = `
-
-<select id="select"><option id="from">from</option></select>
-<div class="center pad">
-      <div id="streams" class="unit gap">
-
-      </div>
+app.live = `
+<div id="live" class="page center pad">
+      <select id="select"><option id="from">from</option></select>
       <div id="overlay">
         <img id="img" width="100%" class="unit col sap"><br/>
       </div>
@@ -76,32 +72,37 @@ app.template = `
         <input id="res" value="240" step="32" max="1080" type="number" class="unit col rim" >
 			  <button id="logout">Logout</button>
       </div>
-    </div>
+</div>
     `;
 
+app.main = `
+  <div id="main" class="page">
+      <main>
+          <div id="streams" class="unit gap">
+
+          </div>
+      </main>
+  </div>
+
+`;
+
 app.navBar = `
-  <div id="main" class="page full center">
+  <div class="full center">
   
-    <main>
-   
-      ${app.template}
-    </main>
-
-
     <nav id="navbar">
       <ul id="navbar-nav">
           <li id="nav-item" class="unit row center gap">  
               <a id="logo" href="" >${logo(2)}</a>
           </li>
         <li id="nav-item">
-          <a id="nav-link" href="#">
+          <a id="nav-link" href="#main">
             <ion-icon id="icon-svg" name="home"></ion-icon>
             <span id="link-text">Home</span>
           </a>
         </li>
 
         <li id="nav-item">
-          <a id="nav-link" href="#">
+          <a id="nav-link" href="#live">
             <ion-icon  id="icon-svg" name="flash"></ion-icon>
             <span id="link-text">Live</span>
           </a>
@@ -261,14 +262,21 @@ app.script = async () => {
   function updateLiveStreams(streams) {
     for (const key in streams) {
       if (!$(`button#${key}`).length) {
-        var $b = $("<img>").attr("id", key); //.text(streams[key].name);
+        var $b = $("<img>").attr("id", key);
+
+        var users = $("<span>").text(streams[key].name);
+        users.css({
+          position: "relative",
+          top: "2.5rem",
+          left: "3rem",
+        });
         $b.css({
           width: "15rem",
           height: "10rem",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          margin: "1rem",
+          margin: "2rem",
           backgroundColor: "var(--blue)",
           borderRadius: "var(--radius)",
           opacity: ".7",
@@ -277,19 +285,10 @@ app.script = async () => {
         if ($("#streams").length == streams.length) {
           return;
         }
-        // console.log("img: ", img);
-
-        // console.log("KKK: ", streams[key].key);
-        // console.log("k: ", key);
 
         $b.on("click", function () {
           // on();
         });
-
-        // var rand = Math.random().toString(32).substring(2);
-
-        // // $b.append($("#img"));
-        // as.route.render(rand, ".img", $b, {});
         live(key, streams[key].key, $b);
         $("#streams").append($b);
       }
@@ -311,9 +310,7 @@ app.script = async () => {
 
   function live(pub, key, el) {
     console.log("el: ");
-    // var i = $(`#${r}`);
-    // var newimg = $("#img").clone();
-    // el.append($("#img"));
+
     gun
       .user(pub)
       .get("test")
@@ -323,11 +320,7 @@ app.script = async () => {
         if (pass.value) {
           data = await SEA.decrypt(data, pass.value);
         }
-        el.attr("src", data); // = data;
-        // console.log("img: ", img);
-        console.log("data", i);
-        // as.route.render(pub, '.')
-        // $("#img").src = data; // Beware: Some browsers memory leak fast src updates.
+        el.attr("src", data); // Beware: Some browsers memory leak fast src updates.
       });
   }
 };

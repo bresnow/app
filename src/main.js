@@ -29,6 +29,8 @@ $("#app").html(`
    ${app.auth}
    </div> 
    ${app.navBar}
+   ${app.main}
+   ${app.live}
   
 `);
 
