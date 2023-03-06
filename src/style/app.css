@@ -16,7 +16,7 @@
   --secondary: var(--yellow);
   --accent: var(--red);
   --transition-speed: 600ms;
-  --radius: 0.5em;
+  --radius: 0.75em;
 }
 
 html,
@@ -207,7 +207,7 @@ ion-icon {
 }
 
 main {
-  margin: 0;
+  margin: auto;
   margin-bottom: 5rem;
 }
 

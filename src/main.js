@@ -1,39 +1,57 @@
 // Styles
-import "uno.css"
 import "./style/style.css";
+import 'animate.css';
 import "./style/app.css";
-import "./style/meta.css";
 // Scripts
 import "gun/gun.js";
 import "gun/sea.js";
 import "./js/lib/as.js";
-import * as  dom from "gun/lib/dom"
+// import "./js/lib/dom.js";
 import "./js/lib/meta.js";
-import "./js/lib/meta.ui.js";
+// import "./js/lib/meta.ui.js";
 import app from "./js/app.js";
 
-$ === undefined ? $ = dom : $ = window.$
-// HTML
-
+// Load the app 
+var routes = [
+	{
+		where: "home",
+		icon: "home",
+	},
+	{
+		where: "profile",
+		icon: "user",
+	},
+	{
+		where: "create",
+		icon: "pencil",
+	},
+	{
+		where: "settings",
+		icon: "settings",
+	}
+];
 $("#app").html(`
-   <div id="home" class="page full center">
-   ${app.auth}
-   </div> 
-   ${app.navBar}
-   ${app.main}
+
+${app.main}
+<div id="home" class="page full center">
+${app.auth}
+</div> 
+<footer>
+${app.navBar}
+</footer>
+</div>
    ${app.live}
 `);
 
-// Theme
 
 app.authenticate()
 ;
 
-// as.route.page("main", function () {
-//   console.log("main");
+JOY.route.page("main", function () {
+  console.log("main");
 
-//   app.script();
-// });
+  app.script();
+});
 
 // gun.on("auth", app.script());
 var storedTheme =

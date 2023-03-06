@@ -1,7 +1,7 @@
-import { SEA } from "gun";
+import Gun, { SEA } from "gun";
 
 const app = {};
-const gun = Gun({ peers: ["http://localhost:8765/gun"] });
+const gun = Gun({ peers: ["http://localhost:8765/gun"], localStorage: false });
 var log = console.log.bind(console)
 
 const user = gun.user();
@@ -13,7 +13,7 @@ const saveUser = (key) => {
 const loadUser = () => {
   const userData = localStorage.getItem("profile") || "";
   if (!userData) return;
-  // console.log("userdata: ", JSON.parse(userData));
+  console.log("userdata: ", JSON.parse(userData));
   return JSON.parse(userData);
 };
 
@@ -21,23 +21,23 @@ const key = loadUser();
 
 var hash = window.location.hash.substring(1);
 if (!hash) {
-  as.route("main");
+  JOY.route("main");
 }
-as.route.page("main", function () {
-  console.log("main", key);
+JOY.route.page("main", function () {
+  log("main", key);
 
   if (!key) {
-    as.route("home");
+    JOY.route("home");
   }
   user.auth(key);
   app.script();
 });
-as.route.page("home", function () {
+JOY.route.page("home", function () {
   if (key) {
     user.auth(key);
-    as.route("main");
+    JOY.route("main");
   }
-  console.log("home");
+  log("home");
 });
 // checkKey();
 
@@ -106,489 +106,87 @@ app.live = `
       </div>
 </div>
     `;
-var content = `  <!-- content -->
-  <div id="content" class="app-content white bg box-shadow-z2" role="main">
-    <div class="app-header hidden-lg-up white lt box-shadow-z1">
-        <div class="navbar">
-        <!-- brand -->
-        <a href="index.html" class="navbar-brand md">
-        	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32">
-        		<circle cx="24" cy="24" r="24" fill="rgba(255,255,255,0.2)"/>
-        		<circle cx="24" cy="24" r="22" fill="#1c202b" class="brand-color"/>
-        		<circle cx="24" cy="24" r="10" fill="#ffffff"/>
-        		<circle cx="13" cy="13" r="2"  fill="#ffffff" class="brand-animate"/>
-        		<path d="M 14 24 L 24 24 L 14 44 Z" fill="#FFFFFF" />
-        		<circle cx="24" cy="24" r="3" fill="#000000"/>
-        	</svg>
-        
-        	<img src="images/logo.png" alt="." class="hide">
-        	<span class="hidden-folded inline">pulse</span>
-        </a>
-        <!-- / brand -->
-        <!-- nabar right -->
-        <ul class="nav navbar-nav pull-right">
-          <li class="nav-item">
-            <!-- Open side - Naviation on mobile -->
-            <a data-toggle="modal" data-target="#aside" class="nav-link">
-              <i class="material-icons">menu</i>
-            </a>
-            <!-- / -->
-          </li>
-        </ul>
-        <!-- / navbar right -->
-      </div>
-    </div>
-    <div class="app-footer app-player grey bg">
-      <div class="playlist" style="width:100%"></div>
-    </div>
-    <div class="app-body" id="view">
+var introArea = ` 
+        <header class="pt100 pb50 bg-grad-stellar" style="background: url(assets/img/bg/new-img-bg-14.jpg) 50% 50% no-repeat; background-size: cover;">
 
-<!-- ############ PAGE START-->
-<div class="padding">
-  <div class="row m-b">
-    <div class="col-sm-6">
-      <h6 class="m-b">Nav</h6>
-      <div class="m-b-lg">
-        <ul class="nav m-b">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              Pages
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  href="#">UI Kits</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              Components
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              Mail
-            </a>
-          </li>
-        </ul>
-        <div class="nav">
-            <a class="nav-link" href="#">
-              Pages
-            </a>
-            <a class="nav-link"  href="#">UI Kits</a>
-            <a href="#" class="nav-link">
-              Components
-            </a>
-            <a class="nav-link" href="#">
-              Mail
-            </a>
-        </div>
-      </div>
-      <h6 class="m-b">Nav Pills</h6>
-      <div class="m-b">
-        <div class="clearfix m-b nav-active-success">
-          <ul class="nav nav-pills" data-ui-nav>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">
-                Pages
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"  href="#">UI Kits</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                Components
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Mail
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="clearfix m-b nav-active-info">
-          <ul class="nav nav-pills nav-sm" data-ui-nav>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Pages
-              </a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link"  href="#">UI Kits</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                Components
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Mail
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="clearfix m-b nav-active-dark">
-          <ul class="nav nav-pills nav-xs" data-ui-nav>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Pages
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"  href="#">UI Kits</a>
-            </li>
-            <li class="nav-item active">
-              <a href="#" class="nav-link">
-                Components
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Mail
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="clearfix m-b nav-active-white">
-          <ul class="nav nav-pills nav-sm nav-rounded" data-ui-nav>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">
-                Pages
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"  href="#">UI Kits</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
-                Components
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Mail
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <h6 class="m-b">Nav stacked</h6>
-      <div class="m-b nav-active-info">
-        <ul class="nav nav-pills nav-stacked" data-ui-nav>
-          <li class="nav-item active">
-            <a class="nav-link" href="#">
-              <span class="pull-right"><span class="label label-sm info">NEW</span></span>
-              Pages
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  href="#">UI Kits</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link auto">
-              <span class="pull-right text-muted m-r-xs">
-                <i class="fa fa-plus inline"></i>
-                <i class="fa fa-minus none"></i>
-              </span>
-              Components
-            </a>
-            <ul class="nav nav-sub text-sm">
-              <li class="nav-item">
-                <a class="nav-link" href="#"><span class="fa fa-angle-right fa-fw text-muted"></span> Arrow</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><span class="fa fa-angle-right fa-fw text-muted"></span> Button</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><span class="fa fa-angle-right fa-fw text-muted"></span> Colors</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span class="pull-right"><span class="label success">8</span></span>
-              Mail
-            </a>
-          </li>
-        </ul>
-      </div>
+                <div class="container mb50 pt50 pb50">
 
-      <h6 class="m-b">Nav border</h6>
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="nav-active-border b-info left box">
-            <ul class="nav nav-sm">
-              <li class="nav-item">
-                <a class="nav-link active" href="#">
-                  Pages
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link"  href="#">
-                  UI Kits
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Mail
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="nav-active-border b-success left right box">
-            <ul class="nav nav-sm">
-              <li class="nav-item">
-                <a class="nav-link block active" href="#">
-                  Pages
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link block"  href="#">
-                  UI Kits
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link block" href="#">
-                  Mail
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="nav-active-border b-primary top box">
-        <div class="nav nav-md">
-          <a class="nav-link" href="#">
-            Pages
-          </a>
-          <a class="nav-link"  href="#">
-            UI Kits
-          </a>
-          <a class="nav-link" href="#">
-            Mail
-          </a>
-        </div>
-      </div>
-      <div class="nav-active-border b-warning bottom box">
-        <div class="nav nav-md">
-          <a class="nav-link" href="#">
-            Pages
-          </a>
-          <a class="nav-link"  href="#">
-            UI Kits
-          </a>
-          <a class="nav-link" href="#">
-            Mail
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div>
-    <h6 class="m-b">Nav Tabs</h6>
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="b-b nav-active-bg">
-          <ul class="nav nav-tabs">
-            <li class="nav-item">
-              <a class="nav-link active" href="#" data-toggle="tab" data-target="#tab1">Pages</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" data-toggle="tab" data-target="#tab2">Components</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" data-toggle="tab" data-target="#tab3">UI Kits</a>
-            </li>
-          </ul>
-        </div>
-        <div class="tab-content p-a m-b-md">
-          <div class="tab-pane animated fadeIn active text-muted" id="tab1">
-            Pages
-          </div>
-          <div class="tab-pane animated fadeIn text-muted" id="tab2">
-            Components
-          </div>
-          <div class="tab-pane animated fadeIn text-muted" id="tab3">
-            UI kits
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="b-b b-primary nav-active-primary">
-          <ul class="nav nav-tabs">
-            <li class="nav-item">
-              <a class="nav-link" href="#" data-toggle="tab" data-target="#tab4">Pages</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#" data-toggle="tab" data-target="#tab5">Components</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" data-toggle="tab" data-target="#tab6">UI Kits</a>
-            </li>
-          </ul>
-        </div>
-        <div class="tab-content p-a m-b-md">
-          <div class="tab-pane animated fadeIn text-muted" id="tab4">
-            Pages
-          </div>
-          <div class="tab-pane animated fadeIn text-muted active" id="tab5">
-            Components
-          </div>
-          <div class="tab-pane animated fadeIn text-muted" id="tab6">
-            UI kits
-          </div>
-        </div>
-      </div>
-    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h1 class="font-source-sans-pro font-size-light color-light animated" data-animation="fadeInUp" data-animation-delay="100">
+                                <small class="color-white">All Hail The </small>
+                                <span class="fs-75 txt-grad-animation">Floating Mammoth</span>
+                            </h1>
+                            <h4 class=" mt-25 color-gray animated" data-animation="fadeInUp" data-animation-delay="200">
+                                This application is in development.
+                            </h4>
+                                <button href="mp-index-new-1.html" class="btn bg-grad-animation-1 btn-lg mt-20 ml-20" target="_blank">View On Github</button>
+                        </div>
 
-    <h6 class="m-b">Breadcrumb</h6>
-    <div class="m-b">
-      <ol class="breadcrumb">
-        <li class="active">Home</li>
-      </ol>
-      <ol class="breadcrumb">
-        <li><a href="#">Home</a></li>
-        <li class="active">Library</li>
-      </ol>
-      <ol class="breadcrumb">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Library</a></li>
-        <li class="active">Data</li>
-      </ol>
-    </div>
-    <h6>Pagination</h6>
-    <div class="m-b">
-      <nav>
-        <ul class="pagination">
-          <li>
-            <a href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-              <span class="sr-only">Previous</span>
-            </a>
-          </li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li>
-            <a href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-              <span class="sr-only">Next</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <nav>
-        <ul class="pagination">
-          <li class="disabled">
-            <a href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-              <span class="sr-only">Previous</span>
-            </a>
-          </li>
-          <li class="active">
-            <a href="#">1 <span class="sr-only">(current)</span></a>
-          </li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li><a href="#">4</a></li>
-          <li><a href="#">5</a></li>
-          <li>
-            <a href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-              <span class="sr-only">Next</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <nav>
-        <ul class="pagination pagination-sm">
-          <li>
-            <a href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-              <span class="sr-only">Previous</span>
-            </a>
-          </li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><a href="#">3</a></li>
-          <li>
-            <a href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-              <span class="sr-only">Next</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <nav>
-        <ul class="pager">
-          <li><a href="#">Previous</a></li>
-          <li><a href="#">Next</a></li>
-        </ul>
-      </nav>
-      <nav>
-        <ul class="pager">
-          <li class="pager-prev disabled"><a href="#">Older</a></li>
-          <li class="pager-next"><a href="#">Newer</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</div>
+                    </div>
+                </div>
 
-<!-- ############ PAGE END-->
+        </header>`
 
-    </div>
-  </div>
-  <!-- / -->
-`
+JOY.style({
+  '.txt-grad-animation': {
+    color: '#fff',
+    background: '-webkit-linear-gradient(-45deg, #50cc7f, #f5d100, #92fe9d, #00c9ff)',
+    background: '-moz-linear-gradient(-45deg, #50cc7f, #f5d100, #92fe9d, #00c9ff)',
+    background: '-o-linear-gradient(-45deg, #50cc7f, #f5d100, #92fe9d, #00c9ff)',
+    background: 'linear-gradient(-45deg, #50cc7f, #f5d100, #92fe9d, #00c9ff)',
+    backgroundSize: '400% 400%',
+    '-webkit-background-clip': 'text',
+    '-webkit-text-fill-color': 'transparent',
+    '-webkit-animation': 'txtanimation2 15s ease infinite',
+    '-moz-animation': 'txtanimation2 15s ease infinite',
+    animation: 'txtanimation2 15s ease infinite',
+  }})
+  
 app.main = `
-  <div id="main" class="page">
-      <main>
+  <div id="main" name="~${key.pub}" class="page center">
+      <main name="main">
+      ${introArea}
+            <h1 name="profile">Hello! {{ user }}</h1>
+            <p name="lead" class="leading">{{ temp }}</p>
+    
+<!-- <p name="p.lonely" contenteditable >{{ text }}</p> --!>
       <div id="streams" class="unit gap">
       </div>
-      ${content}
       </main>
   </div>
 
 `;
-
+{/* <button id="popoverButton" type="button" class="btn btn-primary btn-lg" class="btn btn-lg btn-danger" data-bs-toggle="popover" title="ESM in Browser" data-bs-content="Bang!">Custom popover</button> */}
 app.navBar = `
-  <div class="full center">
-  
-    <nav id="navbar">
+  <div class="full center mt-2">
+    <nav name="navbar" id="navbar">
       <ul id="navbar-nav">
           <li id="nav-item" class="unit row center gap">  
-              <a id="logo" href="" >${logo(162)}</a>
+              <a id="logo" href="" >${logo(100)}</a>
           </li>
-        <li id="nav-item">
-          <a id="nav-link" href="#main">
+        <li id="navbar-item">
+          <a id="nav-link" href="{{ Link00 }}">
             <ion-icon id="icon-svg" name="home"></ion-icon>
             <span id="link-text">Home</span>
           </a>
         </li>
 
-        <li id="nav-item">
-          <a id="nav-link" href="#live">
+        <li id="navbar-item">
+          <a id="nav-link" href="{{ Link01 }}">
             <ion-icon  id="icon-svg" name="flash"></ion-icon>
             <span id="link-text">Live</span>
           </a>
         </li>
 
-        <li id="nav-item">
-          <a id="nav-link" href="#">
+        <li id="navbar-item">
+          <a id="nav-link" href=""{{ Link02  }}"">
             <ion-icon id="icon-svg" name="compass"></ion-icon>
             <span id="link-text">Discover</span>
           </a>
         </li>
 
-        <li id="nav-item">
+        <li id="navbar-item">
           <a id="nav-link" href="#">
             <ion-icon  id="icon-svg" name="moon"></ion-icon>
             <span id="link-text">Theme</span>
@@ -602,30 +200,70 @@ app.navBar = `
   </div>
 
 `;
+JOY.style(
+  {
+    "#nav": {
+      "z-index": 999,
+      height: "100%",
+      width: "3em",
+      position: "fixed",
+      // left: "0",
+      top: 0,
+    },
+    "#nav ul": {
+      padding: "1em 0",
+      margin: 0,
+      // "white-space": "nowrap",
+      "list-style": "none",
+      display: "flex",
+      gap: "2em",
+      "justify-content": "space-around",
+      "flex-direction": "column",
+      "align-items": "center",
+      // "flex-wrap": "wrap",
+    },
+  },
+);
+JOY.style(
+  {
+    "#nav": {
+      width: "70vw",
+      height: "2.5em",
+      background: "var(--surface)",
+      position: "fixed",
+      bottom: 0,
+      transition: "bottom 0.5s",
+      right: "5em",
+      margin: "1em auto",
+      "border-radius": "var(--radius)",
+    },
+    "#nav ul": {
+      "white-space": "nowrap",
+      height: "100%",
+      display: "flex",
+      "list-style": "none",
+      "align-items": "center",
+      "justify-content": "space-around",
+      "flex-wrap": "wrap",
+      "flex-direction": "row",
+    },
+  },
+  "only screen and (max-width: 600px)"
+);
 app.authenticate = () => {
   $(document).ready(function () {
     $("#register").click(async function () {
       const username = $("#username").val();
       await register(username);
     });
-    /**
-     * Establishing Node Path Consistency/ Schema
-     * 
-     * Path[0] is Capitalized with ID number and subsequent paths start with a period.
-     */
-    var variable = gun.get("Test/0001").get(".checking");
-    variable.put({ key: "it works" });
-    variable.on(data => {
-      log(data)
-    })
+
+
     async function register(username) {
       if (username.length !== 0) {
         var pair = await SEA.pair();
         user.auth(pair, (cb) => {
-          user.get("Test-002").get(".Application.Path").put({
-            username: username,
-          });
-          as.route("main");
+          user.get("main").get("profile").put({ user: username })
+          JOY.route("main");
           saveUser(pair);
         });
       } else {
@@ -673,7 +311,7 @@ app.script = async () => {
     });
   });
   $("#upload").on("change", async (eve) => {
-    console.log("Check ./upload.html");
+    log("Check ./upload.html");
   });
   if (!user.is) {
     return;
@@ -717,7 +355,6 @@ app.script = async () => {
     });
 
   if (user.is) {
-    console.log("userG: ", user.is);
     var userData = { pub: user.is.pub, stream: id };
     var hash = await SEA.work(id, null, null, { name: "SHA-256" });
     console.log("hash", hash);
@@ -790,7 +427,7 @@ app.script = async () => {
   // $("#overlay").click(off);
 
   function live(pub, key, el) {
-    console.log("el: " , el);
+    console.log("el: ", el);
 
     gun
       .user(pub)

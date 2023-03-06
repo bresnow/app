@@ -2,7 +2,7 @@
 version: "3.0"
 services:
   fltngmmth_dev:
-    image: bresnow/ario_dev:latest
+    image: bresnow/fltngmmth_dev:latest
     deploy:
       placement:
         constraints:

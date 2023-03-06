@@ -211,12 +211,13 @@
 	$.as.route(location.hash.slice(1));
 	$(JOY.start = JOY.start || function () { $.as(document, gun, null, JOY.opt) });
 
-	if ($('body').attr('peers')) { (console.warn || console.log)('Warning: Please upgrade <body peers=""> to https://github.com/eraeco/joydb#peers !') }
+	// if ($('body').attr('peers')) { (console.warn || console.log)('Warning: Please upgrade <body peers=""> to https://github.com/eraeco/joydb#peers !') }
 
 });
 
 ; (function () { // need to isolate into separate module!
 	var joy = window.JOY = function () { };
+	joy.route = as.route;
 	joy.auth = function (a, b, cb, o) {
 		if (!o) { o = cb; cb = 0 }
 		if (o === true) {
@@ -225,7 +226,22 @@
 		}
 		gun.user().auth(a, b, cb, o);
 	}
-
+	joy.style = function(css, m) {
+				var style =  css 
+				var tmp = m ? "@media " + m + " {\n\t" : "";
+				$.each(style, function (c, r) {
+					tmp += camelToKebab(c) + " {\n";
+					$.each(r, function (k, v) {
+						tmp += "\t" + k + ": " + v + ";\n";
+					});
+					tmp += "}\n";
+				});
+				var tag = document.createElement("style");
+				tag.innerHTML = m ? tmp + "\n}" : tmp;
+				document.documentElement.append(tag);
+			}
+		
+	
 	var opt = joy.opt = window.CONFIG || {}, peers;
 	$('link[type=peer]').each(function () { (peers || (peers = [])).push($(this).attr('href')) });
 	!window.gun && (opt.peers = opt.peers || peers || (function () {
@@ -239,3 +255,31 @@
 		console.log("SOUL: " + ack.soul);
 	});
 }());
+
+const createWidget = (
+	el,
+	attributes,
+	...args
+) => {
+	const children = args ? args.map((args) => args) : [];
+	return { el, attributes, children };
+};
+
+function templateRender({ tag, attributes, children }) {
+	let props = attributes ? Object.entries(attributes).reduce((acc, curr) => {
+		let [key, value] = curr;
+		let result = acc + ` ${key}="${value}"`
+		return result
+	}, "") : "";
+	let front_tag = `<${tag}${props}>`, back_tag = `</${tag}>`;
+	let _children = children?.map(child => {
+		return templateRender(child)
+	})
+	var temp = front_tag + _children + back_tag;
+	return temp
+
+}
+
+function camelToKebab(string) {
+	return string.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, "$1-$2").toLowerCase();
+}
