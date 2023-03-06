@@ -1,0 +1,33 @@
+# this is used for local development and testing
+version: "3.0"
+services:
+  fltngmmth_dev:
+    image: bresnow/ario_dev:latest
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
+      labels:
+        - traefik.enable=true
+        - traefik.docker.network=traefik-public
+        - traefik.constraint-label=traefik-public
+        - traefik.http.routers.dev-http.rule=Host(`fltngmmth.com`)
+        - traefik.http.routers.dev-http.entrypoints=http
+        - traefik.http.routers.dev-http.middlewares=https-redirect
+        - traefik.http.routers.dev-https.rule=Host(`fltngmmth.com`)
+        - traefik.http.routers.dev-https.entrypoints=https
+        - traefik.http.routers.dev-https.tls=true
+        - traefik.http.routers.dev-https.tls.certresolver=le
+        - traefik.http.services.dev.loadbalancer.server.port=5173
+    volumes:
+      - fmdev:/usr/src/app
+    networks:
+      - traefik-public
+networks:
+  traefik-public:
+    external: true
+volumes:
+  fmdev:
+    driver: local-persist
+    driver_opts:
+      mountpoint: /home/bresnow/apps/fltngmmth
