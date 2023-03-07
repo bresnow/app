@@ -1,0 +1,40 @@
+/*custom*/
+@font-face{
+	font-family:'Poppins';
+	src:url('../fonts/poppins/400.eot');
+	src:url('../fonts/poppins/400.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/poppins/400.woff2') format('woff2'),
+	url('../fonts/poppins/400.woff') format('woff'),
+	url('../fonts/poppins/400.ttf') format('truetype'),
+	url('../fonts/poppins/400.svg#embed-poppins') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face{
+	font-family:'Poppins';
+	src:url('../fonts/poppins/700.eot');
+	src:url('../fonts/poppins/700.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/poppins/700.woff2') format('woff2'),
+	url('../fonts/poppins/700.woff') format('woff'),
+	url('../fonts/poppins/700.ttf') format('truetype'),
+	url('../fonts/poppins/700.svg#embed-poppins') format('svg');
+	font-weight: 700;
+	font-style: normal;
+}
+
+.navbar-brand,
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.h1,.h2,.h3,.h4,.h5,.h6,
+h1,h2,h3,h4,h5,h6{
+	font-family: "Poppins", "Trebuchet MS", "PT Sans", "Helvetica Neue", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+	letter-spacing: -0.04em;
+	font-weight: bold;
+}
+
+body{
+	font-family: "Segoe UI", "Trebuchet MS", "PT Sans", "Helvetica Neue", "HelveticaNeue-Light", Helvetica, Arial, sans-serif;
+}

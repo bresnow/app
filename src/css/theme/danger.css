@@ -1,0 +1,24 @@
+/* 
+
+*/
+.text-primary,
+.text-primary-hover a:hover,
+.text-primary-hover .active > a {
+  color: #ef1960 !important; }
+
+.nav-active-primary .nav-link.active,
+.nav-active-primary .nav > li.active > a,
+.btn.primary,
+.btn.b-primary:hover,
+.btn.b-primary:focus,
+.mejs-controls .mejs-playpause-button button,
+.pace .pace-progress {
+  background-color: #ef1960 !important; }
+
+.b-primary,
+.mejs-controls .mejs-time-rail .mejs-time-current {
+  border-color: #ef1960; }
+
+.mejs-error {
+  background-color: #ef1960;
+  border-color: #ef1960; }
