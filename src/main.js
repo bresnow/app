@@ -31,7 +31,6 @@ var routes = [
 	}
 ];
 $("#app").html(`
-
 ${app.main}
 <div id="home" class="page full center">
 ${app.auth}
@@ -40,7 +39,7 @@ ${app.auth}
 ${app.navBar}
 </footer>
 </div>
-   ${app.live}
+${app.live}
 `);
 
 

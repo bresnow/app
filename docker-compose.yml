@@ -1,12 +1,7 @@
-# this is used for local development and testing
+# this is used for building the Docker image 
+# docker-compose build
 version: "3.0"
 services:
-  # relay:
-  #   image: bresnow/fltngmmth_relay_dev:latest
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #     target: relay_dev
   dev:
     image: bresnow/fltngmmth_dev:latest
     build:
