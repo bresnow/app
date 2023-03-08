@@ -240,7 +240,7 @@
 				tag.innerHTML = m ? tmp + "\n}" : tmp;
 				document.documentElement.append(tag);
 			}
-		
+	joy.css = joy.style	
 	
 	var opt = joy.opt = window.CONFIG || {}, peers;
 	$('link[type=peer]').each(function () { (peers || (peers = [])).push($(this).attr('href')) });
@@ -255,15 +255,6 @@
 		console.log("SOUL: " + ack.soul);
 	});
 }());
-
-const createWidget = (
-	el,
-	attributes,
-	...args
-) => {
-	const children = args ? args.map((args) => args) : [];
-	return { el, attributes, children };
-};
 
 function templateRender({ tag, attributes, children }) {
 	let props = attributes ? Object.entries(attributes).reduce((acc, curr) => {

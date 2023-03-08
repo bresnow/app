@@ -16,7 +16,7 @@
   --secondary: var(--yellow);
   --accent: var(--red);
   --transition-speed: 600ms;
-  --radius: 0.75em;
+  --radius: 0.5em;
 }
 
 html,
@@ -98,9 +98,13 @@ main {
   transition: width 200ms ease;
 }
 
-ion-icon {
+#ion-icon {
   font-size: 1.25rem;
   color: var(--green);
+    display: flex;
+  flex-direction: row;
+  margin: auto ;
+  
 }
 #navbar-nav {
   list-style: none;
@@ -146,38 +150,6 @@ ion-icon {
   margin: 0 1.5rem;
 }
 
-#img {
-  position: absolute;
-  transform: rotate(-90deg);
-  top: 50%;
-  left: 50%;
-  -webkit-filter: invert(100%);
-  filter: invert(100%);
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  border: 1px solid black;
-}
-#streams {
-  display: flex;
-  flex-direction: row;
-}
-#overlay {
-  position: fixed; /* Sit on top of the page content */
-  display: none; /* Hidden by default */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* background-color: rgba(0, 0, 0, 0.5); */
-  z-index: 999; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
-  background: rgba(var(--background), 0.8);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-}
-
 /* small screen */
 @media only screen and (max-width: 600px) {
   #navbar {
@@ -204,11 +176,11 @@ ion-icon {
   /* #nav-item:first-child #logo {
     display: none;
   } */
-}
 
-main {
-  margin: auto;
-  margin-bottom: 5rem;
+  main {
+    margin: 0;
+    margin-bottom: 5rem;
+  }
 }
 
 /* large screen */

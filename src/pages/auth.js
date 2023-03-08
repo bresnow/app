@@ -1,10 +1,10 @@
-import logo from "../component/logo.js";
+import logo from "../components/logo.js";
 
 const create = `
 <div id="create" class="page full hold center">
   <div class="center screen gap air">
     <div class="unit row gap">
-      <a href="#home">${logo(5)}</a>
+      <a href="#home">${logo(100)}</a>
     </div>
 
     <form id="signup">

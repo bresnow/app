@@ -1,4 +1,4 @@
-import header from "../component/header.js";
+import header from "../components/header.js";
 import QRCode from "../lib/qrcode.min.js";
 
 const settings = `

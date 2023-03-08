@@ -1,4 +1,4 @@
-import header from "../component/header.js";
+import header from "../components/header.js";
 
 const search = `
 <div id="search" class="page hold center">

@@ -1,4 +1,4 @@
-import header from "../component/header.js";
+import header from "../components/header.js";
 
 const friends = `
 <div id="friends" class="page hold center">

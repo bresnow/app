@@ -1,0 +1,153 @@
+#meta {
+	display: block;
+	position: fixed;
+	bottom: 1em;
+	right: 2em;
+	font-size: 14pt;
+	color: var(--text);
+	border-radius: 1em;
+	text-align: center;
+	z-index: 999999;
+	-webkit-tap-highlight-color: transparent;
+	margin: 0;
+	padding: 0;
+	height: 2em;
+	outline: none;
+	cursor: pointer;
+	overflow: none;
+	transition: all 0.1s ease-in;
+
+}
+
+#meta * {
+	outline: none;
+}
+#meta .meta-none {
+	display: none;
+}
+#meta span {
+	line-height: 2em;
+}
+#meta .meta-menu {
+	animation-name: animateOut;
+	animation-duration: 210ms;
+	right: -2em;
+	bottom: 2.5em;
+	overflow: none;
+	position: absolute;
+	text-align: right;
+}
+#meta .meta-menu ul {
+	list-style-type: none;
+	display: flex;
+	flex-direction: column;
+}
+#meta .meta-menu ul li {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	display: inline-block;
+	float: right;
+	padding: 0.5em 1em;
+	font-size: 14pt;
+	border-radius: 0.75em;
+	text-align: center;
+	animation-name: animateIn;
+	animation-duration: 210ms;
+	animation-delay: calc(var(--meta-key) * 70ms);
+	animation-fill-mode: both;
+	animation-timing-function: ease-in-out;
+	cursor: pointer;
+}
+#meta .meta-menu ul li:hover {
+	background: var(--secondary);
+}
+#meta a {
+	color: black;
+}
+#meta:hover {
+	opacity: 1;
+}
+#meta:hover .meta-menu {
+	display: block;
+}
+#meta .meta-menu ul:before {
+	content: " ";
+	display: block;
+
+}
+#meta .meta-start {
+	cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+	#meta {
+		display: block;
+		position: fixed;
+		bottom: 0.5em;
+		font-size: 14pt;
+		color: var(--text);
+		text-align: center;
+		z-index: 999999;
+		-webkit-tap-highlight-color: transparent;
+		margin: 0 1em;
+		padding: 0;
+		height: 2em;
+		outline: none;
+		cursor: pointer;
+		overflow: none;
+	}
+	#meta .meta-menu {
+		bottom: 0;
+		animation: none;
+		animation-delay: 0ms;
+		position: absolute;
+	}
+	#meta .meta-none {
+		display: block;
+	}
+	#meta .meta-icon .meta-start {
+		display: none;
+	}
+	#meta .meta-menu ul {
+		padding: 0;
+		margin: 0;
+		width: 100%;
+		white-space: nowrap;
+		display: flex;
+		flex-direction: column;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+	#meta .meta-menu ul li {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		display: inline;
+		padding: 0.5em;
+		font-size: 14pt;
+		border-radius: 0.75em;
+		text-align: center;
+		cursor: pointer;
+	}
+	#meta a {
+		color: black;
+	}
+	#meta:hover {
+		opacity: 1;
+	}
+	#meta .meta-start {
+		display: none;
+	}
+	#meta:hover .meta-menu {
+		display: block;
+	}
+	#meta .meta-menu ul:before {
+		content: " ";
+		display: block;
+	}
+	#meta .meta-start {
+		cursor: pointer;
+	}
+}

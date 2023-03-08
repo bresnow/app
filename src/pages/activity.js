@@ -1,4 +1,4 @@
-import header from "../component/header.js";
+import header from "../components/header.js";
 
 const activity = `
 <div id="activity" class="page hold center">

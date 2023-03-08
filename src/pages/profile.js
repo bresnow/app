@@ -1,10 +1,11 @@
-const profile = `
+const profile =`
 <div id="profile" class="page hold center">
 
 	<div class="center pad screen gap leak">
 	<div contenteditable id="profile_title">LALALA</div>
 		    <img
-      class="avatar
+      class="avatar"
+	  src="https://pixabay.com/get/gdd712295261cfbfcc7cd504ee4024120e6f745b7e707be4632c8c94370cb1c8509a3f1af1623c7ffa6aea900ca00957fc3f6d761b21af584cf7dc1e1ecc67c43_1280.jpg"
     />
 		<div class='mine'>
 		  <button id="cpk">Copy Key</button>
@@ -20,8 +21,8 @@ const profile = `
 		<ul id='others'></ul>
 		<ul id='posts' class="flex"></ul>
 	</div>
-</div>
-`;
+</div>`
+
 let user = JOY.user
 var colors = ["green", "yellow", "red", "blue"];
 JOY.route.page("profile", async function (a) {
@@ -32,6 +33,7 @@ JOY.route.page("profile", async function (a) {
 	JOY.head("Profile");
 	var url = new URLSearchParams(location.hash.split("/")[1]);
 	var pub = url.get("pub");
+	var alias = url.get("alias");
 	var tabs = {
 		friends: {
 			graph: JOY.user.get(pub).get("friends"),
