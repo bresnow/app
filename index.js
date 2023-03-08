@@ -16,14 +16,14 @@ var routes = [
     where: "home",
     icon: "home",
   },
-  // {
-  // 	where: "profile",
-  // 	icon: "user",
-  // },
-  // {
-  // 	where: "create",
-  // 	icon: "pencil",
-  // },
+  {
+  	where: "profile",
+  	icon: "user",
+  },
+  {
+  	where: "create",
+  	icon: "pencil",
+  },
   {
     where: "settings",
     icon: "settings",

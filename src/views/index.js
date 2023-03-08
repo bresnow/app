@@ -6,7 +6,7 @@ import profile from "./profile.js";
 import friends from "./friends.js";
 // import { create, auth } from "./auth.js";
 import paper from "./paper.js";
-export const page = `
+export const views = `
     ${activity}
     ${home}
     ${settings}

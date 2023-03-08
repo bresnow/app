@@ -1,6 +1,8 @@
 import { SEA } from "gun";
-import paper from "./pages/paper";
+import paper from "./views/paper";
 import logo from "./components/logo";
+import {create, auth} from './views/auth'
+import { views } from './views/index';
 const app = {};
 const gun = Gun({ peers: [""] });
 const user = gun.user();
@@ -26,50 +28,50 @@ if (!hash) {
 
 
 
-app.auth = `
-<div id="auth" class="page full center">
-      <div id="authForm" class="full">
-          <input id="username" placeholder="username" autocomplete="off" type="text" class="unit col rim">
-          <button id="register" class="unit col rim">Get Started!</button>
-          <span  id="login" class="unit col rim"><a href="#">Already have account</a></span>
-      </div>
-<div id="auth" class="page full center">
-`;
-JOY.route.page("auth", () => {
-  $(document).ready(function () {
-    $("#register").click(async function () {
-      const username = $("#username").val();
-      register(username);
-    });
+// app.auth = `
+// <div id="auth" class="page full center">
+//       <div id="authForm" class="full">
+//           <input id="username" placeholder="username" autocomplete="off" type="text" class="unit col rim">
+//           <button id="register" class="unit col rim">Get Started!</button>
+//           <span  id="login" class="unit col rim"><a href="#">Already have account</a></span>
+//       </div>
+// <div id="auth" class="page full center">
+// `;
+// JOY.route.page("auth", () => {
+//   $(document).ready(function () {
+//     $("#register").click(async function () {
+//       const username = $("#username").val();
+//       register(username);
+//     });
 
-    async function register(username) {
-      if (username.length !== 0) {
-        var pair = await SEA.pair();
-        user.auth(pair, (cb) => {
-          console.log("authenticated: ", cb);
-          user.get("profile").put({
-            username: username,
-          });
-          JOY.route("main");
-          saveUser(pair);
-        });
-      } else {
-        alert("no input provided!!!");
-      }
-    }
-    $("#username").on("keyup", function (e) {
-      const username = $("#username").val();
-      if (e.which === 13) {
-        register(username);
-      }
-    });
-    $("#logout").click(function () {
-      user.leave();
-      localStorage.removeItem("profile");
-      window.location.reload();
-    });
-  });
-});
+//     async function register(username) {
+//       if (username.length !== 0) {
+//         var pair = await SEA.pair();
+//         user.auth(pair, (cb) => {
+//           console.log("authenticated: ", cb);
+//           user.get("profile").put({
+//             username: username,
+//           });
+//           JOY.route("main");
+//           saveUser(pair);
+//         });
+//       } else {
+//         alert("no input provided!!!");
+//       }
+//     }
+//     $("#username").on("keyup", function (e) {
+//       const username = $("#username").val();
+//       if (e.which === 13) {
+//         register(username);
+//       }
+//     });
+//     $("#logout").click(function () {
+//       user.leave();
+//       localStorage.removeItem("profile");
+//       window.location.reload();
+//     });
+//   });
+// });
 
 
 
@@ -92,10 +94,10 @@ var hero = `
         </header>
 `
 app.home = `   
-<div id="home" class="page full center">
-      ${app.auth}
-      ${hero}
-  </div> `
+${create}
+${auth}
+${views}
+`
 
 
 

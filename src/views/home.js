@@ -21,7 +21,7 @@ var introArea = `
                 </div>
         </header>`
 const home = `
-<div id="home" name="~${JOY.key.pub}"class="page hold">
+<div id="home" class="page hold">
 	<div name="home" class="center screen">
 	${introArea}
 		<div id="drafts" class="flex">
