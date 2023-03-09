@@ -218,14 +218,39 @@
 ; (function () { // need to isolate into separate module!
 	var joy = window.JOY = function () { };
 	joy.route = as.route;
-	joy.auth = function (a, b, cb, o) {
-		if (!o) { o = cb; cb = 0 }
+	joy.auth = function (k, cb, o) {
+		if (!o) {
+			o = cb;
+			cb = 0;
+		}
 		if (o === true) {
-			gun.user().create(a, b);
+			SEA.pair().then((key) => {
+				joy.auth(key, cb);
+			});
 			return;
 		}
-		gun.user().auth(a, b, cb, o);
-	}
+		joy.key = k;
+		joy.user.auth(k, cb, o);
+	};
+	joy.head = function (title, hide) {
+		$(document).ready(function () {
+			var $head = $("header");
+			var $account = $("#account");
+			document.title = title;
+			place.textContent = title;
+			if (hide) {
+				if (hide.only) {
+					// console.log("hide.only", hide.only);
+					$account.style.display = "none";
+					return;
+				}
+				$head.addClass("none");
+				return;
+			}
+			$account.style.display = "flex";
+			$("header").removeClass("none");
+		});
+	};
 	joy.style = function(css, m) {
 				var style =  css 
 				var tmp = m ? "@media " + m + " {\n\t" : "";
@@ -241,18 +266,98 @@
 				document.documentElement.append(tag);
 			}
 	joy.css = joy.style	
-	
-	var opt = joy.opt = window.CONFIG || {}, peers;
-	$('link[type=peer]').each(function () { (peers || (peers = [])).push($(this).attr('href')) });
-	!window.gun && (opt.peers = opt.peers || peers || (function () {
-		(console.warn || console.log)('Warning: No peer provided.');
-		//TODO: Change peer default
-		return [''];
-	}()));
-	window.gun = window.gun || Gun(opt);
+	joy.download = function (filename, data, type, charset, href) {
+		let hiddenElement;
+		if (charset === null) {
+			charset = "utf-8";
+		}
+		hiddenElement = document.createElement("a");
+		hiddenElement.href =
+			href || `data:${type};charset=${charset},${encodeURI(data)}`;
+		hiddenElement.target = "_blank";
+		hiddenElement.download = filename;
+		hiddenElement.click();
+	};
+	joy.capitalize = function (s) {
+		if (s === undefined) {
+			return "";
+		}
+		return s.charAt(0).toUpperCase() + s.slice(1);
+	};
+	joy.since = function (date) {
+		if (typeof date !== "object") {
+			date = new Date(date);
+		}
 
-	gun.on('auth', function (ack) {
-		console.log("SOUL: " + ack.soul);
+		var seconds = Math.floor((new Date() - date) / 1000);
+		var intervalType;
+		var interval = Math.floor(seconds / 31536000);
+		if (interval >= 1) {
+			intervalType = "year";
+		} else {
+			interval = Math.floor(seconds / 2592000);
+			if (interval >= 1) {
+				intervalType = "month";
+			} else {
+				interval = Math.floor(seconds / 86400);
+				if (interval >= 1) {
+					intervalType = "day";
+				} else {
+					interval = Math.floor(seconds / 3600);
+					if (interval >= 1) {
+						intervalType = "hour";
+					} else {
+						interval = Math.floor(seconds / 60);
+						if (interval >= 1) {
+							intervalType = "minute";
+						} else {
+							interval = seconds;
+							intervalType = "second";
+						}
+					}
+				}
+			}
+		}
+
+		if (interval > 1 || interval === 0) {
+			intervalType += "s";
+		}
+
+		return interval + " " + intervalType;
+	};	
+	var opt = (joy.opt = window.CONFIG || { axe: false }),
+		peers;
+	$("link[type=peer]").each(function () {
+		(peers || (peers = [])).push($(this).attr("href"));
+	});
+	!window.gun &&
+		(opt.peers =
+			opt.peers ||
+			peers ||
+			(function () {
+				return [
+					"https://gun-us.herokuapp.com/gun",
+				];
+			})());
+	window.gun = window.gun || Gun(opt);
+	joy.user = gun.user();
+	;
+	$(function () {
+		$(".page").not(":first").hide();
+		JOY.route(location.hash.slice(1));
+		$(
+			(JOY.start =
+				JOY.start ||
+				function () {
+					$.as(document, gun, null, JOY.opt);
+				})
+		);
+
+		if ($("body").attr("peers")) {
+			(console.warn || console.log)(
+				'Warning: Please upgrade <body peers="">'
+			);
+		}
 	});
 }());
 
