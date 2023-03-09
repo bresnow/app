@@ -1,4 +1,5 @@
 import "./src/style/style.css";
+import "./src/style/cards.css";
 import "./src/style/app.css";
 import "gun/gun.js";
 import "gun/sea.js";
@@ -74,10 +75,10 @@ var routes = [
   	where: "profile",
   	icon: "user",
   },
-  // {
-  // 	where: "create",
-  // 	icon: "pencil",
-  // },
+  {
+  	where: "create",
+  	icon: "pencil",
+  },
   {
     where: "settings",
     icon: "settings",

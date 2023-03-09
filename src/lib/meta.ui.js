@@ -47,7 +47,7 @@ const logo = (size) => {
 		}
 
 		var $m = $("<div>").attr("id", "meta");
-		$m.append($("<span>").html(logo(100)).addClass("meta-start"));
+		$m.append($("<span>").html(logo(60)).addClass("meta-start"));
 
 		$m.append($("<div>").addClass("meta-menu meta-none").append("<ul>"));
 		$(document.body).append($m);

@@ -255,9 +255,9 @@
 				var style =  css 
 				var tmp = m ? "@media " + m + " {\n\t" : "";
 				$.each(style, function (c, r) {
-					tmp += camelToKebab(c) + " {\n";
+					tmp += c + " {\n";
 					$.each(r, function (k, v) {
-						tmp += "\t" + k + ": " + v + ";\n";
+						tmp += "\t" + camelToKebab(k) + ": " + v + ";\n";
 					});
 					tmp += "}\n";
 				});

@@ -4,32 +4,152 @@ var user = JOY.user;
 var introArea = ` 
 <header name="header" class=" pt100 pb50 bg-grad-stellar" style="background: url({{ image }}) 50% 50% no-repeat; border-radius: 25px; background-size: cover;">
 
-                <div class="container mb50 pt50 pb50">
-
+<div class="container mb50 pt50 pb50">
+<div class="col-md-12 text-center">
                     <div class="row">
-                        <div class="col-md-12 text-center">
-                            <h1 class="font-source-sans-pro font-size-light color-light animated" >
-                                <small class="color-white">All Hail The </small>
-                                <span class="fs-75 txt-grad-animation">Floating Mammoth</span>
-                            </h1>
-                            <h4 class=" mt-25 color-gray animated" data-animation="fadeInUp" data-animation-delay="200">
-                                This application is in development.<br/> Shortcut: To edit content, press  <span class="fs-75 txt-grad-animation">C</span> on  your keyboard and edit text content in  <span class="fs-75 txt-grad-animation">markdown</span>.
-                            </h4>
+		<ul class="Words">
+  <li class="Words-line">
+    <p>&nbsp;</p>
+    <p class="color-white">Hail The</p>
+  </li>
+  <li class="Words-line">
+    <p class="fs-75 txt-grad-animation">FLOATING</p>
+    <p class="fs-75 txt-grad-animation">FLTNGMMTH</p>
+  </li>
+  <li class="Words-line">
+    <p class="faint__title">All Hail</p>
+    <p class="faint__title">The Beast</p>
+  </li>
+  <li class="Words-line">
+  <p class="fs-75 txt-grad-animation">MAMMOTH</p>
+  <p class="fs-75 txt-grad-animation"><small>Designed By</small></p>
+  </li>
+    <li class="Words-line">
+    <p class="clear__title" >p</p>
+    <p>Bresnow</p>
+  </li>
+
+</ul>                   
                         </div>
 
                     </div>
                 </div>
         </header>`
+
+const cards = `
+  <div class="example-2 card">
+    <div class="wrapper">
+      <div class="header">
+        <div class="date">
+          <span class="day">12</span>
+          <span class="month">Aug</span>
+          <span class="year">2016</span>
+        </div>
+        <ul class="menu-content">
+          <li>
+            <a href="#" class="fa fa-bookmark-o"></a>
+          </li>
+          <li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
+          <li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
+        </ul>
+      </div>
+      <div class="data">
+        <div class="content">
+          <span class="author">Jane Doe</span>
+          <h1 class="title"><a href="#">HashContent Card: Test</a></h1>
+          <p class="text">Nearly There</p>
+          <a href="#" class="button">Read more</a>
+        </div>
+      </div>
+    </div>
+  </div>`
 const home = `
 <div id="home" class="page hold">
 	<div name="home" class="center screen">
 	${introArea}
-		<div id="drafts" class="flex">
+		<div id="drafts" class="flex row">
+		${cards}
 		</div>
+	
 	</div>
 </div>
 `;
 
+JOY.style({
+	'.container': {
+		backgroundColor: '#5138BE',
+		margin: 'auto',
+		display: 'flex',
+		borderRadius: "var(--radius)"
+
+	},
+	'.Words': {
+		padding: '80px 0',
+		fontFamily: '"Source Sans Pro", Helvetica, Arial, sans-serif',
+		fontSize: '68px',
+		fontWeight: '900',
+		letterSpacing: -'2px',
+		textTransform: 'uppercase',
+		transform: 'translate3d(0, 0, 0)',
+		'-webkit-font-smoothing': 'antialiased',
+		'-webkit-font-kerning': 'normal',
+		'-webkit-text-size-adjust': '100%',
+	},
+	'.Words-line': {
+		height: '50px',
+		overflow: 'hidden',
+		position: 'relative',
+	},
+	'.Words-line:nth-child(odd)': {
+		transform: 'skew(60deg, -30deg) scaleY(0.66667)',
+	},
+	'.Words-line:nth-child(even)': {
+		transform: 'skew(0deg, -30deg) scaleY(1.33333)',
+	},
+	'.Words-line:nth-child(1)': {
+		left: '29px',
+	},
+	'.Words-line:nth-child(2)': {
+		left: '58px',
+	},
+	'.Words-line:nth-child(3)': {
+		left: '87px',
+	},
+	'.Words-line:nth-child(4)': {
+		left: '116px',
+	},
+	'.Words-line:nth-child(5)': {
+		left: '145px',
+	},
+	'.Words-line:nth-child(6)': {
+		left: '174px',
+	},
+	'.Words-line:nth-child(7)': {
+		left: '203px',
+	},
+	p: {
+		height: '50px',
+		lineHeight: '1em',
+		padding: '0 10px',
+		transition: 'all 0.4s ease-in-out',
+		transform: 'translate3d(0, 0, 0)',
+		verticalAlign: 'top',
+		whiteSpace: 'nowrap',
+	},
+	"p small": {
+		fontFamily: '"Source Sans Pro", Helvetica, Arial, sans-serif',
+
+	},
+	'.Words:hover p': {
+		transform: 'translate3d(0, -50px, 0)',
+	},
+	".faint__title": {
+		opacity: 0.3
+	},
+	".clear__title": {
+		opacity: 0
+	}
+})
 JOY.style({
 	'.txt-grad-animation': {
 		color: '#fff',
@@ -53,12 +173,13 @@ JOY.route.page("home", function () {
 	}
 	JOY.head("Home");
 	JOY.user.get("home").get("header").put({
-		bg: "https://cdn.pixabay.com/photo/2023/02/13/10/30/eye-7787024_1280.jpg"})
+		image: "https://cdn.pixabay.com/photo/2023/02/13/10/30/eye-7787024_1280.jpg"
+	})
 	JOY.user
 		.get(`test/paper/files`)
 		.map()
 		.on(async (d, k) => {
-			if (!d || !d?.document || !d?.when) return;
+			if (!d || !d?.document || !d?.when) return
 
 			var when = JOY.since(new Date(d.when));
 			JOY.route.render(k, ".paper-card", $("#drafts"), {
@@ -73,9 +194,8 @@ JOY.route.page("home", function () {
 				},
 				cover: {
 					src: d.cover,
-					class: `icon-cover sap ${
-						colors[Math.floor(Math.random() * colors.length)]
-					}`,
+					class: `icon-cover sap ${colors[Math.floor(Math.random() * colors.length)]
+						}`,
 				},
 				name: `${d.name || `Untitled-${k}`}`,
 				when: when,
@@ -109,7 +229,7 @@ JOY.route.page("home", function () {
 				});
 		});
 	console.log(meta);
-	
+
 	meta.edit({
 		name: "Create",
 		place: "home",
