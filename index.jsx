@@ -13,6 +13,7 @@ import "./src/lib/joy.js";
 import "./src/lib/meta.js";
 import "./src/lib/meta.ui.js";
 import "./src/style";
+
 // import hero from "./src/component/hero";
 Gun.log.off = true;
 // import "@benrbray/prosemirror-math/style/math.css";
@@ -20,8 +21,9 @@ import "./src/style/math.css";
 // import "katex/dist/katex.min.css";
 import nav from "./src/components/nav.js";
 import header from "./src/components/header.js";
-import {  views } from "./src/views";
+import { views } from "./src/views";
 import { create, auth } from "./src/views/auth";
+import Icon from "./src/components/icon.jsx";
 // import logo from './component/logo';
 // import h from "./lib/amnion-runtime";
 var user = JOY.user;
@@ -73,12 +75,12 @@ var routes = [
     icon: "home",
   },
   {
-  	where: "profile",
-  	icon: "user",
+    where: "profile",
+    icon: "user",
   },
   {
-  	where: "create",
-  	icon: "pencil",
+    where: "create",
+    icon: "pencil",
   },
   {
     where: "settings",
@@ -88,20 +90,49 @@ var routes = [
 if (!location.hash) {
   JOY.route("home");
 }
-document.querySelector("#app").innerHTML = `
- 	${create}
-	${auth}
-	<header>
-		${header}
-	</header>
-	<div id="loader" class="full hold"><div id="spinner"></div></div>
-	<main name="${user.is.pub}">
-		${views}
-	</main>
-	<footer>
-		${nav(routes)}
-	<footer>
-`;
+let items = ['one', 'two', 'three'];
+const Header = () => (
+  <header name="header" class=" pt100 pb50 bg-grad-stellar" style="background: url({{ image }}) 50% 50% no-repeat; border-radius: 25px; background-size: cover;">
+    <div class="container mb50 pt50 pb50">
+      <div class="col-md-12 text-center">
+        <div class="row">
+          <ul class="Words">
+            <li class="Words-line">
+              <p>&nbsp;</p>
+              <p class="color-white">Hail The</p>
+            </li>
+            <li class="Words-line">
+              <p class="fs-75 txt-grad-animation">FLOATING</p>
+              <p class="fs-75 txt-grad-animation">FLTNGMMTH</p>
+            </li>
+            <li class="Words-line">
+              <p class="faint__title">Under</p>
+              <p class="faint__title">Construction</p>
+            </li>
+            <li class="Words-line">
+              <p class="fs-75 txt-grad-animation">MAMMOTH</p>
+              <p class="fs-75 txt-grad-animation"><small>Designed By</small></p>
+            </li>
+            <li class="Words-line">
+              <p class="clear__title" >p</p>
+              <p>Bresnow</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+)
+document.querySelector("#app").innerHTML = (<div class="foo">
+  <h1>Under Construction</h1>
+  <Header />
+  {/* <p>Here is a list of {items.length} items:</p>
+  <ul>
+    {items.map(item => (
+      <li>{item}</li>
+    ))}
+  </ul> */}
+</div>);
 var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
 
 function preventDefault(e) {
