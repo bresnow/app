@@ -9,7 +9,7 @@ import "gun/sea.js";
 // import "gun/as.js"
 import "./src/lib/chain.js";
 import "./src/lib/joy.js";
-// import "./src/lib/as.js";
+import "./src/lib/as.js";
 import "./src/lib/meta.js";
 import "./src/lib/meta.ui.js";
 import "./src/style";
@@ -25,7 +25,7 @@ import { views } from "./src/views";
 import { create, auth } from "./src/views/auth";
 import {Icon} from "./src/components/icon.jsx";
 import NavigationBar from "./src/components/nav.jsx";
-
+window.log= console.log.bind(console)
 var user = JOY.user;
 var storedTheme =
   localStorage.getItem("theme") ||
@@ -90,23 +90,33 @@ var routes = [
 if (!location.hash) {
   JOY.route("home");
 }
-let items = ['one', 'two', 'three'];
-const Header = () => (
-  <header name="header" class=" pt100 pb50 bg-grad-stellar" style="background: url({{ image }}) 50% 50% no-repeat; border-radius: 25px; background-size: cover;">
-    <div class="container mb50 pt50 pb50">
+const temp = ''
+let scream = gun.get("header").put({ see:'https://cdn.pixabay.com/photo/2023/02/13/10/30/eye-7787024_1280.jpg'})
+scream.on(d => {
+  // temp += d.image;
+  log("LOGGER", d.image)
+  // if (d.image) temp = d.image
+
+}
+)
+const Header = () => {
+  
+  return(
+  <header name="header" class=" pt100 pb50 bg-grad-stellar" style={`background: url() 50% 50% no-repeat; border-radius: 25px; background-size: cover;`}>
+    {/* <div class="container mb50 pt50 pb50"> */}
       <div class="col-md-12 text-center">
-        <div class="row">
+        <div  class="row">
           <ul class="Words">
             <li class="Words-line">
               <p>&nbsp;</p>
-              <p class="color-white">Hail The</p>
+              <p class="color-white">Application</p>
             </li>
             <li class="Words-line">
               <p class="fs-75 txt-grad-animation">FLOATING</p>
-              <p class="fs-75 txt-grad-animation">FLTNGMMTH</p>
+              <p class="fs-75 txt-grad-animation">under</p>
             </li>
             <li class="Words-line">
-              <p class="faint__title">Under</p>
+              <p class="faint__title"></p>
               <p class="faint__title">Construction</p>
             </li>
             <li class="Words-line">
@@ -119,18 +129,17 @@ const Header = () => (
             </li>
           </ul>
         </div>
-      </div>
+      {/* </div> */}
     </div>
   </header>
-)
+)}
 
 
 
 document.querySelector("#app").innerHTML = (
-<div class="foo">
-  <h1>Under Construction</h1>
-  <Icon name="settings" size="24"/>
+<div class="page">
   <Header />
+
   <NavigationBar routes={routes}/>
 </div>
 );
