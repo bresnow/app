@@ -9,6 +9,7 @@ import "gun/sea.js";
 // import "gun/as.js"
 import "./src/lib/chain.js";
 import "./src/lib/joy.js";
+// import "./src/lib/as.js";
 import "./src/lib/meta.js";
 import "./src/lib/meta.ui.js";
 import "./src/style";
@@ -94,7 +95,7 @@ document.querySelector("#app").innerHTML = `
 		${header}
 	</header>
 	<div id="loader" class="full hold"><div id="spinner"></div></div>
-	<main>
+	<main name="${user.is.pub}">
 		${views}
 	</main>
 	<footer>

@@ -1,8 +1,8 @@
 // vite.config.ts
 import Inspect from 'vite-plugin-inspect'
-
-export default {
+import { defineConfig } from 'vite'
+export default defineConfig({
     plugins: [
         Inspect()
     ],
-}
+})

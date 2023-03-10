@@ -197,7 +197,9 @@
 		});
 		return $data;
 	}
-	window.onhashchange = function () { r(location.hash.slice(1)) };
+	window.onhashchange = function () {
+		window.location.reload(true);
+		r(location.hash.slice(1)) };
 	$.as && ($.as.route = r);
 	if (window.as) {
 		as.route = r;
@@ -235,19 +237,19 @@
 	joy.head = function (title, hide) {
 		$(document).ready(function () {
 			var $head = $("header");
-			var $account = $("#account");
+			// var $account = $("#account");
 			document.title = title;
 			place.textContent = title;
 			if (hide) {
 				if (hide.only) {
 					// console.log("hide.only", hide.only);
-					$account.style.display = "none";
+					account.style.display = "none";
 					return;
 				}
 				$head.addClass("none");
 				return;
 			}
-			$account.style.display = "flex";
+			account.style.display = "flex";
 			$("header").removeClass("none");
 		});
 	};
