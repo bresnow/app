@@ -23,9 +23,9 @@ import nav from "./src/components/nav.js";
 import header from "./src/components/header.js";
 import { views } from "./src/views";
 import { create, auth } from "./src/views/auth";
-import Icon from "./src/components/icon.jsx";
-// import logo from './component/logo';
-// import h from "./lib/amnion-runtime";
+import {Icon} from "./src/components/icon.jsx";
+import NavigationBar from "./src/components/nav.jsx";
+
 var user = JOY.user;
 var storedTheme =
   localStorage.getItem("theme") ||
@@ -123,16 +123,22 @@ const Header = () => (
     </div>
   </header>
 )
-document.querySelector("#app").innerHTML = (<div class="foo">
+
+
+
+document.querySelector("#app").innerHTML = (
+<div class="foo">
   <h1>Under Construction</h1>
+  <Icon name="settings" size="24"/>
   <Header />
-  {/* <p>Here is a list of {items.length} items:</p>
-  <ul>
-    {items.map(item => (
-      <li>{item}</li>
-    ))}
-  </ul> */}
-</div>);
+  <NavigationBar routes={routes}/>
+</div>
+);
+
+
+
+
+
 var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
 
 function preventDefault(e) {

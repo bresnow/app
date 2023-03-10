@@ -46,9 +46,9 @@
 					if (!attr) { tag.text(val) }
 
 					var ref = gun, sup = [], tmp;
-					if (tmp = tag.attr('name')) { sup.push(tmp) }
-					tag.parents("[name]").each(function () {
-						sup.push($(this).attr('name'));
+					if (tmp = tag.attr('node')) { sup.push(tmp) }
+					tag.parents("[node]").each(function () {
+						sup.push($(this).attr('node'));
 					});
 					$.each(path = sup.reverse().concat(path), function (i, v) {
 						ref = ref.get(v);
@@ -77,16 +77,16 @@
 				fresh: el.html()
 			})
 		}
-		el.find("[name]").each(function () {
-			if ($(this).find("[name]").length) { return }
+		el.find("[node]").each(function () {
+			if ($(this).find("[node]").length) { return }
 			var name = $(this),
-				parents = name.parents("[name]"),
+				parents = name.parents("[node]"),
 				path = [],
 				ref = gun;
 
-			path.push(name.attr('name'));
+			path.push(name.attr('node'));
 			parents.each(function () {
-				path.push($(this).attr('name'));
+				path.push($(this).attr('node'));
 			});
 			path = path.reverse();
 
@@ -101,7 +101,7 @@
 			var many = path.slice().reverse().indexOf('#'), model;
 			many = (0 < ++many) ? many : false;
 			if (many) {
-				model = name.closest("[name='#']");
+				model = name.closest("[node='#']");
 				model = model.data('model') || model.data('model', { $: model.clone(), on: model.parent(), has: {} }).hide().data('model');
 			}
 
@@ -116,14 +116,14 @@
 							if (!(back._).get) { return }
 							ui = (model.has[(back._).id] = model.$.clone(true).prependTo(model.on));
 						}
-						ui = ui.find("[name='" + key + "']").first();
+						ui = ui.find("[node='" + key + "']").first();
 						model.has[(gui._).id] = ui;
 					}
 				}
 				ui.data('gun', gui);
 				if (ui.data('was') === data) { return }
 				if (many && ui.is('.sort')) {
-					var up = ui.closest("[name='#']");
+					var up = ui.closest("[node='#']");
 					var tmp = as.sort(data, up.parent().children().last());
 					tmp ? up.insertAfter(tmp) : up.prependTo(up.parent());
 				}
@@ -193,7 +193,7 @@
 		);
 		$.each(data, function (field, val) {
 			if ($.isPlainObject(val)) { return }
-			$data.find("[name='" + field + "']").val(val).text(val);
+			$data.find("[node='" + field + "']").val(val).text(val);
 		});
 		return $data;
 	}

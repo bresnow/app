@@ -1,28 +1,24 @@
-import logo from "./logo.js";
-import icon from "./icon.js";
-const nav = (routes) => {
-  return `
+import {Icon} from "./icon.jsx";
+const NavigationBar = ({routes}) => {
+  return (
     <nav id="navbar">
       <ul id="navbar-nav">
           <li id="nav-item" class="unit row center gap">
               <a id="logo" href="" ></a>
           </li>
-    ${(function () {
-      var r = "";
-      routes.forEach(({where, icon: path}) => {
-        r += `        
+    {
+      routes.map(({where, icon: path}) =>(  
         <li id="nav-item">
-          <a id="nav-link" class="act" href="#${where}">
-           <span id="ion-icon">${icon(path)}</span>
-            <span id="link-text">${where}</span>
+          <a id="nav-link" class="act" href={ "#" +where}>
+           <span id="ion-icon"><Icon name={path}/></span>
+            <span id="link-text">{where}</span>
           </a>
-        </li>`;
-      });
-      return r;
-    })()}
+        </li>)
+      )
+    }
     </ul>
   </nav>
-  `;
+  );
 };
 JOY.style({
   '.txt-grad-animation': {
@@ -39,4 +35,4 @@ JOY.style({
     animation: 'txtanimation2 15s ease infinite',
   }
 })
-export default nav;
+export default NavigationBar;

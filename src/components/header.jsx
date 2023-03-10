@@ -1,5 +1,5 @@
 import logo from "./logo.js";
-import icon from "./icon.js";
+import {icon} from "./icon.js";
 const header = () =>
     <div id="header" class="unit row rim center">
       <div class="rim  right" id="account">

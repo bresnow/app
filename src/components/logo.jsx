@@ -1,7 +1,7 @@
-const logo = (size) => {
-	return `
+const logo = ({size}) => {
+	return (
     <svg
-        width=${size}
+        width={size}
         viewBox="0 0 1066 466"
         class="center"
         xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +36,7 @@ const logo = (size) => {
 
           </g>
         </g>
-      </svg>`;
+      </svg>);
 };
 
 export default logo;

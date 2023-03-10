@@ -1,6 +1,6 @@
 import icons from "../utils/icons.js";
 
-const Icon = (name, size) => {
+export const Icon = ({name, size}) => {
 	return (
 		<svg class='center' xmlns="http://www.w3.org/2000/svg" width={
 		size || '24'
@@ -9,4 +9,4 @@ const Icon = (name, size) => {
 		)}</svg>)
 };
 
-export default Icon;
+
