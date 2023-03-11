@@ -1,79 +1,79 @@
-import header from "../components/header.js";
-import icon from "../components/icon.js";
+
 var user = JOY.user;
-var introArea = ` 
-<header name="header" class=" pt100 pb50 bg-grad-stellar" style="background: url({{ image }}) 50% 50% no-repeat; border-radius: 25px; background-size: cover;">
+var IntroArea = () => {
 
-<div class="container mb50 pt50 pb50">
-<div class="col-md-12 text-center">
-                    <div class="row">
-		<ul class="Words">
-  <li class="Words-line">
-    <p>&nbsp;</p>
-    <p class="color-white">Hail The</p>
-  </li>
-  <li class="Words-line">
-    <p class="fs-75 txt-grad-animation">FLOATING</p>
-    <p class="fs-75 txt-grad-animation">FLTNGMMTH</p>
-  </li>
-  <li class="Words-line">
-    <p class="faint__title">All Hail</p>
-    <p class="faint__title">The Beast</p>
-  </li>
-  <li class="Words-line">
-  <p class="fs-75 txt-grad-animation">MAMMOTH</p>
-  <p class="fs-75 txt-grad-animation"><small>Designed By</small></p>
-  </li>
-    <li class="Words-line">
-    <p class="clear__title" >p</p>
-    <p>Bresnow</p>
-  </li>
+	return (
+		<header name="header" class=" pt100 pb50 bg-grad-stellar" style={`background: url() 50% 50% no-repeat; border-radius: 25px; background-size: cover;`}>
+			{/* <div class="container mb50 pt50 pb50"> */}
+			<div class="col-md-12 text-center">
+				<div class="row">
+					<ul class="Words">
+						<li class="Words-line">
+							<p>&nbsp;</p>
+							<p class="color-white">Application</p>
+						</li>
+						<li class="Words-line">
+							<p class="fs-75 txt-grad-animation">FLOATING</p>
+							<p class="fs-75 txt-grad-animation">under</p>
+						</li>
+						<li class="Words-line">
+							<p class="faint__title"></p>
+							<p class="faint__title">Construction</p>
+						</li>
+						<li class="Words-line">
+							<p class="fs-75 txt-grad-animation">MAMMOTH</p>
+							<p class="fs-75 txt-grad-animation"><small>Designed By</small></p>
+						</li>
+						<li class="Words-line">
+							<p class="clear__title" >p</p>
+							<p>Bresnow</p>
+						</li>
+					</ul>
+				</div>
+				{/* </div> */}
+			</div>
+		</header>
+	)
+}
 
-</ul>                   
-                        </div>
-
-                    </div>
-                </div>
-        </header>`
-
-const cards = `
-  <div class="example-2 card">
-    <div class="wrapper">
-      <div class="header">
-        <div class="date">
-          <span class="day">12</span>
-          <span class="month">Aug</span>
-          <span class="year">2016</span>
-        </div>
-        <ul class="menu-content">
-          <li>
-            <a href="#" class="fa fa-bookmark-o"></a>
-          </li>
-          <li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
-          <li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
-        </ul>
-      </div>
-      <div class="data">
-        <div class="content">
-          <span class="author">Jane Doe</span>
-          <h1 class="title"><a href="#">HashContent Card: Test</a></h1>
-          <p class="text">Nearly There</p>
-          <a href="#" class="button">Read more</a>
-        </div>
-      </div>
-    </div>
-  </div>`
-const home = `
-<div id="home" class="page hold">
-	<div name="home" class="center screen">
-	${introArea}
-		<div id="drafts" class="flex row">
-		${cards}
+const Cards = () =>
+	<div name="card/001" class="example-2 card">
+		<div class="wrapper">
+			<div class="header">
+				<div class="date">
+					<span class="day">%-- day --%</span>
+					<span class="month">%-- month --%</span>
+					<span class="year">%-- year --%</span>
+				</div>
+				<ul class="menu-content">
+					<li>
+						<a href="#" class="fa fa-bookmark-o"></a>
+					</li>
+					<li><a href="#" class="fa fa-heart-o"><span>18</span></a></li>
+					<li><a href="#" class="fa fa-comment-o"><span>3</span></a></li>
+				</ul>
+			</div>
+			<div class="data">
+				<div class="content">
+					<span class="author">Jane Doe</span>
+					<h1 class="title"><a href="#">Example Card</a></h1>
+					<p class="text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto perspiciatis impedit, animi aperiam doloremque neque deserunt aspernatur quas dolorem. Nemo placeat hic at? Necessitatibus numquam eius, distinctio dolore consectetur voluptatibus?</p>
+					<a href="#" class="button">Read more</a>
+				</div>
+			</div>
 		</div>
-	
 	</div>
-</div>
-`;
+const Home = () => {
+		return (<div id="home" class="page hold">
+		<div name="home" class="center screen">
+			<IntroArea />
+			<div id="drafts" class="flex row">
+				<Cards />
+			</div>
+
+		</div>
+	</div>)
+};
 
 JOY.style({
 	'.container': {
@@ -258,4 +258,4 @@ JOY.route.page("home", function () {
 	});
 });
 
-export default home;
+export default Home;

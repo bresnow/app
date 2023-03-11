@@ -3,11 +3,11 @@ import "gun/lib/monotype.js";
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
 import { Schema } from "prosemirror-model";
-import { schema } from "./paper/schema";
-import { buildInputRules } from "./paper/inputrules";
+import { schema } from "../lib/paper/schema";
+import { buildInputRules } from "../lib/paper/inputrules";
 import { baseKeymap } from "prosemirror-commands";
 import { keymap } from "prosemirror-keymap";
-import { buildKeymap } from "./paper/keymap";
+import { buildKeymap } from "../lib/paper/keymap";
 import { addListNodes, splitListItem } from "prosemirror-schema-list";
 import { history } from "prosemirror-history";
 

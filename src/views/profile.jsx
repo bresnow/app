@@ -1,4 +1,4 @@
-const profile =`
+const Profile = () =>
 <div id="profile" class="page hold center">
 
 	<div class="center pad screen gap leak">
@@ -21,7 +21,7 @@ const profile =`
 		<ul id='others'></ul>
 		<ul id='posts' class="flex"></ul>
 	</div>
-</div>`
+</div>
 
 let user = JOY.user
 var colors = ["green", "yellow", "red", "blue"];
@@ -199,4 +199,4 @@ JOY.route.page("profile", async function (a) {
 		navigator.clipboard.writeText(location.href);
 	});
 });
-export default profile;
+export default Profile;

@@ -1,6 +1,5 @@
-import header from "../components/header.js";
 
-const search = `
+const Search = 
 <div id="search" class="page hold center">
 	<div class=" screen">
 	  <form id="search" class="gap">
@@ -10,7 +9,7 @@ const search = `
 		</ul>
 	</div>
 </div>
-`;
+;
 
 JOY.route.page("search", function () {
 	if (!JOY.key) {
@@ -83,4 +82,4 @@ JOY.route.page("search", function () {
 	});
 });
 
-export default search;
+export default Search;

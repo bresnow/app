@@ -1,11 +1,11 @@
 ; (function () {
 	function as(el, gun, cb, opt) {
-		el = $(el);
+		!el ? el = document : $(el);
 		if (gun === as.gui && as.el && as.el.is(el)) { return }
 
 		opt = opt || {};
-		opt.match = opt.match || '{{ ';
-		opt.end = opt.end || ' }}';
+		opt.match = opt.match || '%-- ';
+		opt.end = opt.end || ' --%';
 		; (function () { // experimental
 			function nest(t, s, e, r, i, tmp, u) {
 				if (r && !r.length) { return t || '' }
@@ -209,8 +209,9 @@
 }());
 
 ; $(function () {
-	$('.page').not(':first').hide();
-	$.as.route(location.hash.slice(1));
+	// $('.page').not(':first').hide();
+	// let router =  $.route;
+	// router(location.hash.slice(1));
 	$(JOY.start = JOY.start || function () { $.as(document, gun, null, JOY.opt) });
 
 	// if ($('body').attr('peers')) { (console.warn || console.log)('Warning: Please upgrade <body peers=""> to https://github.com/eraeco/joydb#peers !') }

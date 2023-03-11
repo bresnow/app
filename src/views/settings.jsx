@@ -1,7 +1,6 @@
-import header from "../components/header.js";
 import QRCode from "../lib/qrcode.min.js";
 
-const settings = `
+const Settings = ()=>
 <div id="settings" class="page hold center">
 
 	<div class=" screen gap hold">
@@ -34,7 +33,7 @@ const settings = `
 		</div>
 	</div>
 </div>
-`;
+;
 			// <spa class="surface col center sap">Peer</spa>
 			// <p>In construction</p>
 			// </details >
@@ -204,4 +203,4 @@ JOY.route.page("settings", function () {
 	// });
 });
 
-export default settings;
+export default Settings;

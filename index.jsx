@@ -3,13 +3,12 @@ import "./src/style/cards.css";
 import "./src/style/app.css";
 import "gun/gun.js";
 import "gun/sea.js";
-// import "gun/lib/ison.js";
 // import "@benrbray/prosemirror-math/style/math.css";
 // import "katex/dist/katex.min.css";
 // import "gun/as.js"
 import "./src/lib/chain.js";
 import "./src/lib/joy.js";
-import "./src/lib/as.js";
+// import "./src/lib/as.js";
 import "./src/lib/meta.js";
 import "./src/lib/meta.ui.js";
 import "./src/style";
@@ -18,15 +17,18 @@ import "./src/style";
 Gun.log.off = true;
 // import "@benrbray/prosemirror-math/style/math.css";
 import "./src/style/math.css";
-// import "katex/dist/katex.min.css";
-import nav from "./src/components/nav.js";
-import header from "./src/components/header.js";
-import { views } from "./src/views";
-import { create, auth } from "./src/views/auth";
-import {Icon} from "./src/components/icon.jsx";
+
 import NavigationBar from "./src/components/nav.jsx";
+import Home from './src/views/home.jsx'
+import Profile from './src/views/profile.jsx';
+import './runtime/vhtml';
+import { navigationRoutes } from './src/utils/constants';
 window.log= console.log.bind(console)
 var user = JOY.user;
+JOY.opt = {
+  match: '%-- ',
+  end: ' --%'
+}
 var storedTheme =
   localStorage.getItem("theme") ||
   (window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -59,92 +61,29 @@ window.onscroll = function () {
   var currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
     if (x) {
-      document.getElementById("nav").style.bottom = "0";
+      document.getElementById("navbar").style.bottom = "0";
     }
   } else {
     if (x) {
-      document.getElementById("nav").style.bottom = "-10em";
+      document.getElementById("navbar").style.bottom = "-10em";
     }
   }
   prevScrollpos = currentScrollPos;
 };
 
-var routes = [
-  {
-    where: "home",
-    icon: "home",
-  },
-  {
-    where: "profile",
-    icon: "user",
-  },
-  {
-    where: "create",
-    icon: "pencil",
-  },
-  {
-    where: "settings",
-    icon: "settings",
-  }
-];
+
 if (!location.hash) {
   JOY.route("home");
 }
-const temp = ''
-let scream = gun.get("header").put({ see:'https://cdn.pixabay.com/photo/2023/02/13/10/30/eye-7787024_1280.jpg'})
-scream.on(d => {
-  // temp += d.image;
-  log("LOGGER", d.image)
-  // if (d.image) temp = d.image
-
-}
-)
-const Header = () => {
-  
-  return(
-  <header name="header" class=" pt100 pb50 bg-grad-stellar" style={`background: url() 50% 50% no-repeat; border-radius: 25px; background-size: cover;`}>
-    {/* <div class="container mb50 pt50 pb50"> */}
-      <div class="col-md-12 text-center">
-        <div  class="row">
-          <ul class="Words">
-            <li class="Words-line">
-              <p>&nbsp;</p>
-              <p class="color-white">Application</p>
-            </li>
-            <li class="Words-line">
-              <p class="fs-75 txt-grad-animation">FLOATING</p>
-              <p class="fs-75 txt-grad-animation">under</p>
-            </li>
-            <li class="Words-line">
-              <p class="faint__title"></p>
-              <p class="faint__title">Construction</p>
-            </li>
-            <li class="Words-line">
-              <p class="fs-75 txt-grad-animation">MAMMOTH</p>
-              <p class="fs-75 txt-grad-animation"><small>Designed By</small></p>
-            </li>
-            <li class="Words-line">
-              <p class="clear__title" >p</p>
-              <p>Bresnow</p>
-            </li>
-          </ul>
-        </div>
-      {/* </div> */}
-    </div>
-  </header>
-)}
-
 
 
 document.querySelector("#app").innerHTML = (
-<div class="page">
-  <Header />
-
-  <NavigationBar routes={routes}/>
+<div name="screen" class="">
+<Home/>
+<Profile/>
+    <NavigationBar routes={navigationRoutes}/>
 </div>
 );
-
-
 
 
 
