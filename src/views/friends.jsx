@@ -1,6 +1,5 @@
-import header from "../components/header.js";
 
-const friends = `
+const Friends = () => 
 <div id="friends" class="page hold center">
 	<div class="center screen rim hold">
 	  <ul id="friend">
@@ -8,7 +7,7 @@ const friends = `
 	  </ul>
 	</div>
 </div>
-`;
+;
 
 JOY.route.page("friends", function () {
 	if (!JOY.key) {
@@ -40,4 +39,4 @@ JOY.route.page("friends", function () {
 		});
 });
 
-export default friends;
+export default Friends;

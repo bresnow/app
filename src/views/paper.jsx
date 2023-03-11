@@ -1,5 +1,4 @@
 import "gun/lib/monotype.js";
-
 import { EditorState } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
 import { Schema } from "prosemirror-model";
@@ -8,11 +7,10 @@ import { buildInputRules } from "../lib/paper/inputrules";
 import { baseKeymap } from "prosemirror-commands";
 import { keymap } from "prosemirror-keymap";
 import { buildKeymap } from "../lib/paper/keymap";
-import { addListNodes, splitListItem } from "prosemirror-schema-list";
+import { addListNodes } from "prosemirror-schema-list";
 import { history } from "prosemirror-history";
-
 import { mathPlugin, mathSerializer } from "@benrbray/prosemirror-math";
-const paper = `
+const Paper = () =>
 <div id="paper" class="page screen" >
 	<div id="paper-img" class="none row gap">
 		<img class="cover sap primary" />
@@ -22,10 +20,11 @@ const paper = `
 	<div id="who" class="left none"></div>
 	<small id="when" class="right gap"></small>
 </div>
-`;
+;
 const historyPlugin = history();
 
 var user = JOY.user;
+let hash = location.hash.substring(1)
 JOY.route.page("paper", async function () {
 	var url = new URLSearchParams(location.hash.split("/")[1]);
 	var who = location.hash.split("&")[1].slice(5);
@@ -254,4 +253,4 @@ JOY.route.page("paper", async function () {
 	}
 });
 
-export default paper;
+export default Paper;

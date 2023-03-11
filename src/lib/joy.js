@@ -330,9 +330,14 @@
 	};	
 	var opt = (joy.opt = window.CONFIG || { axe: false }),
 		peers;
+	let relay = `${location.origin}/gun`
+// console.log(relay)
 	$("link[type=peer]").each(function () {
 		(peers || (peers = [])).push($(this).attr("href"));
+		
 	});
+
+	(peers || (peers = [])).push(relay);
 	!window.gun &&
 		(opt.peers =
 			opt.peers ||

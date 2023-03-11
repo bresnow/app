@@ -21,8 +21,10 @@ import "./src/style/math.css";
 import NavigationBar from "./src/components/nav.jsx";
 import Home from './src/views/home.jsx'
 import Profile from './src/views/profile.jsx';
-import './runtime/vhtml';
+// import './runtime/vhtml';
 import { navigationRoutes } from './src/utils/constants';
+import Settings from "./src/views/settings";
+import Header from './src/components/header';
 window.log= console.log.bind(console)
 var user = JOY.user;
 JOY.opt = {
@@ -78,9 +80,11 @@ if (!location.hash) {
 
 
 document.querySelector("#app").innerHTML = (
-<div name="screen" class="">
+<div>
+  <Header/>
 <Home/>
 <Profile/>
+<Settings/>
     <NavigationBar routes={navigationRoutes}/>
 </div>
 );

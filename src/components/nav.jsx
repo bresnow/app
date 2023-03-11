@@ -20,19 +20,5 @@ const NavigationBar = ({routes}) => {
   </nav>
   );
 };
-JOY.style({
-  '.txt-grad-animation': {
-    color: '#fff',
-    background: '-webkit-linear-gradient(-45deg, #50cc7f, #f5d100, #92fe9d, #00c9ff)',
-    background: '-moz-linear-gradient(-45deg, #50cc7f, #f5d100, #92fe9d, #00c9ff)',
-    background: '-o-linear-gradient(-45deg, #50cc7f, #f5d100, #92fe9d, #00c9ff)',
-    background: 'linear-gradient(-45deg, #50cc7f, #f5d100, #92fe9d, #00c9ff)',
-    backgroundSize: '400% 400%',
-    '-webkit-background-clip': 'text',
-    '-webkit-text-fill-color': 'transparent',
-    '-webkit-animation': 'txtanimation2 15s ease infinite',
-    '-moz-animation': 'txtanimation2 15s ease infinite',
-    animation: 'txtanimation2 15s ease infinite',
-  }
-})
+
 export default NavigationBar;

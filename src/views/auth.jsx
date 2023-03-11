@@ -1,10 +1,10 @@
-import logo from "../components/logo.js";
+import Logo from "../components/logo.jsx";
 
-const create = `
+const NewUser = () => 
 <div id="create" class="page full hold center">
   <div class="center screen gap air">
     <div class="unit row gap">
-      <a href="#home">${logo(100)}</a>
+      <a href="#home">${Logo(100)}</a>
     </div>
 
     <form id="signup">
@@ -19,13 +19,13 @@ const create = `
     </div>
 
   </div>
-</div>`;
+</div>;
 
-const auth = `
+const AuthUser = ( )=> 
 <div id="auth" class="page full center">
   <div class="center screen gap">
     <div class="unit row gap">
-      <a href="#home">${logo(5)}</a>
+      <a href="#home">${Logo(5)}</a>
     </div>
       
     <form id="signin">
@@ -42,7 +42,7 @@ const auth = `
     <a href='#forgot' class='rim act'>Lost my keys</a>
   </div>
 </div>
-`;
+;
 
 JOY.route.page("auth", function () {
 	if (JOY.key) {
@@ -95,4 +95,4 @@ JOY.route.page("create", function () {
 	});
 });
 
-export { create, auth };
+export { NewUser as create, AuthUser as auth };

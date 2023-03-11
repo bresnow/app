@@ -1,13 +1,12 @@
-import header from "../components/header.js";
 
-const activity = `
+const Activity = () =>
 <div id="activity" class="page hold center">
 	<div class="center screen gap hold">
 	  <ul id="activities">
 	  </ul>
 	</div>
 </div>
-`;
+;
 
 JOY.route.page("activity", function () {
 	var notifications = {};
@@ -83,4 +82,4 @@ JOY.route.page("activity", function () {
 	});
 });
 
-export default activity;
+export default Activity;

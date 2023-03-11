@@ -2,10 +2,10 @@ const Profile = () =>
 <div id="profile" class="page hold center">
 
 	<div class="center pad screen gap leak">
-	<div contenteditable id="profile_title">LALALA</div>
+	<div contenteditable id="profile_title">%-- username --%</div>
 		    <img
       class="avatar"
-	  src="https://pixabay.com/get/gdd712295261cfbfcc7cd504ee4024120e6f745b7e707be4632c8c94370cb1c8509a3f1af1623c7ffa6aea900ca00957fc3f6d761b21af584cf7dc1e1ecc67c43_1280.jpg"
+				src="https://source.unsplash.com/random/300x300"
     />
 		<div class='mine'>
 		  <button id="cpk">Copy Key</button>
