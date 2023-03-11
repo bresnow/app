@@ -1,6 +1,6 @@
 import "./src/style/style.css";
-import "./src/style/cards.css";
-import "./src/style/app.css";
+// import "./src/style/cards.css";
+// import "./src/style/app.css";
 import "gun/gun.js";
 import "gun/sea.js";
 // import "@benrbray/prosemirror-math/style/math.css";
@@ -20,12 +20,10 @@ import "./src/style/math.css";
 
 import NavigationBar from "./src/components/nav.jsx";
 import Home from './src/views/home.jsx'
-import Profile from './src/views/profile.jsx';
-// import './runtime/vhtml';
-import { navigationRoutes } from './src/utils/constants';
-import Settings from "./src/views/settings";
+import Settings from "./src/views/settings"
 import Header from './src/components/header';
-window.log= console.log.bind(console)
+import { navigationRoutes } from './src/utils/constants';
+window.log = console.log.bind(console)
 var user = JOY.user;
 JOY.opt = {
   match: '%-- ',
@@ -73,24 +71,70 @@ window.onscroll = function () {
   prevScrollpos = currentScrollPos;
 };
 
-
-if (!location.hash) {
-  JOY.route("home");
-}
-
-
 document.querySelector("#app").innerHTML = (
-<div>
-  <Header/>
-<Home/>
-<Profile/>
-<Settings/>
-    <NavigationBar routes={navigationRoutes}/>
-</div>
-);
+  <div class="app">
+    <header class="header">
+      <div class="header__left">
+        <span>FLOATING MAMMOTH</span>
+      </div>
 
+      <div class="header__right">
+        <p></p>
+      </div>
+    </header>
 
+    <nav class="nav">
+      <ul class="nav__menu">
+        <li class="nav__item">
+          {/* <a href="#vienna" class="nav__link" data-scroll-to>
+            <div class="media">
+              <img src="https://lonelyplanetimages.imgix.net/mastheads/stock-photo-st-stephens-church-112868985.jpg?sharp=10&vib=20&w=2000" alt="" class="media__img" />
+                <p class="media__content">
+                  <strong>Vienna</strong><br />
+                  Austria
+                </p>
+            </div>
+          </a> */}
+        </li>
+        <li class="nav__item">
+          {/* <a href="#lisbon" class="nav__link" data-scroll-to>
+            <div class="media">
+              <img src="https://lonelyplanetimages.imgix.net/mastheads/54989636.jpg?sharp=10&vib=20&w=2000" alt="" class="media__img" />
+                <p class="media__content">
+                  <strong>Lisbon</strong><br />
+                  Portugal
+                </p>
+            </div>
+          </a> */}
+        </li>
+        <li class="nav__item">
+          {/* <a href="#newyork" class="nav__link" data-scroll-to>
+            <div class="media">
+              <img src="https://lonelyplanetimages.imgix.net/mastheads/GettyImages-538096543_medium.jpg?sharp=10&vib=20&w=2000" alt="" class="media__img" />
+                <p class="media__content">
+                  <strong>New York</strong><br />
+                  USA
+                </p>
+            </div>
+          </a> */}
+        </li>
+      </ul>
+    </nav>
+    {/* <div id={location.hash.substring(1)}> */}
+  <Home/>
+  <Settings/>
+    {/* </div> */}
+    <footer class="footer">
+      <p><a href="#">@bresnow</a></p>
+      <p> <a href="#"></a></p>
 
+      <p class="footer__more">
+       
+      </p>
+    </footer>
+  </div>
+ 
+)
 var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
 
 function preventDefault(e) {

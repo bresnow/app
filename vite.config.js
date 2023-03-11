@@ -4,7 +4,9 @@ import { defineConfig } from 'vite'
 export default defineConfig({
     esbuild: {
         jsxInject: `import h from 'vhtml';`,
-        jsxFactory: "h"
+        jsxFactory: "h",
+        jsxFragment: "Fragment"
+
     },
     plugins: [
         Inspect()

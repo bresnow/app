@@ -238,9 +238,8 @@
 	joy.head = function (title, hide) {
 		$(document).ready(function () {
 			var $head = $("header");
-			// var $account = $("#account");
 			document.title = title;
-			place.textContent = title;
+			// $head.textContent = title;
 			if (hide) {
 				if (hide.only) {
 					// console.log("hide.only", hide.only);
