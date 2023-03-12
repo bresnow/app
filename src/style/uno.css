@@ -6,6 +6,7 @@
 .h2{height:0.5rem;}
 .flex{display:flex;}
 .border{border-width:1px;}
+.bg-red{--un-bg-opacity:1;background-color:rgba(248,113,113,var(--un-bg-opacity));}
 .p\[name\=\'username\'\]{padding:name='username';}
 .tab{-moz-tab-size:4;-o-tab-size:4;tab-size:4;}
 .ease{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);}

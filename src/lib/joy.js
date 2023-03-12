@@ -4,6 +4,7 @@
 		if (gun === as.gui && as.el && as.el.is(el)) { return }
 
 		opt = opt || {};
+		opt.reload = opt.reload || false;
 		opt.match = opt.match || '%-- ';
 		opt.end = opt.end || ' --%';
 		; (function () { // experimental
@@ -199,7 +200,7 @@
 		return $data;
 	}
 	window.onhashchange = function () {
-		window.location.reload(true);
+		window.location.reload(opt.reload);
 		r(location.hash.slice(1))
 	};
 	$.as && ($.as.route = r);
