@@ -1,10 +1,9 @@
 
-import '../style/application.css'
 var user = JOY.user
 
 const Home = () => {
 	return (
-			<section class="main page">
+			<section class="main">
 				<article class="section" data-section>
 					<header class="section__header" style="background-image: url('https://source.unsplash.com/random/1000x1000');">
 						<h1 class="section__title">%-- section__title --%</h1>

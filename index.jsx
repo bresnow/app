@@ -1,4 +1,5 @@
-import "./src/style/style.css";
+// import "./src/style/style.css";
+import './src/style/application.css'
 // import "./src/style/cards.css";
 // import "./src/style/app.css";
 import "gun/gun.js";
@@ -122,7 +123,7 @@ document.querySelector("#app").innerHTML = (
     </nav>
     {/* <div id={location.hash.substring(1)}> */}
   <Home/>
-  <Settings/>
+  {/* <Settings/> */}
     {/* </div> */}
     <footer class="footer">
       <p><a href="#">@bresnow</a></p>
