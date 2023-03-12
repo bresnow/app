@@ -4,6 +4,7 @@ COPY package.json ./package.json
 COPY src ./src
 COPY public ./public
 COPY index.html ./index.html
+COPY index.jsx ./index.jsx
 COPY vite.config.js ./vite.config.js
 COPY server.mjs ./server.mjs
 RUN yarn install

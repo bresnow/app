@@ -6,14 +6,15 @@ import Profile from "./profile.jsx";
 import Friends from "./friends.jsx";
 // import { create, auth } from "./auth.js";
 import Paper from "./paper.jsx";
+import { Section } from "../containers/section.jsx";
 export const Views = () =>
-    <div>
-        <Activity />
+    <Section>
         <Home />
+        <Activity />
         <Settings />
         <Profile />
         <Search />
         <Friends />
         <Paper />
-        </div>
+    </Section>
     ;

@@ -1,64 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head name="__document_html_head">
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/logo.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.jsdelivr.net/npm/gun/examples/jquery.js"></script>
+  <meta name="title" content="%-- meta --%" />
+  <meta name="og:type" content="" />
+  <meta name="og:image" content="" />
+  <meta name="og:image:width" content="" />
+  <meta name="og:image:height" content="" />
+  <meta name="og:description" content="" />
+  <meta name="og:title" content="" />
+  <meta name="og:url" content="" />
+  <!-- og:site_name: -->
+  <meta name="og:locale" content="" />
+  <meta name="twitter:card" content="" />
+  <meta name="twitter:site" content="" />
+  <meta name="twitter:creator" content="" />
+  <meta name="twitter:title" content="" />
+  <!-- twitter:desacription: -->
+  <meta name="twitter:image" content="" />
+  <meta name="twitter:image:alt" content="" />
+  <meta name="twitter:image:width" content="" />
+  <meta name="twitter:image:height" content="" />
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
   <title>FLTNGMMTH</title>
-  <style>
-    @-webkit-keyframes txtanimation2 {
-      0% {
-        background-position: 0% 50%
-      }
-
-      50% {
-        background-position: 100% 50%
-      }
-
-      100% {
-        background-position: 0% 50%
-      }
-    }
-
-    @-moz-keyframes txtanimation2 {
-      0% {
-        background-position: 0% 50%
-      }
-
-      50% {
-        background-position: 100% 50%
-      }
-
-      100% {
-        background-position: 0% 50%
-      }
-    }
-
-    @keyframes txtanimation2 {
-      0% {
-        background-position: 0% 50%
-      }
-
-      50% {
-        background-position: 100% 50%
-      }
-
-      100% {
-        background-position: 0% 50%
-      }
-    }
-  </style>
 </head>
 
 <body>
-  <div class="full" id="app"></div>
+  <div id="app"></div>
   <script type="module" src="/index.jsx"></script>
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1/dist/es-module-shims.min.js"
-    crossorigin="anonymous"></script>
-
+  <script>
+    // Registering our Service worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js', { scope: './' })
+    }
+  </script>
 
 </html>

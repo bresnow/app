@@ -1,6 +1,6 @@
 
 const Friends = () => 
-<div id="friends" class="page hold center">
+	<div id="friends" class="section__content">
 	<div class="center screen rim hold">
 	  <ul id="friend">
 	    

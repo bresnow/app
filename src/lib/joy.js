@@ -174,7 +174,7 @@
 		if (!href) { return }
 		if (href[0] == '#') { href = href.slice(1) }
 		var h = href.split('/')[0];
-		$('.page').hide();
+		$(".section__content").hide();
 		$('#' + h).show();
 		if (r.on === h) { return }
 		location.hash = href;
@@ -183,6 +183,7 @@
 		return r;
 	};
 	r.page = function (h, cb) {
+		h = h.toLowerCase()
 		r.page[h] = r.page[h] || { on: cb };
 		return r;
 	}
@@ -199,7 +200,8 @@
 	}
 	window.onhashchange = function () {
 		window.location.reload(true);
-		r(location.hash.slice(1)) };
+		r(location.hash.slice(1))
+	};
 	$.as && ($.as.route = r);
 	if (window.as) {
 		as.route = r;
@@ -209,7 +211,7 @@
 }());
 
 ; $(function () {
-	// $('.page').not(':first').hide();
+	// $(".section__content").not(':first').hide();
 	// let router =  $.route;
 	// router(location.hash.slice(1));
 	$(JOY.start = JOY.start || function () { $.as(document, gun, null, JOY.opt) });
@@ -253,21 +255,21 @@
 			$("header").removeClass("none");
 		});
 	};
-	joy.style = function(css, m) {
-				var style =  css 
-				var tmp = m ? "@media " + m + " {\n\t" : "";
-				$.each(style, function (c, r) {
-					tmp += c + " {\n";
-					$.each(r, function (k, v) {
-						tmp += "\t" + camelToKebab(k) + ": " + v + ";\n";
-					});
-					tmp += "}\n";
-				});
-				var tag = document.createElement("style");
-				tag.innerHTML = m ? tmp + "\n}" : tmp;
-				document.documentElement.append(tag);
-			}
-	joy.css = joy.style	
+	joy.style = function (css, m) {
+		var style = css
+		var tmp = m ? "@media " + m + " {\n\t" : "";
+		$.each(style, function (c, r) {
+			tmp += c + " {\n";
+			$.each(r, function (k, v) {
+				tmp += "\t" + camelToKebab(k) + ": " + v + ";\n";
+			});
+			tmp += "}\n";
+		});
+		var tag = document.createElement("style");
+		tag.innerHTML = m ? tmp + "\n}" : tmp;
+		document.documentElement.append(tag);
+	}
+	joy.css = joy.style
 	joy.download = function (filename, data, type, charset, href) {
 		let hiddenElement;
 		if (charset === null) {
@@ -326,14 +328,17 @@
 		}
 
 		return interval + " " + intervalType;
-	};	
+	};
+
+	// Renders jsx to index.html. 
+	joy.jsxRender = jsxRender;
 	var opt = (joy.opt = window.CONFIG || { axe: false }),
 		peers;
 	let relay = `${location.origin}/gun`
-// console.log(relay)
+	// console.log(relay)
 	$("link[type=peer]").each(function () {
 		(peers || (peers = [])).push($(this).attr("href"));
-		
+
 	});
 
 	(peers || (peers = [])).push(relay);
@@ -368,21 +373,12 @@
 	});
 }());
 
-function templateRender({ tag, attributes, children }) {
-	let props = attributes ? Object.entries(attributes).reduce((acc, curr) => {
-		let [key, value] = curr;
-		let result = acc + ` ${key}="${value}"`
-		return result
-	}, "") : "";
-	let front_tag = `<${tag}${props}>`, back_tag = `</${tag}>`;
-	let _children = children?.map(child => {
-		return templateRender(child)
-	})
-	var temp = front_tag + _children + back_tag;
-	return temp
-
-}
 
 function camelToKebab(string) {
 	return string.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, "$1-$2").toLowerCase();
+}
+function jsxRender(jsx, id = "app") {
+	document.getElementById(id).innerHTML = (
+		jsx
+	)
 }

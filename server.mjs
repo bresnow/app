@@ -3,15 +3,13 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import express from 'express'
 import { createServer as createViteServer } from 'vite'
-
 import Gun from "gun"
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-async function createServer() {
     const app = express()
     const vite = await createViteServer({
         server: { middlewareMode: true },
-        appType: 'custom'
+        // appType: 'custom'
     })
 
     app.use(vite.middlewares)
@@ -42,7 +40,4 @@ async function createServer() {
         })
     })
 
-    let clientCnxt = gun.get("client/ws/connection") 
-}
-
-createServer()
+gun.get("client/ws/connection").put({ reload: true }) 

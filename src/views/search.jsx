@@ -1,6 +1,6 @@
 
-const Search = 
-<div id="search" class="page hold center">
+const Search = ()=>
+	<div id="search" class="section__content">
 	<div class=" screen">
 	  <form id="search" class="gap">
 	    <input class='surface unit max  row' id='query' placeholder='Search !title, @person, #tag...'/>

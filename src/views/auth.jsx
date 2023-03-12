@@ -1,7 +1,7 @@
 import Logo from "../components/logo.jsx";
 
 export const NewUser = () => 
-<section id="create" class="page main ">
+	<section id="create" class="section__content">
 		<article class="section" data-section>
   <div class="center screen gap air">
     <div class="unit row gap">
@@ -24,7 +24,7 @@ export const NewUser = () =>
 </section>;
 
 export const AuthUser = ( )=> 
-<section id="auth" class="page main">
+	<section id="auth" class="section__content">
 		<article class="section" data-section>
   <div class="center screen gap">
     <div class="unit row gap">

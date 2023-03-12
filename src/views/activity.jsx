@@ -1,6 +1,6 @@
 
 const Activity = () =>
-<div id="activity" class="page hold center">
+	<div id="activity" class="section__content">
 	<div class="center screen gap hold">
 	  <ul id="activities">
 	  </ul>

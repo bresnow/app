@@ -2,7 +2,7 @@
 import Unocss from 'unocss/vite';
 import Inspect from 'vite-plugin-inspect';
 import { defineConfig } from 'vite';
-
+import presetAttributify from '@unocss/preset-attributify'
 
 export default defineConfig({
     esbuild: {
@@ -13,6 +13,15 @@ export default defineConfig({
     },
     plugins: [
         Inspect(),
-	Unocss({})
+	Unocss({
+        presets: [
+            presetAttributify({
+                ignoreAttributes: [
+                    'name'
+                    // ...
+                ] }),
+           
+        ],
+    })
     ],
 })

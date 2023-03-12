@@ -1,5 +1,5 @@
 const Profile = () =>
-<div id="profile" class="page hold center">
+	<div id="profile" class="section__content">
 
 	<div class="center pad screen gap leak">
 	<div contenteditable id="profile_title">%-- username --%</div>

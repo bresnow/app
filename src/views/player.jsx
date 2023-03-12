@@ -1,7 +1,7 @@
 export default function Player() {
     log($(".__container"))
     return (
-        <div id="player" class="page">
+        <div id="player" class="section__content">
             <style>
  {             `  .__container {
                     display: flex;

@@ -11,7 +11,7 @@ import { addListNodes } from "prosemirror-schema-list";
 import { history } from "prosemirror-history";
 import { mathPlugin, mathSerializer } from "@benrbray/prosemirror-math";
 const Paper = () =>
-<div id="paper" class="page screen" >
+	<div id="paper" class="section__content" >
 	<div id="paper-img" class="none row gap">
 		<img class="cover sap primary" />
 	</div>

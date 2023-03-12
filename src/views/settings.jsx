@@ -2,7 +2,7 @@ import QRCode from "../lib/qrcode.min.js";
 
 const Settings = ()=>
 
-	<section id="settings" class="page main">
+	<section id="settings" class="section__content">
 		<article class="section" data-section>
 		<div>
 			<div class="surface col center sap">Account</div>

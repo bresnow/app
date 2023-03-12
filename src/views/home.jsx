@@ -1,72 +1,56 @@
 
 var user = JOY.user
 
+
 const Home = () => {
 	return (
-			<section name="main_section" class="main">
-				<article class="section" data-section>
-				<header name="section_header"class="section__header" style="background-image: url(%-- backgroundImage --%);">
-						<h1 class="section__title" contentEditable>%-- title --%</h1>
-					<p class="section__subtitle" contentEditable>%-- subtitle --%</p>
-						<div class="section__controls">
 
-							<div class="user">
-								<img src="https://source.unsplash.com/200x200/?nature" class="user__img" alt="" />
-								<span class="user__name" contentEditable >%-- username --%</span>
-							</div>
-						</div>
-					</header>
-					<div class="section__content">
-						<ul class="boxgrid">
-							<li class="boxgrid__item boxgrid__item--wide">
-								<a href="#settings" class="box box--image">
-									<img src="https://source.unsplash.com/600x400/?art" class="box__img" alt="" />
-								</a>
-							</li>
-							<li class="boxgrid__item">
-								<a href="#settings" class="box box--weather">
-									<p><span class="text--large">30°C</span><br />Sunny</p>
-								</a>
-							</li>
-							<li class="boxgrid__item boxgrid__item--push">
-								<a href="#settings" class="box box--video">
-									<img src="https://source.unsplash.com/300x300/?art" class="box__img" alt="" />
-								</a>
-							</li>
-							<li class="boxgrid__item boxgrid__item--push">
-								<a href="#settings" class="box box--image">
-									<img src="https://source.unsplash.com/300x300/?people" class="box__img" alt="" />
-								</a>
-							</li>
-							<li class="boxgrid__item boxgrid__item--push">
-								<a href="#settings" class="box box--locations">
-									<p><span class="text--large">1.366</span><br />Locations</p>
-								</a>
-							</li>
-							<li class="boxgrid__item">
-								<a href="#settings" class="box box--cost">
-									<p><span class="text--large">150$</span><br />Daily cost</p>
-								</a>
-							</li>
-							<li class="boxgrid__item">
-								<a href="#settings" class="box box--image">
-									<img src="https://source.unsplash.com/300x300/?technology" class="box__img" alt="" />
-								</a>
-							</li>
-						</ul>
-					</div>
-				</article>
-			</section>
+		<div id="home"  class="section__content">
+			<ul name="#" class="boxgrid">
+				<li class="boxgrid__item boxgrid__item--wide">
+					<a href="#settings" class="box box--image">
+						<img src="https://source.unsplash.com/600x400/?art" class="box__img" alt="" />
+					</a>
+				</li>
+				<li class="boxgrid__item">
+					<a href="#settings" class="box box--weather">
+						<p><span class="text--large">30°C</span><br />Sunny</p>
+					</a>
+				</li>
+				<li class="boxgrid__item boxgrid__item--push">
+					<a href="#settings" class="box box--video">
+						<img src="https://source.unsplash.com/300x300/?art" class="box__img" alt="" />
+					</a>
+				</li>
+				<li class="boxgrid__item boxgrid__item--push">
+					<a href="#settings" class="box box--image">
+						<img src="https://source.unsplash.com/300x300/?people" class="box__img" alt="" />
+					</a>
+				</li>
+				<li class="boxgrid__item boxgrid__item--push">
+					<a href="#settings" class="box box--locations">
+						<p><span class="text--large">1.366</span><br />Locations</p>
+					</a>
+				</li>
+				<li class="boxgrid__item">
+					<a href="#settings" class="box box--cost">
+						<p><span class="text--large">150$</span><br />Daily cost</p>
+					</a>
+				</li>
+				<li class="boxgrid__item">
+					<a href="#settings" class="box box--image">
+						<img src="https://source.unsplash.com/300x300/?technology" class="box__img" alt="" />
+					</a>
+				</li>
+			</ul>
+		</div>
 
-		)
+	)
 };
 
 JOY.style({
 	'.txt-grad-animation': {
 		color: '#fff',
-		background: '-webkit-linear-gradient(-45deg, #50cc7f, #f5d100, #92fe9d, #00c9ff)',
-		background: '-moz-linear-gradient(-45deg, #50cc7f, #f5d100, #92fe9d, #00c9ff)',
-		background: '-o-linear-gradient(-45deg, #50cc7f, #f5d100, #92fe9d, #00c9ff)',
 		background: 'linear-gradient(-45deg, #50cc7f, #f5d100, #92fe9d, #00c9ff)',
 		backgroundSize: '400% 400%',
 		'-webkit-background-clip': 'text',
