@@ -13,32 +13,32 @@ const Home = () => {
 					</a>
 				</li>
 				<li class="boxgrid__item">
-					<a href="#settings" class="box box--weather">
+					<a href="#best" class="box box--weather">
 						<p><span class="text--large">30°C</span><br />Sunny</p>
 					</a>
 				</li>
 				<li class="boxgrid__item boxgrid__item--push">
-					<a href="#settings" class="box box--video">
+					<a href="#best" class="box box--video">
 						<img src="https://source.unsplash.com/300x300/?art" class="box__img" alt="" />
 					</a>
 				</li>
 				<li class="boxgrid__item boxgrid__item--push">
-					<a href="#settings" class="box box--image">
+					<a href="#best" class="box box--image">
 						<img src="https://source.unsplash.com/300x300/?people" class="box__img" alt="" />
 					</a>
 				</li>
 				<li class="boxgrid__item boxgrid__item--push">
-					<a href="#settings" class="box box--locations">
+					<a href="#profile" class="box box--locations">
 						<p><span class="text--large">1.366</span><br />Locations</p>
 					</a>
 				</li>
 				<li class="boxgrid__item">
-					<a href="#settings" class="box box--cost">
+					<a href="#best" class="box box--cost">
 						<p><span class="text--large">150$</span><br />Daily cost</p>
 					</a>
 				</li>
 				<li class="boxgrid__item">
-					<a href="#settings" class="box box--image">
+					<a href="#best" class="box box--image">
 						<img src="https://source.unsplash.com/300x300/?technology" class="box__img" alt="" />
 					</a>
 				</li>

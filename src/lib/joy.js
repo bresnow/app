@@ -176,7 +176,7 @@
 		if (href[0] == '#') { href = href.slice(1) }
 		var h = href.split('/')[0];
 		$(".section__content").hide();
-		$('#' + h).show();
+		$('#' + h).fadeIn();
 		if (r.on === h) { return }
 		location.hash = href;
 		(r.page[h] || { on: function () { } }).on();
@@ -356,7 +356,7 @@
 	joy.user = gun.user();
 	;
 	$(function () {
-		$(".page").not(":first").hide();
+		$(".page").not(":first").fadeOut();
 		JOY.route(location.hash.slice(1));
 		$(
 			(JOY.start =

@@ -11,8 +11,8 @@ import "gun/sea.js";
 import "./src/lib/chain.js";
 import "./src/lib/joy.js";
 // import "./src/lib/as.js";
-import "./src/lib/meta.js";
-import "./src/lib/meta.ui.js";
+// import "./src/lib/meta.js";
+// import "./src/lib/meta.ui.js";
 import "./src/style";
 // import hero from "./src/component/hero";
 Gun.log.off = true;
@@ -26,6 +26,7 @@ import Header from './src/components/header';
 import { navigationRoutes } from './src/utils/constants';
 
 import { Views } from './src/views';
+import Logo from './src/components/logo';
 
 window.log = console.log.bind(console)
 var user = JOY.user;
@@ -120,7 +121,7 @@ JOY.jsxRender(
   <div class="app">
     <header class="header">
       <div class="header__left">
-        <span>FLOATING MAMMOTH</span>
+        <a href="#home"><Logo size={70}/></a><span>FLOATING MAMMOTH</span>
       </div>
 
       <div class="header__right">
@@ -162,7 +163,7 @@ JOY.jsxRender(
     <Views />
 
     <footer class="footer">
-      <p><a href="#">@bresnow</a></p>
+      <p><a href="#home">@bresnow</a></p>
       <p> <a href="#"></a></p>
 
       <p class="footer__more">

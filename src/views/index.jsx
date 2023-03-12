@@ -7,6 +7,7 @@ import Friends from "./friends.jsx";
 // import { create, auth } from "./auth.js";
 import Paper from "./paper.jsx";
 import { Section } from "../containers/section.jsx";
+import Player from "./player.jsx";
 export const Views = () =>
     <Section>
         <Home />
@@ -16,5 +17,6 @@ export const Views = () =>
         <Search />
         <Friends />
         <Paper />
+    <Player/>
     </Section>
     ;
