@@ -4,8 +4,7 @@ var user = JOY.user
 
 const Home = () => {
 	return (
-		
-			<main class="main">
+			<section class="main page">
 				<article class="section" data-section>
 					<header class="section__header" style="background-image: url('https://source.unsplash.com/random/1000x1000');">
 						<h1 class="section__title">%-- section__title --%</h1>
@@ -21,44 +20,45 @@ const Home = () => {
 					<div class="section__content">
 						<ul class="boxgrid">
 							<li class="boxgrid__item boxgrid__item--wide">
-								<a href="#" class="box box--image">
+								<a href="#settings" class="box box--image">
 									<img src="https://source.unsplash.com/600x400/?art" class="box__img" alt="" />
 								</a>
 							</li>
 							<li class="boxgrid__item">
-								<a href="#" class="box box--weather">
+								<a href="#settings" class="box box--weather">
 									<p><span class="text--large">30°C</span><br />Sunny</p>
 								</a>
 							</li>
 							<li class="boxgrid__item boxgrid__item--push">
-								<a href="#" class="box box--video">
+								<a href="#settings" class="box box--video">
 									<img src="https://source.unsplash.com/300x300/?art" class="box__img" alt="" />
 								</a>
 							</li>
 							<li class="boxgrid__item boxgrid__item--push">
-								<a href="#" class="box box--image">
+								<a href="#settings" class="box box--image">
 									<img src="https://source.unsplash.com/300x300/?people" class="box__img" alt="" />
 								</a>
 							</li>
 							<li class="boxgrid__item boxgrid__item--push">
-								<a href="#" class="box box--locations">
+								<a href="#settings" class="box box--locations">
 									<p><span class="text--large">1.366</span><br />Locations</p>
 								</a>
 							</li>
 							<li class="boxgrid__item">
-								<a href="#" class="box box--cost">
+								<a href="#settings" class="box box--cost">
 									<p><span class="text--large">150$</span><br />Daily cost</p>
 								</a>
 							</li>
 							<li class="boxgrid__item">
-								<a href="#" class="box box--image">
+								<a href="#settings" class="box box--image">
 									<img src="https://source.unsplash.com/300x300/?technology" class="box__img" alt="" />
 								</a>
 							</li>
 						</ul>
 					</div>
 				</article>
-			</main>
+			</section>
+
 		)
 };
 
@@ -80,7 +80,6 @@ JOY.style({
 var colors = ["green", "yellow", "red", "blue"];
 JOY.route.page("home", function () {
 
-	JOY.user.get('profile').once(d => console.log(d))
 	if (!JOY.key) {
 		JOY.route("create");
 	}
@@ -141,7 +140,7 @@ JOY.route.page("home", function () {
 					}
 				});
 		});
-	console.log(meta);
+
 
 	meta.edit({
 		name: "Create",

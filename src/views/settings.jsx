@@ -1,9 +1,9 @@
 import QRCode from "../lib/qrcode.min.js";
 
 const Settings = ()=>
-<div id="settings" class="page hold center">
 
-	<div class=" screen gap hold">
+	<section id="settings" class="page main">
+		<article class="section" data-section>
 		<div>
 			<div class="surface col center sap">Account</div>
 			<p>Save a backup of your private key first! Otherwise you can't log in back to this account.</p>
@@ -31,8 +31,8 @@ const Settings = ()=>
 			</p>
 			<button id="install">Install</button>
 		</div>
-	</div>
-</div>
+		</article>
+	</section>
 ;
 			// <spa class="surface col center sap">Peer</spa>
 			// <p>In construction</p>

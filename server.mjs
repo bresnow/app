@@ -36,12 +36,13 @@ async function createServer() {
     })
 
     // Create GUN relay server for P2P networking
-    Gun({
+    const gun = Gun({
         web: app.listen(5173, () => {
             console.log("JOY framework and relay server is listening on port 5173")
         })
     })
 
+    let clientCnxt = gun.get("client/ws/connection") 
 }
 
 createServer()

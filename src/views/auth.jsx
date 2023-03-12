@@ -1,10 +1,11 @@
 import Logo from "../components/logo.jsx";
 
-const NewUser = () => 
-<div id="create" class="page full hold center">
+export const NewUser = () => 
+<section id="create" class="page main ">
+		<article class="section" data-section>
   <div class="center screen gap air">
     <div class="unit row gap">
-      <a href="#home">${Logo(100)}</a>
+				<a href="#home">{<Logo size={100} />}</a>
     </div>
 
     <form id="signup">
@@ -19,13 +20,15 @@ const NewUser = () =>
     </div>
 
   </div>
-</div>;
+  </article>
+</section>;
 
-const AuthUser = ( )=> 
-<div id="auth" class="page full center">
+export const AuthUser = ( )=> 
+<section id="auth" class="page main">
+		<article class="section" data-section>
   <div class="center screen gap">
     <div class="unit row gap">
-      <a href="#home">${Logo(5)}</a>
+      <a href="#home">{<Logo size={100}/>}</a>
     </div>
       
     <form id="signin">
@@ -41,8 +44,11 @@ const AuthUser = ( )=>
 
     <a href='#forgot' class='rim act'>Lost my keys</a>
   </div>
-</div>
+  </article>
+</section>
 ;
+
+
 
 JOY.route.page("auth", function () {
 	if (JOY.key) {
@@ -95,4 +101,3 @@ JOY.route.page("create", function () {
 	});
 });
 
-export { NewUser as create, AuthUser as auth };
