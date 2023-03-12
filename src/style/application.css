@@ -183,6 +183,9 @@ p {
   margin-bottom: 0.5rem;
   line-height: 1;
 }
+.section__title:focus {
+  background: var(--white)
+}
 .section__subtitle {
   font-size: 1.5rem;
 }

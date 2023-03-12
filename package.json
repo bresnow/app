@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node server.mjs",
     "build": "vite build --outDir dist/client",
-    "preview": "vite preview"
+    "start: "node server.mjs"
   },
   "devDependencies": {
     "concurrently": "^7.6.0",

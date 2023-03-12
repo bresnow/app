@@ -3,16 +3,16 @@ var user = JOY.user
 
 const Home = () => {
 	return (
-			<section class="main">
+			<section name="main_section" class="main">
 				<article class="section" data-section>
-					<header class="section__header" style="background-image: url('https://source.unsplash.com/random/1000x1000');">
-						<h1 class="section__title">%-- section__title --%</h1>
-						<p class="section__subtitle">%-- section__subtitle --%</p>
+				<header name="section_header"class="section__header" style="background-image: url(%-- backgroundImage --%);">
+						<h1 class="section__title" contentEditable>%-- title --%</h1>
+					<p class="section__subtitle" contentEditable>%-- subtitle --%</p>
 						<div class="section__controls">
 
 							<div class="user">
 								<img src="https://source.unsplash.com/200x200/?nature" class="user__img" alt="" />
-								<span class="user__name">%-- username --%</span>
+								<span class="user__name" contentEditable >%-- username --%</span>
 							</div>
 						</div>
 					</header>
