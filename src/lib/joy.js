@@ -1,7 +1,7 @@
 ; (function () {
 	function as(el, gun, cb, opt) {
 		!el ? el = document : $(el);
-		if (gun === as.gui && as.el && as.el.is(el)) { return }
+		if (gun === as.ui && as.el && as.el.is(el)) { return }
 
 		opt = opt || {};
 		opt.reload = opt.reload || false;
@@ -69,8 +69,9 @@
 
 		}());
 
-		as.gui = gun;
+		as.ui = gun;
 		as.el = el;
+		as.ui.opt({peers: [""], localStorage: true})
 		if (el.data('as')) {
 			el.html(el.data('as').fresh);
 		} else {
@@ -271,6 +272,8 @@
 		document.documentElement.append(tag);
 	}
 	joy.css = joy.style
+
+		// TODO: Remove  and add to chain
 	joy.download = function (filename, data, type, charset, href) {
 		let hiddenElement;
 		if (charset === null) {
@@ -283,12 +286,17 @@
 		hiddenElement.download = filename;
 		hiddenElement.click();
 	};
+
+
+		// TODO: Remove 
 	joy.capitalize = function (s) {
 		if (s === undefined) {
 			return "";
 		}
 		return s.charAt(0).toUpperCase() + s.slice(1);
 	};
+
+	// TODO: Remove Since
 	joy.since = function (date) {
 		if (typeof date !== "object") {
 			date = new Date(date);
@@ -333,16 +341,18 @@
 
 	// Renders jsx to index.html. 
 	joy.jsxRender = jsxRender;
-	var opt = (joy.opt = window.CONFIG || { axe: false }),
-		peers;
-	let relay = `${location.origin}/gun`
+
+
+
+	var opt = (joy.opt = window.CONFIG || { localStorage: false }),
+		peers = [],relay = `${location.origin}/gun`
 	// console.log(relay)
 	$("link[type=peer]").each(function () {
-		(peers || (peers = [])).push($(this).attr("href"));
+		peers.push($(this).attr("href"));
 
 	});
 
-	(peers || (peers = [])).push(relay);
+	peers.push(relay);
 	!window.gun &&
 		(opt.peers =
 			opt.peers ||
@@ -356,7 +366,7 @@
 	joy.user = gun.user();
 	;
 	$(function () {
-		$(".page").not(":first").fadeOut();
+		$(".section__content").not(":first").fadeOut();
 		JOY.route(location.hash.slice(1));
 		$(
 			(JOY.start =
@@ -365,12 +375,6 @@
 					$.as(document, gun, null, JOY.opt);
 				})
 		);
-
-		if ($("body").attr("peers")) {
-			(console.warn || console.log)(
-				'Warning: Please upgrade <body peers="">'
-			);
-		}
 	});
 }());
 

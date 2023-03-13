@@ -1,57 +1,39 @@
 import Logo from "../components/logo.jsx";
-import '../style/style.css'
-export const NewUser = () => 
-{
-	return(
-		<div class="main">
-			<input type="checkbox" id="chk" aria-hidden="true" />
-
-				<div class="signup">
-					<form>
-						<label for="chk" aria-hidden="true">Sign up</label>
-						<input type="text" name="txt" placeholder="User name" required=""/>
-							<input type="email" name="email" placeholder="Email" required=""/>
-								<input type="password" name="pswd" placeholder="Password" required=""/>
-									<button>Sign up</button>
-								</form>
-							</div>
-
-							<div class="login">
-								<form>
-									<label for="chk" aria-hidden="true">Login</label>
-						<input type="email" name="email" placeholder="Email" required="" />
-						<input type="password" name="pswd" placeholder="Password" required="" />
-											<button>Login</button>
-										</form>
-							</div>
-							</div>
+export const NewUser = () => {
+	return (
+		<div id="create" class="section__content ">
+			<div id="signup">
+				<input id="request" placeholder="Enter Your Alias" spellcheck="false" type="text"/>
+					<div class="email-send"></div>
+			</div>
+		</div>
 	)
 }
 
-export const AuthUser = ( )=> 
+export const AuthUser = () =>
 	<section id="auth" class="section__content">
 		<article class="section" data-section>
-  <div class="center screen gap">
-    <div class="unit row gap">
-      <a href="#home"><Logo size={100}/></a>
-    </div>
-      
-    <form id="signin">
-      <input class='center unit max row' id='key' placeholder='Paste your key.'/>
-      <div class='unit row gap'>
-        <input class="act primary" type="submit" value="Login" />
-      </div>
-    </form>
+			<div class="center screen gap">
+				<div class="unit row gap">
+					<a href="#home"><Logo size={100} /></a>
+				</div>
 
-    <div class='unit row gap'>
-      <a href='#create' class='rim act surface'>Create an account</a>
-    </div>
+				<form id="signin">
+					<input class='center unit max row' id='key' placeholder='Paste your key.' />
+					<div class='unit row gap'>
+						<input class="act primary" type="submit" value="Login" />
+					</div>
+				</form>
 
-    <a href='#forgot' class='rim act'>Lost my keys</a>
-  </div>
-  </article>
-</section>
-;
+				<div class='unit row gap'>
+					<a href='#create' class='rim act surface'>Create an account</a>
+				</div>
+
+				<a href='#forgot' class='rim act'>Lost my keys</a>
+			</div>
+		</article>
+	</section>
+	;
 
 
 
@@ -80,6 +62,18 @@ JOY.route.page("create", function () {
 	if (JOY.key) {
 		JOY.route("home");
 	}
+	$('#request').click(function (event) {
+		event.stopPropagation();
+		$(this).addClass("email");
+		$('.email-send').addClass("email-send-show");
+		$(this).attr("placeholder", "Enter your email...");
+	});
+
+	$('html').click(function () {
+		$('#request').removeClass("email");
+		$('.email-send').removeClass("email-send-show");
+		$('#request').attr("placeholder", "Request Early Access");
+	});
 	JOY.head("Join", true);
 	var name = $("#alias");
 	name.focus();

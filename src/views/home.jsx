@@ -63,9 +63,9 @@ JOY.style({
 var colors = ["green", "yellow", "red", "blue"];
 JOY.route.page("home", function () {
 
-	if (!JOY.key) {
-		JOY.route("create");
-	}
+	// if (!JOY.key) {
+	// 	JOY.route("create");
+	// }
 	JOY.head("Home");
 	JOY.user.get("home").get("header").put({
 		image: "https://cdn.pixabay.com/photo/2023/02/13/10/30/eye-7787024_1280.jpg"

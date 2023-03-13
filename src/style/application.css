@@ -154,51 +154,7 @@ p {
   transform-style: preserve-3d;
   scroll-snap-align: start;
 }
-.section__header {
-  position: absolute;
-  top: 50px;
-  left: 0;
-  right: 0;
-  height: 500px;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  text-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
-}
-.section__header::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
-}
-.section__title {
-  font-size: 3.5rem;
-  font-weight: 200;
-  margin-bottom: 0.5rem;
-  line-height: 1;
-}
-.section__title:focus {
-  background: var(--white)
-}
-.section__subtitle {
-  font-size: 1.5rem;
-}
-.section__controls {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  padding: 0 2rem;
-  top: 0;
-  left: 0;
-  right: 0;
-  transform: translateY(-50%);
-}
+
 .section__content {
   position: relative;
   z-index: 1;
@@ -394,8 +350,8 @@ p {
   font-weight: 200;
 }
 .user__img {
-  width: 100px;
-  height: 100px;
+  width: 4em;
+  height: 4em;
   border-radius: 50%;
   margin-bottom: 0.5rem;
   box-shadow: 0 0 38px rgba(0, 0, 0, 0.3);
@@ -528,3 +484,81 @@ button:focus {
 
 
 
+#signup {
+  position: relative;
+  display: inline-block;
+}
+
+#signup #request {
+  line-height: normal;
+  display: inline-block;
+  background: #348bf5;
+  border-radius: 3px;
+  padding: 10px 14px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 15px;
+  width: 180px;
+  text-align: center;
+  position: relative;
+  transition: all 350ms cubic-bezier(0.23, 1 ,0.32, 1);
+  -webkit-transition: all 350ms cubic-bezier(0.23, 1 ,0.32, 1);
+  -moz-transition: all 350ms cubic-bezier(0.23, 1 ,0.32, 1);
+
+}
+
+#signup #request:hover {
+  background: #3a90fc;
+}
+
+#signup #request:focus {
+  outline: none;
+}
+
+#signup #request.email {
+  width: 280px;
+  text-align: left;
+  cursor: text;
+  padding-right: 34px;
+}
+
+#signup .email-send {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+  background: url(http://journal.mathieurobert.fr/img/icon-send.svg);
+  background-color: white;
+  background-size: 24px;
+  border-radius: 3px;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  -webkit-transition: all 200ms cubic-bezier(0.175, 0.885 ,0.32, 1.275) 50ms;
+  -moz-transition: all 200ms cubic-bezier(0.175, 0.885 ,0.32, 1.275) 50ms;
+}
+
+#signup .email-send.email-send-show {
+  opacity: 0.6;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+}
+
+#signup .email-send.email-send-show:hover {
+  opacity: 0.8;
+}
+
+::-webkit-input-placeholder { color: white;}
+:-moz-placeholder { color: white;}
+::-moz-placeholder { color: white;}
+:-ms-input-placeholder { color: white;}
+
+.email::-webkit-input-placeholder { color: rgba(255,255,255,0.6);}
+.email:-moz-placeholder { color: rgba(255,255,255,0.6);}
+.email::-moz-placeholder { color: rgba(255,255,255,0.6);}
+.email:-ms-input-placeholder { color: rgba(255,255,255,0.6);}
