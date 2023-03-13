@@ -1,34 +1,39 @@
 import Logo from "../components/logo.jsx";
-
+import '../style/style.css'
 export const NewUser = () => 
-	<section id="create" class="section__content">
-		<article class="section" data-section>
-  <div class="center screen gap air">
-    <div class="unit row gap">
-				<a href="#home">{<Logo size={100} />}</a>
-    </div>
+{
+	return(
+		<div class="main">
+			<input type="checkbox" id="chk" aria-hidden="true" />
 
-    <form id="signup">
-      <input class='center unit max row' id='alias' placeholder='Who are you?'/>
-      <div class='unit row gap'>
-        <input class="act primary" type="submit" value="Get Started" />
-      </div>  
-    </form>
+				<div class="signup">
+					<form>
+						<label for="chk" aria-hidden="true">Sign up</label>
+						<input type="text" name="txt" placeholder="User name" required=""/>
+							<input type="email" name="email" placeholder="Email" required=""/>
+								<input type="password" name="pswd" placeholder="Password" required=""/>
+									<button>Sign up</button>
+								</form>
+							</div>
 
-    <div class='unit row gap'>
-      <a href='#auth' class='act surface'>Already have an account</a>
-    </div>
-
-  </div>
-  </article>
-</section>;
+							<div class="login">
+								<form>
+									<label for="chk" aria-hidden="true">Login</label>
+						<input type="email" name="email" placeholder="Email" required="" />
+						<input type="password" name="pswd" placeholder="Password" required="" />
+											<button>Login</button>
+										</form>
+							</div>
+							</div>
+	)
+}
 
 export const AuthUser = ( )=> 
 	<section id="auth" class="section__content">
 		<article class="section" data-section>
   <div class="center screen gap">
     <div class="unit row gap">
-      <a href="#home">{<Logo size={100}/>}</a>
+      <a href="#home"><Logo size={100}/></a>
     </div>
       
     <form id="signin">

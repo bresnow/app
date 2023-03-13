@@ -27,12 +27,14 @@ import { navigationRoutes } from './src/utils/constants';
 
 import { Views } from './src/views';
 import Logo from './src/components/logo';
+import { NewUser } from './src/views/auth';
 
 window.log = console.log.bind(console)
 var user = JOY.user;
 JOY.opt = {
   match: '%-- ',
-  end: ' --%'
+  end: ' --%',
+  reload: true
 }
 var storedTheme =
   localStorage.getItem("theme") ||
@@ -159,7 +161,7 @@ JOY.jsxRender(
         </li>
       </ul>
     </nav>
-
+<NewUser/>
     <Views />
 
     <footer class="footer">
