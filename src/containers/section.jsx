@@ -4,8 +4,11 @@ const Account = () => {
         <header name="section_header" class="section__header glass" style="background-image: url(%-- backgroundImage --%);">
             <h1 class="section__title"
             >%-- title --%</h1>
-            <p class="section__subtitle" contentEditable >%-- subtitle --%</p>
+            <p class="section__subtitle"  >%-- subtitle --%</p>
             <div class="section__controls">
+                <a id="my" class='unit right gap'>
+                    <img id="my" name="avatar" width="32em" class="sap" src="https://source.unsplash.com/random/32x32" />
+                </a>
             {/* <Icon/> */}
             </div>
 

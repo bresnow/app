@@ -18,7 +18,7 @@ import "gun/lib/load.js";
 import "gun/lib/open.js";
 import "gun/lib/not.js";
 import "gun/lib/axe.js";
-
+import "./src/lib/meta"
 // import "@benrbray/prosemirror-math/style/math.css";
 // import "katex/dist/katex.min.css";
 // import "gun/as.js"
@@ -49,10 +49,10 @@ if (storedTheme) document.documentElement.setAttribute("theme", storedTheme);
 if (storedKey) {
   JOY.auth(JSON.stringify(storedKey));
 }
-gun.on("auth", async function (ack) {
+gun.on("auth", function (ack) {
   log(ack,'auth');
   if (!storedKey) {
-    localStorage.setItem("key", JSON.stringify(JOY.key));
+    localStorage.setItem("key", JSON.stringify(ack.sea));
   }
   var pub = "~" + user.is.pub;
 });

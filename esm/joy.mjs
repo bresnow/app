@@ -1,33 +1,30 @@
+import Gun from "gun";
+import "gun/sea.js";
+import "gun/lib/path.js";
+import "gun/sea.js";
+import "gun/lib/webrtc.js";
+import "gun/lib/radix.js";
+import "gun/lib/radisk.js";
+import "gun/lib/store.js";
+import "gun/lib/rindexed.js";
+import "gun/lib/then.js";
+import "gun/lib/later.js";
+import "gun/lib/load.js";
+import "gun/lib/open.js";
+import "gun/lib/not.js";
+import "gun/lib/axe.js";
+import "../src/lib/chain.js"
 
-window.__joy_CONFIG = { gunOpts:{ peers: ['http://0.0.0.0:3000/gun'], localStorage: false, radisk: true }};
-var opt = (__joy_CONFIG), relay = `${location.origin}/gun`
-// console.log(relay)
-$("link[type=peer]").each(function () {
-	opt.gunOpts.peers.push($(this).attr("href"));
-});
-opt.gunOpts.peers.push(relay);
- window.gun = window.Gun(opt.gunOpts);
- var gun = window.gun;
-; (function () {
-	function as(cb, opt) {
-		var el = $(document);
-		if (!el.length) { return }
 
+const gun = window.Gun({peers: ['http://0.0.0.0:3000']}) || Gun({peers: ['http://0.0.0.0:3000']})
+const JOY = {}
+ function init(callback, opt) {
+		var el =  $(document);
 		opt = opt || {};
 		opt.reload = opt.reload || false;
 		opt.match = opt.match || '%-- ';
 		opt.end = opt.end || ' --%';
-		; (function () { // experimental
-			function nest(t, s, e, r, i, tmp, u) {
-				if (r && !r.length) { return t || '' }
-				if (!t) { return [] }
-				e = e || s;
-				i = t.indexOf(s, i || 0);
-				if (0 > i) { return [] }
-				tmp = t.indexOf(e, i + 1);
-				if (!r) { return [t.slice(i + s.length, tmp)].concat(nest(t, s, e, r, tmp, tmp, u)) }
-				return t.slice(0, i) + r[0] + nest(t.slice(tmp + e.length), s, e, r.slice(1), 0, tmp, u);
-			}
+	
 
 			/* experimental */
 			function template(tag, attr) {
@@ -76,11 +73,9 @@ opt.gunOpts.peers.push(relay);
 				});
 			}
 			template(el);
-
-		}());
-
-		as.ui = gun;
-		as.el = el || $(el);
+JOY.init = init
+		init.ui = gun;
+		init.el = el;
 		if (el.data('as')) {
 			el.html(el.data('as').fresh);
 		} else {
@@ -117,7 +112,7 @@ opt.gunOpts.peers.push(relay);
 			}
 
 			ref.get(function (at) {
-				console.log(at, "ATT")
+				console.log(at , "ATT")
 				var data = at.put, key = at.get, gui = at.gun || at.$, ui = name, back;
 				if (model) {
 					ui = model.has[(gui._).id];
@@ -136,31 +131,31 @@ opt.gunOpts.peers.push(relay);
 				if (ui.data('was') === data) { return }
 				if (many && ui.is('.sort')) {
 					var up = ui.closest("[name='#']");
-					var tmp = as.sort(data, up.parent().children().last());
+					var tmp = init.sort(data, up.parent().children().last());
 					tmp ? up.insertAfter(tmp) : up.prependTo(up.parent());
 				}
-				if (as.lock === gui) { return }
+				if (init.lock === gui) { return }
 				if (!(data && data instanceof Object)) {
 					(ui[0] && u === ui[0].value) ? ui.text(data) : ui.val(data);
 				}
 				ui.data('was', data);
-				if (cb) {
-					cb(data, key, ui);
+				if (callback) {
+					callback(data, key, ui);
 				}
 			});
 		});
 	}
-	as.wait = function (cb, wait, to) {
+	init.wait = function (cb, wait, to) {
 		return function (a, b, c) {
-			var me = as.typing = this;
+			var me = init.typing = this;
 			clearTimeout(to);
 			to = setTimeout(function () {
 				cb.call(me, a, b, c);
-				as.typing = me = false;
+				init.typing = me = false;
 			}, wait || 200);
 		}
 	}
-	as.sort = function sort(num, li) { return parseFloat(num) >= parseFloat($(li).find('.sort').text() || -Infinity) ? li : sort(num, li.prev()) }
+	init.sort = function sort(num, li) { return parseFloat(num) >= parseFloat($(li).find('.sort').text() || -Infinity) ? li : sort(num, li.prev()) }
 	let editable = [document.querySelectorAll('input'), document.querySelectorAll('textarea'), document.querySelectorAll('[contenteditable]')];
 	// editable.forEach(function (elm) {
 	// 	elm.forEach(function (tag) {
@@ -171,22 +166,21 @@ opt.gunOpts.peers.push(relay);
 	// 		tag.addEventListener("")
 	// 	})
 	// })
-
-	$(document).on('keyup', 'input, textarea, [contenteditable]', function (i, elem) {
+	
+	$(document).on('keyup', 'input, textarea, [contenteditable]', function (i,elem) {
 		var el = $(this);
 		var data = (el[0] && u === el[0].value) ? el.text() : el.val();
 		var g = el.data('gun');
 		if (!g) { return }
-		as.lock = g;
+		init.lock = g;
 		g.put(data);
 	});
 	//$(document).on('submit', 'form', function(e){ e.preventDefault() });
 	var u;
-	window.as = as;
-	$.as = as;
-}());
+	window.as = init;
+	$.as = init;
 
-; (function () {
+
 	let cliq = [document.querySelectorAll('a')];//, document.querySelectorAll('button')
 	cliq.forEach(function (ls) {
 		ls.forEach(function (tag) {
@@ -198,7 +192,7 @@ opt.gunOpts.peers.push(relay);
 		});
 	});
 
-	function router(href) {
+	export function router(href) {
 		if (!href) { return }
 		if (href[0] == '#') { href = href.slice(1) }
 		var h = href.split('/')[0];
@@ -233,33 +227,29 @@ opt.gunOpts.peers.push(relay);
 	};
 	$.as && ($.as.route = router);
 	if (window.as) {
-		as.route = router;
+		init.route = router;
 	} else {
 		$.route = router;
-	}
-}());
-$(function () {
-	$(JOY.start = JOY.start || function () { $.as( (a,b,c)=>{console.log(a,b,c, "ABC")}) });
-});
+};
 
-; (function () { // need to isolate into separate module!
-	var joy  = window.JOY = function(){};
-	joy.route = as.route;
-	joy.auth = function (k, cb, o) {
+
+
+	JOY.route = init.route;
+	JOY.auth = function (k, cb, o) {
 		if (!o) {
 			o = cb;
 			cb = 0;
 		}
 		if (o === true) {
 			SEA.pair().then((key) => {
-				joy.auth(key, cb);
+				JOY.auth(key, cb);
 			});
 			return;
 		}
-		joy.key = k;
-		joy.user.auth(k, cb, o);
+		JOY.key = k;
+		JOY.user.auth(k, cb, o);
 	};
-	joy.head = function (title, hide) {
+	JOY.head = function (title, hide) {
 		$(document).ready(function () {
 			var $head = $("header");
 			document.title = title;
@@ -277,7 +267,7 @@ $(function () {
 			$("header").removeClass("none");
 		});
 	};
-	joy.style = function (css, m) {
+	JOY.style = function (css, m) {
 		var style = css
 		var tmp = m ? "@media " + m + " {\n\t" : "";
 		$.each(style, function (c, r) {
@@ -291,10 +281,10 @@ $(function () {
 		tag.innerHTML = m ? tmp + "\n}" : tmp;
 		document.documentElement.append(tag);
 	}
-	joy.css = joy.style
+	JOY.css = JOY.style
 
 	// TODO: Remove  and add to chain
-	joy.download = function (filename, data, type, charset, href) {
+	JOY.download = function (filename, data, type, charset, href) {
 		let hiddenElement;
 		if (charset === null) {
 			charset = "utf-8";
@@ -312,7 +302,7 @@ $(function () {
 
 
 	// TODO: Remove Since
-	joy.since = function (date) {
+	JOY.since = function (date) {
 		if (typeof date !== "object") {
 			date = new Date(date);
 		}
@@ -355,23 +345,38 @@ $(function () {
 	};
 
 	// Renders jsx to index.html. 
-	joy.jsxRender = jsxRender;
-	joy.user = gun.user();
-	$(function () {
-		var JOY = window.JOY = window.as;
-		$(".section__content").not(":first").fadeOut();
-		joy.route(location.hash.slice(1));
-		$(
-			JOY.start =
-			JOY.start ||
-			function () {
-				$.as();
-			}
-		);
-	});
+	JOY.jsxRender = jsxRender;
+
+
+
+	var opt = (JOY.opt = window.CONFIG || { localStorage: false, radisk: true }),
+		peers = ['http://0.0.0.0:3000/gun'], relay = `${location.origin}/gun`
+	// console.log(relay)
+	$("link[type=peer]").each(function () {
+		peers.push($(this).attr("href"));
+
+	});  
+
+	peers.push(relay);
+
+	JOY.user = gun.user();
 	;
 
-}());
+		$(".section__content").not(":first").fadeOut();
+		JOY.route(location.hash.slice(1));
+		
+	
+
+function nest(t, s, e, r, i, tmp, u) {
+	if (r && !r.length) { return t || '' }
+	if (!t) { return [] }
+	e = e || s;
+	i = t.indexOf(s, i || 0);
+	if (0 > i) { return [] }
+	tmp = t.indexOf(e, i + 1);
+	if (!r) { return [t.slice(i + s.length, tmp)].concat(nest(t, s, e, r, tmp, tmp, u)) }
+	return t.slice(0, i) + r[0] + nest(t.slice(tmp + e.length), s, e, r.slice(1), 0, tmp, u);
+}
 
 
 function camelToKebab(string) {
@@ -382,3 +387,5 @@ function jsxRender(jsx, id = "app") {
 		jsx
 	)
 }
+
+export default JOY;
