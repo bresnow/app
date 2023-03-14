@@ -10,7 +10,7 @@ let DOMAttributeNames = {
 };
 
 let sanitized = {};
-
+export const Frag = Symbol('Fragment');
 /** Hyperscript reviver that constructs a sanitized HTML string. */
 export default function h(name, attrs) {
 	let stack=[], s = '';

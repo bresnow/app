@@ -1,41 +1,43 @@
-// import "./src/style/style.css";
+// import '@unocss/reset/antfu.css'
 import './src/style/uno.css'
 import './src/style/application.css'
 // import "./src/style/cards.css";
 // import "./src/style/app.css";
 import "gun/gun.js";
 import "gun/sea.js";
+import "gun/lib/path.js";
+import "gun/sea.js";
+import "gun/lib/webrtc.js";
+import "gun/lib/radix.js";
+import "gun/lib/radisk.js";
+import "gun/lib/store.js";
+import "gun/lib/rindexed.js";
+import "gun/lib/then.js";
+import "gun/lib/later.js";
+import "gun/lib/load.js";
+import "gun/lib/open.js";
+import "gun/lib/not.js";
+import "gun/lib/axe.js";
+
 // import "@benrbray/prosemirror-math/style/math.css";
 // import "katex/dist/katex.min.css";
 // import "gun/as.js"
 import "./src/lib/chain.js";
 import "./src/lib/joy.js";
-// import "./src/lib/as.js";
-// import "./src/lib/meta.js";
-// import "./src/lib/meta.ui.js";
+
 import "./src/style";
 // import hero from "./src/component/hero";
 Gun.log.off = true;
 // import "@benrbray/prosemirror-math/style/math.css";
 import "./src/style/math.css";
 
-import NavigationBar from "./src/components/nav.jsx";
-import Home from './src/views/home.jsx'
-import Settings from "./src/views/settings"
-import Header from './src/components/header';
-import { navigationRoutes } from './src/utils/constants';
-
-import { Views } from './src/views';
+import Views from './src/views';
 import Logo from './src/components/logo';
-import { NewUser } from './src/views/auth';
 
-window.log = console.log.bind(console)
-var user = JOY.user;
-JOY.opt = {
-  match: '%-- ',
-  end: ' --%',
-  reload: true
-}
+
+var log =  window.log = console.log.bind(console)
+var user = window.user = JOY.user;
+
 var storedTheme =
   localStorage.getItem("theme") ||
   (window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -45,22 +47,20 @@ var storedKey = localStorage.getItem("key");
 
 if (storedTheme) document.documentElement.setAttribute("theme", storedTheme);
 if (storedKey) {
-  JOY.auth(JSON.parse(storedKey));
+  JOY.auth(JSON.stringify(storedKey));
 }
 gun.on("auth", async function (ack) {
+  log(ack,'auth');
   if (!storedKey) {
     localStorage.setItem("key", JSON.stringify(JOY.key));
   }
   var pub = "~" + user.is.pub;
-  user.get("profile").on((d) => {
-    $("#my").attr("href", `#profile/?pub=${pub}`);
-    $("#my img").attr("src", JOY.avatar(d.avatar));
-  });
 });
 
 if (!location.hash) {
   JOY.route("home");
 }
+
 
 var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
 
@@ -117,51 +117,36 @@ $(window).on("load", function () {
   }, 700);
 });
 
-// 
+ var layout_header = gun
+  .get('layout_header');
 
-JOY.jsxRender(
-  <div class="app">
-    <header class="header">
+layout_header
+  .on(({ appname }) => {
+!appname ?
+    layout_header.put({ appname: 'FLOATING MAMMOTH' }): log("appname filled");
+  })
+export const LayoutHeader = ({ children }) => {
+
+  return (
+    <header name="layout_header" class="header">
       <div class="header__left">
-        <a href="#home"><Logo size={70}/></a><span>FLOATING MAMMOTH</span>
+        <a href="#home">
+          {children}
+        </a>
       </div>
 
       <div class="header__right">
-        <p></p>
+        <span>%-- appname --%</span>
       </div>
-    </header>
+    </header>)
+}
+JOY.jsxRender(
+  <div class="app">
+    <LayoutHeader>
+      <Logo size={70} />
+    </LayoutHeader>
 
-    <nav class="nav">
-      <ul class="nav__menu">
-        <li class="nav__item">
 
-
-        </li>
-        <li class="nav__item">
-          {/* <a href="#lisbon" class="nav__link" data-scroll-to>
-                <div class="media">
-                  <img src="https://lonelyplanetimages.imgix.net/mastheads/54989636.jpg?sharp=10&vib=20&w=2000" alt="" class="media__img" />
-                    <p class="media__content">
-                      <strong>Lisbon</strong><br />
-                      Portugal
-                    </p>
-                </div>
-              </a> */}
-        </li>
-        <li class="nav__item">
-          {/* <a href="#newyork" class="nav__link" data-scroll-to>
-                <div class="media">
-                  <img src="https://lonelyplanetimages.imgix.net/mastheads/GettyImages-538096543_medium.jpg?sharp=10&vib=20&w=2000" alt="" class="media__img" />
-                    <p class="media__content">
-                      <strong>New York</strong><br />
-                      USA
-                    </p>
-                </div>
-              </a> */}
-        </li>
-      </ul>
-    </nav>
-<NewUser/>
     <Views />
 
     <footer class="footer">

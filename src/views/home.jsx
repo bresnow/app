@@ -1,45 +1,48 @@
-
+import lz from 'lz-string'
 var user = JOY.user
-
 
 const Home = () => {
 	return (
 
-		<div id="home"  class="section__content">
+		<div id="home" class="section__content mt-md">
 			<ul name="#" class="boxgrid">
 				<li class="boxgrid__item boxgrid__item--wide">
 					<a href="#settings" class="box box--image">
-						<img src="https://source.unsplash.com/600x400/?art" class="box__img" alt="" />
+						<img src="#" class="box__img" alt="" />
+						<p contenteditable="true">hvhghjkkv</p>
 					</a>
 				</li>
 				<li class="boxgrid__item">
-					<a href="#best" class="box box--weather">
-						<p><span class="text--large">30°C</span><br />Sunny</p>
-					</a>
+					<div id="creator_mode" class="box bg-red box--image">
+						{/* <p><span class="text--large">30°C</span><br />Sunny</p> */}
+					</div>
 				</li>
-				<li class="boxgrid__item boxgrid__item--push">
+				{/* class boxgrid__item--push */}
+				<li class="boxgrid__item ">
 					<a href="#best" class="box box--video">
-						<img src="https://source.unsplash.com/300x300/?art" class="box__img" alt="" />
+						<img src="#" class="box__img" alt="" />
 					</a>
 				</li>
-				<li class="boxgrid__item boxgrid__item--push">
+				<li class="boxgrid__item ">
 					<a href="#best" class="box box--image">
-						<img src="https://source.unsplash.com/300x300/?people" class="box__img" alt="" />
+						<img src="#" class="box__img" alt="" />
 					</a>
 				</li>
-				<li class="boxgrid__item boxgrid__item--push">
-					<a href="#profile" class="box box--locations">
-						<p><span class="text--large">1.366</span><br />Locations</p>
-					</a>
-				</li>
-				<li class="boxgrid__item">
-					<a href="#best" class="box box--cost">
-						<p><span class="text--large">150$</span><br />Daily cost</p>
+				<li class="boxgrid__item ">
+					<a href="#profile" class="box box--image">
+						<p contenteditable="true">hvhghjkkv</p>
+						{/* <p><span class="text--large">1.366</span><br />Locations</p> */}
 					</a>
 				</li>
 				<li class="boxgrid__item">
 					<a href="#best" class="box box--image">
-						<img src="https://source.unsplash.com/300x300/?technology" class="box__img" alt="" />
+						<p contenteditable="true">hvhghjkkv</p>
+						{/* <p><span class="text--large">150$</span><br />Daily cost</p> */}
+					</a>
+				</li>
+				<li class="boxgrid__item">
+					<a href="#best" class="box box--image">
+						<img src="" class="box__img" alt="" />
 					</a>
 				</li>
 			</ul>
@@ -60,16 +63,39 @@ JOY.style({
 		animation: 'txtanimation2 15s ease infinite',
 	}
 })
+
+var compress = lz.compressToEncodedURIComponent
 var colors = ["green", "yellow", "red", "blue"];
 JOY.route.page("home", function () {
 
-	// if (!JOY.key) {
-	// 	JOY.route("create");
-	// }
-	JOY.head("Home");
-	JOY.user.get("home").get("header").put({
-		image: "https://cdn.pixabay.com/photo/2023/02/13/10/30/eye-7787024_1280.jpg"
+			document.querySelector('footer').innerHTML = <p><strong class="blue">Join</strong> to save your data!</p>;
+	if (!JOY.key) {
+		// JOY.route("create");'
+			var key = JOY.key;
+
+		JOY.key ={ pub: "hWAXj1V6zyJOsBCgCAEjYi8SRbWnYxlVXw0M5T9sxfg.BZFElMKnkgIoNQe8k_DKIhWipXXJvTCnnMbaUNpeJe4", priv: "-x3o2iV7qiQ-FWw9VxbX860BKcWX04Kq89IBziO4CFU", epub: "U6y9JnLtw2CyUGVK-MqSqi8_ThVrYQGvXw_k6bFHhAY.21BCOLStZz49x5WnvTm0hMVUr66LJerg6i1JtxIMsck", epriv: "IPqYobspCGca9Qk-Cdm8FuRWb1_lKNNC1BPu35RJmtA" }
+		user.auth(JOY.key, a => log(a))
+	}
+	log(JOY.key, 'Joy.Key]')
+	var uuid = Gun.text.random(11);
+	var url = `#paper/?file=${uuid}&?pub=~${JSON.parse(JOY.key).pub}`;
+	document.querySelector('#creator_mode').addEventListener('click', () => {
+		user
+			.get(`test/paper/files`)
+			.get(uuid)
+			.put({
+				name: "Untitled-" + uuid.slice(0, 4),
+			});
+				JOY.route(url);
 	})
+
+	// gun.get("main_section").get("section_header").put({
+	// 	title: "Floating Mammoth",
+	// 	subtitle: "Design. Develop, Deploy.", username: "Bresnow"
+	// })
+
+	JOY.head("Home");
+
 	JOY.user
 		.get(`test/paper/files`)
 		.map()
@@ -123,34 +149,34 @@ JOY.route.page("home", function () {
 					}
 				});
 		});
+	
 
-
-	meta.edit({
-		name: "Create",
-		place: "home",
-		combo: ["C"],
-		fake: -1,
-		on: () => {
-			var key = JOY.key;
-			if (!key) {
-				JOY.tell(
-					`<strong class="bluet">Join</strong> to save your data!`
-				);
-				return;
-			}
-			var uuid = Gun.text.random(11);
-			var url = `#paper/?file=${uuid}&?pub=${JOY.key.pub}`;
-			JOY.user
-				.get(`test/paper/files`)
-				.get(uuid)
-				.put({
-					name: "Untitled-" + uuid.slice(0, 4),
-				})
-				.on((d) => {
-					JOY.route(url);
-				});
-		},
-	});
+	// meta.edit({
+	// 	name: "Create",
+	// 	place: "home",
+	// 	combo: ["C"],
+	// 	fake: -1,
+	// 	on: () => {
+	// 		var key = JOY.key;
+	// 		if (!key) {
+	// 			JOY.tell(
+	// 				`<strong class="bluet">Join</strong> to save your data!`
+	// 			);
+	// 			return;
+	// 		}
+	// 		var uuid = Gun.text.random(11);
+	// 		var url = `#paper/?file=${uuid}&?pub=${JOY.key.pub}`;
+	// 		JOY.user
+	// 			.get(`test/paper/files`)
+	// 			.get(uuid)
+	// 			.put({
+	// 				name: "Untitled-" + uuid.slice(0, 4),
+	// 			})
+	// 			.on((d) => {
+	// 				JOY.route(url);
+	// 			});
+	// 	},
+	// });
 });
 
 export default Home;

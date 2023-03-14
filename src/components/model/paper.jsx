@@ -1,5 +1,8 @@
-import icon from "../component/icon";
-const paper = `
+import { Icon } from "../icon.jsx";
+
+const Paper = () =>
+<div >
+
 <div class="paper-card">
     <li class='unit crack'>
 		<a name="link" class="unit">
@@ -9,8 +12,8 @@ const paper = `
 			<p class="unit gap" name='name'></p>
 		</a>
 		<div class="">
-			<button name="data-link" class="share yellow">${icon("share")}</button>
-			<button name="data-paper" class="delete red">${icon("trash")}</button>
+			<button name="data-link" class="share yellow"><Icon name="share"/></button>
+			<button name="data-paper" class="delete red"><Icon name="trash"/></button>
 		</div>		
 	</li>
 </div>
@@ -25,6 +28,7 @@ const paper = `
 		
 	</li>
 </div>
-`;
+	</div>
 
-export default paper;
+
+export default Paper;

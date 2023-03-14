@@ -1,37 +1,99 @@
 const Account = () => {
-    var sectionTitle = document.querySelector('.section__title')
-    gun.get("main_section").get("section_header").put({
-        title: "Floating Mammoth",
-        subtitle: "Design. Develop, Deploy.", username: "Bresnow"
-    })
-    gun.get("main_section").get("section_header").once(({ title }) => {
-        sectionTitle.innerHTML = title
-    })
+
     return (
-        <header name="section_header" class="section__header bg-blue" style="background-image: url(%-- backgroundImage --%);">
+        <header name="section_header" class="section__header glass" style="background-image: url(%-- backgroundImage --%);">
             <h1 class="section__title"
             >%-- title --%</h1>
-            <p class="section__subtitle" >%-- subtitle --%</p>
+            <p class="section__subtitle" contentEditable >%-- subtitle --%</p>
             <div class="section__controls">
-
-                <div class="user z-99">
-                    <img src="https://source.unsplash.com/200x200/?nature" class="user__img" alt="" />
-                    {/* <span class="user__name bg-red"  >%-- username --%</span> */}
-                </div>
+            {/* <Icon/> */}
             </div>
+
         </header>
     )
 }
+var gunui = {
+    main: gun.get("main_section"),
+    header: gun.get("main_section").get('section_header')
+}
+gunui.header.once(console.log)
+const converted = {
+    ":root": {
+        "--h": "33",
+        "--s": "90%",
+        "--l": "90%",
+        // fontFamily: "'Noto Sans', sans-serif"
+    },
+    // body: {
+    //     margin: "0",
+    //     minHeight: "100vh",
+    //     display: "grid",
+    //     placeContent: "center"
+    // },
+    ".glass": {
+        fontSize: "clamp(1.2rem, 5vw + 1rem, 2.5rem)",
+        // width: "10em",
+        height: "6em",
+        borderRadius: "0.5em",
+        backgroundImage: "linear-gradient(#fff,#000)",
+        boxShadow:
+            "0 -0.125em 0.25em #0002,\n\t\t0 0.25em 0.25em hsl(var(--h) var(--s) var(--l) / 0.5),\n\t\t0 0 0 0.1em hsl(var(--h) var(--s) var(--l) / 0.5),\n\t\t0 0.175em 0.3em hsl(var(--h) var(--s) var(--l) / 0.5) inset,\n\t\t0 -0.025em 0.175em hsl(var(--h) var(--s) var(--l) / 0.4) inset,\n\t\t0 -0.25em 1em 0.3em hsl(var(--h) var(--s) var(--l) / 0.3) inset,\n\t\t0 0.6em 0 hsl(var(--h) var(--s) var(--l) / 0.3) inset,\n\t\t0 2em 1em #0004",
+        backdropFilter: "blur(0.15em)",
+        // position: "relative",
+        display: "grid",
+        placeContent: "center",
+        color: "hsl(var(--h) var(--s) var(--l) / .7)",
+        // textShadow: "0.03em 0.03em #fff5,\n    -0.03em -0.03em #0005",
+        cursor: "pointer",
+        transition: "0.4s ease",
+        paddingTop: "0.2em",
+    },
+    ".glass:before": {
+        content: "''",
+        position: "absolute",
+        top: "100%",
+        width: "80%",
+        left: "10%",
+        height: "1.5em",
+        backgroundImage:
+            "radial-gradient(\n      100% 100% at center,\n      hsla(var(--h),var(--s),80%,0.25),\n      hsla(var(--h),var(--s),80%,0) 50%)"
+    },
+    ".glass:after": {
+        content: " ",
+        inset: "0",
+        top: "0.5em",
+        position: "absolute",
+        backgroundImage:
+            "linear-gradient(\n      105deg,\n      transparent 20%,\n      hsl(var(--h) var(--s) var(--l) / .2) 20%,\n      hsl(var(--h) var(--s) var(--l) / .2) 30%,\n      transparent 30%,\n      transparent 32%,\n      hsl(var(--h) var(--s) var(--l) / .2) 5%,\n      hsl(var(--h) var(--s) var(--l) / .2) 40%,\n      transparent 0%\n    )",
+        backgroundSize: "400% 100%",
+        backgroundPosition: "100% 0%",
+        transition: ".5s ease"
+    },
+    ".glass:hover:after": { backgroundPosition: "-50% 0%" },
+    ".glass:hover": {
+        translate: ".01em .25em",
+        boxShadow:
+            "0 -0.125em 0.25em #0002,\n\t\t0 0.25em 0.25em hsl(var(--h) var(--s) var(--l) / 0.5),\n\t\t0 0 0 0.1em hsl(var(--h) var(--s) var(--l) / 0.5),\n\t\t0 0.175em 0.3em hsl(var(--h) var(--s) var(--l) / 0.8) inset,\n\t\t0 -0.025em 0.175em hsl(var(--h) var(--s) var(--l) / 0.4) inset,\n\t\t0 -0.25em 1em 0.3em hsl(var(--h) var(--s) var(--l) / 0.3) inset,\n\t\t0 0.6em 0 hsl(var(--h) var(--s) var(--l) / 0.3) inset,\n\t\t0 1em 0.5em #0004",
+        backdropFilter: "blur(30%) contrast(150%)"
+    },
+    ".glass:hover:before": { height: "1em" }
+}
 
 JOY.style({
+    ":root": {
+        "--h": "33",
+        "--s": "90%",
+        "--l": "90%",
+        // fontFamily: "'Noto Sans', sans-serif"
+    },
     '.section__header': {
         position: 'absolute',
-        top: '20px',
+        top: '1em',
         left: '0',
         right: '0',
-        height: '500px',
+        // height: '500px',
         padding: '2rem',
-        borderRadius: '0.5rem',
+        // borderRadius: '0.5rem',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center center',
@@ -49,7 +111,7 @@ JOY.style({
     },
     '.section__title': {
         fontSize: '2.5rem',
-        fontWeight: '200',
+        fontWeight: '600',
         marginBottom: '0.5rem',
         lineHeight: '1',
     },
@@ -68,20 +130,15 @@ JOY.style({
         transform: 'translateY(-50%)',
     }
 })
-// gun.get("main_section").get("section_header").then(d => log("Async", d)).catch(console.log)
+JOY.style(converted)
 
-function changeHandler() {
-    let text = $(".section__title").text();
-    log($(".section__title"))
-    gun.get("main_section").get("section_header").once(log)
-    gun.get("main_section").get("section_header").put({ title: text })
-}
 // "main_section.section_header = {title,subtitle,username}"
-export function Section({ children }) {
+export function Section({ children, className }) {
     return (
-        <section name="main_section" class="main">
+        <section name="main_section" class={"main " + className}>
             <article class="section" data-section>
                 <Account />
+                {/* <div class="glass"></div> */}
                 {children}
             </article >
         </section >

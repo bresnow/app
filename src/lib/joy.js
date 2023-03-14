@@ -1,6 +1,6 @@
 ; (function () {
 	function as(el, gun, cb, opt) {
-		!el ? el = document : $(el);
+		el =  $(el);
 		if (gun === as.ui && as.el && as.el.is(el)) { return }
 
 		opt = opt || {};
@@ -70,8 +70,7 @@
 		}());
 
 		as.ui = gun;
-		as.el = el;
-		as.ui.opt({peers: [""], localStorage: true})
+		as.el = el ||$(el) ;
 		if (el.data('as')) {
 			el.html(el.data('as').fresh);
 		} else {
@@ -108,6 +107,7 @@
 			}
 
 			ref.get(function (at) {
+				console.log(at , "ATT")
 				var data = at.put, key = at.get, gui = at.gun || at.$, ui = name, back;
 				if (model) {
 					ui = model.has[(gui._).id];
@@ -151,14 +151,25 @@
 		}
 	}
 	as.sort = function sort(num, li) { return parseFloat(num) >= parseFloat($(li).find('.sort').text() || -Infinity) ? li : sort(num, li.prev()) }
-	$(document).on('keyup', 'input, textarea, [contenteditable]', as.wait(function () {
+	let editable = [document.querySelectorAll('input'), document.querySelectorAll('textarea'), document.querySelectorAll('[contenteditable]')];
+	// editable.forEach(function (elm) {
+	// 	elm.forEach(function (tag) {
+	// 		let data
+	// 		if (tag.hasAttribute('value')){
+	// 			data = tag.getAttribute('value')
+	// 		}
+	// 		tag.addEventListener("")
+	// 	})
+	// })
+	
+	$(document).on('keyup', 'input, textarea, [contenteditable]', function (i,elem) {
 		var el = $(this);
 		var data = (el[0] && u === el[0].value) ? el.text() : el.val();
 		var g = el.data('gun');
 		if (!g) { return }
 		as.lock = g;
 		g.put(data);
-	}, 99));
+	});
 	//$(document).on('submit', 'form', function(e){ e.preventDefault() });
 	var u;
 	window.as = as;
@@ -166,30 +177,35 @@
 }());
 
 ; (function () {
-	$(document).on('click', 'a, button', function (e) {
-		var tmp = $(this).attr('href') || '';
-		if (0 === tmp.indexOf('http')) { return }
-		e.preventDefault();
-		r(tmp);
+	let cliq = [document.querySelectorAll('a')];//, document.querySelectorAll('button')
+	cliq.forEach(function (ls) {
+		ls.forEach(function (tag) {
+			tag.addEventListener('click', function (ev) {
+				if (tag.href.startsWith('http')) return
+				ev.preventDefault()
+				router(tag.href)
+			})
+		});
 	});
-	function r(href) {
+
+	function router(href) {
 		if (!href) { return }
 		if (href[0] == '#') { href = href.slice(1) }
 		var h = href.split('/')[0];
-		$(".section__content").hide();
-		$('#' + h).fadeIn();
-		if (r.on === h) { return }
+		$('.section__content').hide();
+		if (router.on === h) { return }
 		location.hash = href;
-		(r.page[h] || { on: function () { } }).on();
-		r.on = h;
-		return r;
+		$('#' + h).fadeIn();
+		(router.page[h] || { on: function () { } }).on();
+		router.on = h;
+		return router;
 	};
-	r.page = function (h, cb) {
+	router.page = function (h, cb) {
 		h = h.toLowerCase()
-		r.page[h] = r.page[h] || { on: cb };
-		return r;
+		router.page[h] = router.page[h] || { on: cb };
+		return router;
 	}
-	r.render = function (id, model, onto, data) {
+	router.render = function (id, model, onto, data) {
 		var $data = $(
 			$('#' + id).get(0) ||
 			$('.model').find(model).clone(true).attr('id', id).appendTo(onto)
@@ -201,20 +217,21 @@
 		return $data;
 	}
 	window.onhashchange = function () {
-		window.location.reload(opt.reload);
-		r(location.hash.slice(1))
+		$('.section__content').fadeOut();
+		window.location.reload(true)
+		router(location.hash.slice(1))
 	};
-	$.as && ($.as.route = r);
+	$.as && ($.as.route = router);
 	if (window.as) {
-		as.route = r;
+		as.route = router;
 	} else {
-		$.route = r;
+		$.route = router;
 	}
 }());
 
 ; $(function () {
-	// $(".section__content").not(':first').hide();
-	// let router =  $.route;
+
+	let router =  $.route;
 	// router(location.hash.slice(1));
 	$(JOY.start = JOY.start || function () { $.as(document, gun, null, JOY.opt) });
 
@@ -223,7 +240,7 @@
 });
 
 ; (function () { // need to isolate into separate module!
-	var joy = window.JOY = function () { };
+	var joy = JOY = window.JOY = function () { };
 	joy.route = as.route;
 	joy.auth = function (k, cb, o) {
 		if (!o) {
@@ -273,7 +290,7 @@
 	}
 	joy.css = joy.style
 
-		// TODO: Remove  and add to chain
+	// TODO: Remove  and add to chain
 	joy.download = function (filename, data, type, charset, href) {
 		let hiddenElement;
 		if (charset === null) {
@@ -288,13 +305,8 @@
 	};
 
 
-		// TODO: Remove 
-	joy.capitalize = function (s) {
-		if (s === undefined) {
-			return "";
-		}
-		return s.charAt(0).toUpperCase() + s.slice(1);
-	};
+	// TODO: Remove 
+
 
 	// TODO: Remove Since
 	joy.since = function (date) {
@@ -344,13 +356,13 @@
 
 
 
-	var opt = (joy.opt = window.CONFIG || { localStorage: false }),
-		peers = [],relay = `${location.origin}/gun`
+	var opt = (joy.opt = window.CONFIG || { localStorage: false, radisk: true }),
+		peers = ['http://0.0.0.0:3000/gun'], relay = `${location.origin}/gun`
 	// console.log(relay)
 	$("link[type=peer]").each(function () {
 		peers.push($(this).attr("href"));
 
-	});
+	});  
 
 	peers.push(relay);
 	!window.gun &&
@@ -359,7 +371,7 @@
 			peers ||
 			(function () {
 				return [
-					"https://gun-us.herokuapp.com/gun",
+					"https://peer.fltngmmth.com/gun",
 				];
 			})());
 	window.gun = window.gun || Gun(opt);

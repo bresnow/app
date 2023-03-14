@@ -7,10 +7,13 @@ import Friends from "./friends.jsx";
 import Paper from "./paper.jsx";
 import { Section } from "../containers/section.jsx";
 import Player from "./player.jsx";
-import { AuthUser, NewUser } from "./auth.jsx";
-export const Views = () =>
-    <Section>
+import { NewUser } from './auth';
+import SignIn from "./create/index.jsx";
 
+ const Views = () =>
+    <Section>
+        <SignIn/>
+        <NewUser/>
         <Home />
         <Activity />
         <Settings />
@@ -21,3 +24,4 @@ export const Views = () =>
     <Player/>
     </Section>
     ;
+export default Views;

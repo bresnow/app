@@ -31,4 +31,4 @@ volumes:
   luvcraft1:
     driver: local-persist
     driver_opts:
-      mountpoint: /home/bresnow/apps/${VOLUME?What's the volume?}
+      mountpoint: ${VOLUME?What's the volume?}

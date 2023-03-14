@@ -4,12 +4,14 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"unocss ./src/**/*.jsx --out-file=./src/style/uno.css --watch\" \"nodemon server.mjs --watch src/**/*.{jsx,html,css}\"",
+    "dev": "concurrently \"unocss ./src/**/*.jsx --out-file=./src/style/uno.css --watch\" \"node server.mjs\" \"vite --host\"",
+    "dep:dev": "NAME=app VOLUME=$PWD docker stack deploy -c docker-stack.yml app",
     "build": "vite build --outDir dist/client",
     "start": "node server.mjs"
   },
   "devDependencies": {
     "@unocss/preset-attributify": "^0.50.4",
+    "@unocss/transformer-attributify-jsx": "^0.50.4",
     "concurrently": "^7.6.0",
     "esbuild": "^0.17.11",
     "nodemon": "^2.0.21",
@@ -18,12 +20,14 @@
     "vhtml": "^2.2.0",
     "vite": "^3.0.0",
     "vite-plugin-inspect": "^0.7.15",
+    "vite-plugin-node": "^3.0.2",
     "vite-plugin-pwa": "^0.12.7",
     "workbox": "0.0.0",
     "workbox-cli": "^6.5.4"
   },
   "dependencies": {
     "@benrbray/prosemirror-math": "^0.2.2",
+    "@unocss/reset": "^0.50.4",
     "Buffer": "0.0.0",
     "animate.css": "^4.1.1",
     "chokidar": "^3.5.3",
@@ -34,6 +38,7 @@
     "ip": "^1.1.8",
     "jspdf": "^2.5.1",
     "katex": "^0.13.0",
+    "lz-string": "^1.5.0",
     "mocha": "^10.0.0",
     "panic-client": "^1.0.2",
     "panic-manager": "^1.2.0",
@@ -52,6 +57,7 @@
     "prosemirror-state": "^1.4.1",
     "prosemirror-suggest": "^1.1.4",
     "prosemirror-view": "^1.27.2",
+    "vite-plugin-ssr": "^0.4.93",
     "zx": "^7.2.0"
   }
 }

@@ -23,6 +23,48 @@
   box-sizing: border-box;
 }
 
+html,
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html[theme="light"] {
+	--green: #96eaa3;
+	--yellow: #eae086;
+	--red: #f3646d;
+	--blue: #649ef3;
+	--white: #ffffff;
+	--black: #121212;
+	--slate: #707070;
+	--neutral: #eeeded;
+
+	--text: var(--black);
+	--background: var(--white);
+	--primary: var(--green);
+	--secondary: var(--yellow);
+	--accent: var(--red);
+	--surface: var(--neutral);
+}
+
+html[theme="dark"] {
+	--green: #74e284;
+	--yellow: #ded36d;
+	--red: #f3646d;
+	--blue: #649ef3;
+	--white: #ffffff;
+	--black: #121212;
+	--slate: #2f2f2f;
+	--neutral: #eeeded;
+
+	--text: var(--white);
+	--background: #121212;
+	--primary: var(--green);
+	--secondary: var(--yellow);
+	--accent: var(--red);
+	--surface: var(--slate);
+}
 body {
   min-height: 100vh;
   height: 100%;
@@ -51,6 +93,7 @@ p {
   grid-template-rows: 4rem 1fr 4rem;
   grid-template-columns: 20% 1fr;
   height: 100vh;
+
 }
 
 .header,
