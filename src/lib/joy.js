@@ -1,13 +1,4 @@
 
-window.__joy_CONFIG = { gunOpts:{ peers: ['http://0.0.0.0:3000/gun'], localStorage: false, radisk: true }};
-var opt = (__joy_CONFIG), relay = `${location.origin}/gun`
-// console.log(relay)
-$("link[type=peer]").each(function () {
-	opt.gunOpts.peers.push($(this).attr("href"));
-});
-opt.gunOpts.peers.push(relay);
- window.gun = window.Gun(opt.gunOpts);
- var gun = window.gun;
 ; (function () {
 	function as(cb, opt) {
 		var el = $(document);
@@ -187,7 +178,7 @@ opt.gunOpts.peers.push(relay);
 }());
 
 ; (function () {
-	let cliq = [document.querySelectorAll('a')];//, document.querySelectorAll('button')
+	let cliq = [document.querySelectorAll('a'), document.querySelectorAll('button')];//, document.querySelectorAll('button')
 	cliq.forEach(function (ls) {
 		ls.forEach(function (tag) {
 			tag.addEventListener('click', function (ev) {
@@ -211,8 +202,10 @@ opt.gunOpts.peers.push(relay);
 		return router;
 	};
 	router.page = function (h, cb) {
-		h = h.toLowerCase()
-		router.page[h] = router.page[h] || { on: cb };
+		ready(function () {
+			h = h.toLowerCase()
+			router.page[h] = router.page[h] || { on: cb };
+		})
 		return router;
 	}
 	router.render = function (id, model, onto, data) {
@@ -239,12 +232,13 @@ opt.gunOpts.peers.push(relay);
 	}
 }());
 $(function () {
-	$(JOY.start = JOY.start || function () { $.as( (a,b,c)=>{console.log(a,b,c, "ABC")}) });
+	$(JOY.start = JOY.start || function () { $.as((a, b, c) => { console.log(a, b, c, "ABC") }) });
 });
 
 ; (function () { // need to isolate into separate module!
-	var joy  = window.JOY = function(){};
-	joy.route = as.route;
+	// need to isolate into separate module!
+	var joy = (window.JOY = function () { });
+	joy.route = as.route || $.route;
 	joy.auth = function (k, cb, o) {
 		if (!o) {
 			o = cb;
@@ -259,23 +253,36 @@ $(function () {
 		joy.key = k;
 		joy.user.auth(k, cb, o);
 	};
+	joy.avatar = function (seed, type) {
+		return `https://avatars.dicebear.com/api/${type || "identicon"
+			}/${seed}.svg`;
+	};
 	joy.head = function (title, hide) {
 		$(document).ready(function () {
 			var $head = $("header");
+			var $account = $("#account");
 			document.title = title;
-			// $head.textContent = title;
+			place.textContent = title;
 			if (hide) {
 				if (hide.only) {
 					// console.log("hide.only", hide.only);
-					account.style.display = "none";
+					$account.style.display = "none";
 					return;
 				}
 				$head.addClass("none");
 				return;
 			}
-			account.style.display = "flex";
+			$account.style.display = "flex";
 			$("header").removeClass("none");
 		});
+	};
+	joy.tell = function (what, n) {
+		var e = $("#tell").find("p");
+		e.addClass("notify").html(what);
+		clearTimeout(joy.tell.to);
+		joy.tell.to = setTimeout(function () {
+			e.removeClass("notify");
+		}, n || 2500);
 	};
 	joy.style = function (css, m) {
 		var style = css
@@ -292,7 +299,7 @@ $(function () {
 		document.documentElement.append(tag);
 	}
 	joy.css = joy.style
-
+	joy.router = joy.route
 	// TODO: Remove  and add to chain
 	joy.download = function (filename, data, type, charset, href) {
 		let hiddenElement;
@@ -356,22 +363,33 @@ $(function () {
 
 	// Renders jsx to index.html. 
 	joy.jsxRender = jsxRender;
-	joy.user = gun.user();
-	$(function () {
-		var JOY = window.JOY = window.as;
-		$(".section__content").not(":first").fadeOut();
-		joy.route(location.hash.slice(1));
-		$(
-			JOY.start =
-			JOY.start ||
-			function () {
-				$.as();
-			}
-		);
+
+	var opt = (joy.opt = window.CONFIG || { axe: false }),
+		peers;
+	$("link[type=peer]").each(function () {
+		(peers || (peers = [])).push($(this).attr("href"));
 	});
-	;
+	!window.gun &&
+		(opt.peers =
+			opt.peers ||
+			peers);
+	window.gun = window.gun || Gun(opt);
+	joy.user = gun.user();
 
 }());
+$(function () {
+
+	$(".section__content").not(":first").fadeOut();
+	JOY.route(location.hash.slice(1));
+	$(
+		JOY.start =
+		JOY.start ||
+		function () {
+			$.as();
+		}
+	);
+});
+;
 
 
 function camelToKebab(string) {
@@ -381,4 +399,11 @@ function jsxRender(jsx, id = "app") {
 	document.getElementById(id).innerHTML = (
 		jsx
 	)
+}
+function ready(fn) {
+	if (document.readyState !== 'loading') {
+		fn();
+	} else {
+		document.addEventListener('DOMContentLoaded', fn);
+	}
 }

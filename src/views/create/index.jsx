@@ -1,33 +1,28 @@
 import { Frag } from '../../../runtime/vhtml/index';
+import Logo from '../../components/logo';
 const SignIn = () => {
 
 
     return (
-        <div id="create" className="section__content">
-            <div  class="back"></div>
-            <div class="registration-form">
-                <header>
-                    <h1>Sign Up</h1>
-                    <p>Fill in all informations</p>
-                </header>
-                <form>
-                    <div class="input-section email-section">
-                        <input class="email" type="email" placeholder="ENTER YOUR E-MAIL HERE" autocomplete="off" />
-                        <div class="animated-button"><span class="icon-paper-plane"><i class="fa fa-envelope-o"></i></span><span class="next-button email"><i class="fa fa-arrow-up"></i></span></div>
-                    </div>
-                    <div class="input-section password-section folded">
-                        <input class="password" type="password" placeholder="ENTER YOUR PASSWORD HERE" />
-                        <div class="animated-button"><span class="icon-lock"><i class="fa fa-lock"></i></span><span class="next-button password"><i class="fa fa-arrow-up"></i></span></div>
-                    </div>
-                    <div class="input-section repeat-password-section folded">
-                        <input class="repeat-password" type="password" placeholder="REPEAT YOUR PASSWORD HERE" />
-                        <div class="animated-button"><span class="icon-repeat-lock"><i class="fa fa-lock"></i></span><span class="next-button repeat-password"><i class="fa fa-paper-plane"></i></span></div>
-                    </div>
-                    <div class="success">
-                        <p>ACCOUNT CREATED</p>
+        <div id="create" class="section__content">
+            <div class="center screen gap air">
+                <div class="unit row gap">
+                    <a href="#home"><Logo size={100}/></a>
+                </div>
+
+                <form id="signup">
+                    <input class='center unit max row' id='alias' placeholder='Who are you?' />
+                    <div class='unit row gap'>
+                        <input class="act primary" type="submit" value="Get Started" />
                     </div>
                 </form>
-            </div></div>
+
+                <div class='unit row gap'>
+                    <a href='#auth' class='act surface'>Already have an account</a>
+                </div>
+
+            </div>
+        </div>
     )
 }
 
@@ -178,76 +173,34 @@ const stylesUno = {
 }
 
 JOY.css(stylesUno)
-// JOY.css(suno1)
-JOY.route.page('create', ()=> {
-    gun.get("main_section").get("section_header").put({
-        title: "Sign In",
-        subtitle: "Authorization component under construction. Thanx.", username: "Bresnow"
-    })
-    $('.email').on("change keyup paste",
-        function () {
-            if ($(this).val()) {
-                $('.icon-paper-plane').addClass("next");
-            } else {
-                $('.icon-paper-plane').removeClass("next");
-            }
-        }
-    );
+JOY.route.page("create", function () {
+    if (JOY.key) {
+        JOY.route("home");
+    }
+    // JOY.head("Join", true);
+    var name = $("#alias");
+    name.focus();
+    var $form = $("#signup");
+    $form.submit(async function (e) {
+        // e.preventDefault();
+console.log('clicked')
+        gun.user().auth(
+            null,
+            async (ack) => {
+                var avatar = await SEA.work(JOY.key.pub, null, null, {
+                    name: "SHA-256",
+                });
+                console.log(avatar, "AVATAR");
+                console.log(name.val());
+                JOY.user.get("epub").put(JOY.key.epub);
+                JOY.user.get("profile").get("name").put(name.val());
+                JOY.user.get("profile").get("avatar").put(avatar);
+                // history.back();
+                JOY.route("home");
+            },
+            true
+        );
+    });
+});
 
-    $('.next-button').hover(
-        function () {
-            $(this).css('cursor', 'pointer');
-        }
-    );
-
-    $('.next-button.email').click(
-        function () {
-            console.log("Something");
-            $('.email-section').addClass("fold-up");
-            $('.password-section').removeClass("folded");
-        }
-    );
-
-    $('.password').on("change keyup paste",
-        function () {
-            if ($(this).val()) {
-                $('.icon-lock').addClass("next");
-            } else {
-                $('.icon-lock').removeClass("next");
-            }
-        }
-    );
-
-    $('.next-button').hover(
-        function () {
-            $(this).css('cursor', 'pointer');
-        }
-    );
-
-    $('.next-button.password').click(
-        function () {
-            console.log("Something");
-            $('.password-section').addClass("fold-up");
-            $('.repeat-password-section').removeClass("folded");
-        }
-    );
-
-    $('.repeat-password').on("change keyup paste",
-        function () {
-            if ($(this).val()) {
-                $('.icon-repeat-lock').addClass("next");
-            } else {
-                $('.icon-repeat-lock').removeClass("next");
-            }
-        }
-    );
-
-    $('.next-button.repeat-password').click(
-        function () {
-            console.log("Something");
-            $('.repeat-password-section').addClass("fold-up");
-            $('.success').css("marginTop", 0);
-        }
-    );
-})
 export default SignIn;

@@ -35,116 +35,74 @@ import Views from './src/views';
 import Logo from './src/components/logo';
 
 
-var log =  window.log = console.log.bind(console)
-var user = window.user = JOY.user;
-
+var log = window.log = console.log.bind(console)
+var user = JOY.user;
 var storedTheme =
   localStorage.getItem("theme") ||
   (window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light");
+    ? "night"
+    : "day");
 var storedKey = localStorage.getItem("key");
 
 if (storedTheme) document.documentElement.setAttribute("theme", storedTheme);
 if (storedKey) {
-  JOY.auth(JSON.stringify(storedKey));
+  JOY.auth(JSON.parse(storedKey));
 }
-gun.on("auth", function (ack) {
-  log(ack,'auth');
+// JOY.route("home");
+gun.on("auth", async function (ack) {
   if (!storedKey) {
-    localStorage.setItem("key", JSON.stringify(ack.sea));
+    localStorage.setItem("key", JSON.stringify(JOY.key));
   }
   var pub = "~" + user.is.pub;
+  user.get("profile").on((d) => {
+    $("#my").attr("href", `#profile/?pub=${pub}`);
+    $("#my img").attr("src", JOY.avatar(d.avatar));
+  });
 });
 
 if (!location.hash) {
   JOY.route("home");
 }
-
-
-var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
-
-function preventDefault(e) {
-  e.preventDefault();
-}
-
-function preventDefaultForScrollKeys(e) {
-  if (keys[e.keyCode]) {
-    preventDefault(e);
-    return false;
+var prevScrollpos = window.pageYOffset;
+var x = window.matchMedia("(min-width: 600px)");
+window.onscroll = function () {
+  var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    if (x) {
+      document.getElementById("nav").style.bottom = "0";
+    }
+  } else {
+    if (x) {
+      document.getElementById("nav").style.bottom = "-10em";
+    }
   }
+  prevScrollpos = currentScrollPos;
+};
+
+
+if (!location.hash) {
+  JOY.route("home");
 }
-
-// modern Chrome requires { passive: false } when adding event
-var supportsPassive = false;
-try {
-  window.addEventListener(
-    "test",
-    null,
-    Object.defineProperty({}, "passive", {
-      get: function () {
-        supportsPassive = true;
-      },
-    })
-  );
-} catch (e) { }
-
-var wheelOpt = supportsPassive ? { passive: false } : false;
-var wheelEvent =
-  "onwheel" in document.createElement("div") ? "wheel" : "mousewheel";
-
-// call this to Disable
-function disableScroll() {
-  window.addEventListener("DOMMouseScroll", preventDefault, false); // older FF
-  window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
-  window.addEventListener("touchmove", preventDefault, wheelOpt); // mobile
-  window.addEventListener("keydown", preventDefaultForScrollKeys, false);
-}
-
-// call this to Enable
-function enableScroll() {
-  window.removeEventListener("DOMMouseScroll", preventDefault, false);
-  window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
-  window.removeEventListener("touchmove", preventDefault, wheelOpt);
-  window.removeEventListener("keydown", preventDefaultForScrollKeys, false);
-}
-
-$(window).on("load", function () {
-  disableScroll();
-  setTimeout(() => {
-    $("#loader").hide();
-    enableScroll();
-  }, 700);
-});
-
- var layout_header = gun
-  .get('layout_header');
-
-layout_header
-  .on(({ appname }) => {
-!appname ?
-    layout_header.put({ appname: 'FLOATING MAMMOTH' }): log("appname filled");
-  })
-export const LayoutHeader = ({ children }) => {
+export const PageHeader = ({ children }) => {
 
   return (
-    <header name="layout_header" class="header">
+    <header  class="header">
       <div class="header__left">
         <a href="#home">
           {children}
         </a>
       </div>
 
-      <div class="header__right">
+      <div name="layout_header" class="header__right">
         <span>%-- appname --%</span>
       </div>
     </header>)
 }
 JOY.jsxRender(
-  <div class="app">
-    <LayoutHeader>
+  <div class="app" data-as >
+    <PageHeader>
       <Logo size={70} />
-    </LayoutHeader>
+    </PageHeader>
 
 
     <Views />

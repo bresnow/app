@@ -63,44 +63,20 @@ JOY.style({
 		animation: 'txtanimation2 15s ease infinite',
 	}
 })
-
+var storedKey = localStorage.getItem("key");
 var compress = lz.compressToEncodedURIComponent
 var colors = ["green", "yellow", "red", "blue"];
 JOY.route.page("home", function () {
-
-			document.querySelector('footer').innerHTML = <p><strong class="blue">Join</strong> to save your data!</p>;
 	if (!JOY.key) {
-		// JOY.route("create");'
-			var key = JOY.key;
-
-		JOY.key ={ pub: "hWAXj1V6zyJOsBCgCAEjYi8SRbWnYxlVXw0M5T9sxfg.BZFElMKnkgIoNQe8k_DKIhWipXXJvTCnnMbaUNpeJe4", priv: "-x3o2iV7qiQ-FWw9VxbX860BKcWX04Kq89IBziO4CFU", epub: "U6y9JnLtw2CyUGVK-MqSqi8_ThVrYQGvXw_k6bFHhAY.21BCOLStZz49x5WnvTm0hMVUr66LJerg6i1JtxIMsck", epriv: "IPqYobspCGca9Qk-Cdm8FuRWb1_lKNNC1BPu35RJmtA" }
-		user.auth(JOY.key, a => log(a))
+		JOY.route("create");
 	}
-	log(JOY.key, 'Joy.Key]')
-	var uuid = Gun.text.random(11);
-	var url = `#paper/?file=${uuid}&?pub=~${JSON.parse(JOY.key).pub}`;
-	document.querySelector('#creator_mode').addEventListener('click', () => {
-		user
-			.get(`test/paper/files`)
-			.get(uuid)
-			.put({
-				name: "Untitled-" + uuid.slice(0, 4),
-			});
-				JOY.route(url);
-	})
-
-	// gun.get("main_section").get("section_header").put({
-	// 	title: "Floating Mammoth",
-	// 	subtitle: "Design. Develop, Deploy.", username: "Bresnow"
-	// })
-
 	JOY.head("Home");
 
 	JOY.user
 		.get(`test/paper/files`)
 		.map()
 		.on(async (d, k) => {
-			if (!d || !d?.document || !d?.when) return
+			if (!d || !d?.document || !d?.when) return;
 
 			var when = JOY.since(new Date(d.when));
 			JOY.route.render(k, ".paper-card", $("#drafts"), {
@@ -149,34 +125,32 @@ JOY.route.page("home", function () {
 					}
 				});
 		});
-	
-
-	// meta.edit({
-	// 	name: "Create",
-	// 	place: "home",
-	// 	combo: ["C"],
-	// 	fake: -1,
-	// 	on: () => {
-	// 		var key = JOY.key;
-	// 		if (!key) {
-	// 			JOY.tell(
-	// 				`<strong class="bluet">Join</strong> to save your data!`
-	// 			);
-	// 			return;
-	// 		}
-	// 		var uuid = Gun.text.random(11);
-	// 		var url = `#paper/?file=${uuid}&?pub=${JOY.key.pub}`;
-	// 		JOY.user
-	// 			.get(`test/paper/files`)
-	// 			.get(uuid)
-	// 			.put({
-	// 				name: "Untitled-" + uuid.slice(0, 4),
-	// 			})
-	// 			.on((d) => {
-	// 				JOY.route(url);
-	// 			});
-	// 	},
-	// });
+	// console.log(meta);
+	meta.edit({
+		name: "Create",
+		place: "home",
+		combo: ["C"],
+		fake: -1,
+		on: () => {
+			var key = JOY.key;
+			if (!key) {
+				JOY.tell(
+					`<strong class="bluet">Join</strong> to save your data!`
+				);
+				return;
+			}
+			var uuid = Gun.text.random(11);
+			var url = `#paper/?file=${uuid}&?pub=${JOY.key.pub}`;
+			JOY.user
+				.get(`test/paper/files`)
+				.get(uuid)
+				.put({
+					name: "Untitled-" + uuid.slice(0, 4),
+				})
+				.on((d) => {
+					JOY.route(url);
+				});
+		},
+	});
 });
-
 export default Home;

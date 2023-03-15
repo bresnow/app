@@ -30,7 +30,7 @@ html,
   padding: 0;
 }
 
-html[theme="light"] {
+html[theme="day"] {
 	--green: #96eaa3;
 	--yellow: #eae086;
 	--red: #f3646d;
@@ -48,7 +48,7 @@ html[theme="light"] {
 	--surface: var(--neutral);
 }
 
-html[theme="dark"] {
+html[theme="night"] {
 	--green: #74e284;
 	--yellow: #ded36d;
 	--red: #f3646d;
@@ -91,7 +91,7 @@ p {
 .app {
   display: grid;
   grid-template-rows: 4rem 1fr 4rem;
-  grid-template-columns: 20% 1fr;
+  /* grid-template-columns: 10% 80% 10%; */
   height: 100vh;
 
 }
@@ -192,6 +192,7 @@ p {
   min-height: 500px;
   min-height: calc(100vh - 4rem - 4rem);
   padding-top: 300px;
+  margin-top: 4em;
   margin-bottom: 250px;
   position: relative;
   transform-style: preserve-3d;
@@ -203,7 +204,7 @@ p {
   z-index: 1;
   padding: 0 1rem;
 }
-@media screen and (min-width: 1024px) {
+@media (width <= 600px) {
   .section {
     margin-bottom: 750px;
   }
@@ -228,7 +229,7 @@ p {
 .boxgrid__item--wide {
   grid-column: span 2;
 }
-@media screen and (min-width: 1280px) {
+@media (width <= 600px) {
   .boxgrid__item--push {
     grid-column: span 2;
     padding-left: 50%;
@@ -482,7 +483,7 @@ button:focus {
 }
 
 /* small screen */
-@media only screen and (max-width: 600px) {
+@media only (width >= 600px) {
   #navbar {
     bottom: 0;
     width: 100vw;
@@ -516,7 +517,7 @@ button:focus {
 
 /* large screen */
 
-@media only screen and (min-width: 600px) {
+@media only (width<= 600px) {
   #navbar {
     top: 0;
     width: 5rem;
@@ -605,3 +606,295 @@ button:focus {
 .email:-moz-placeholder { color: rgba(255,255,255,0.6);}
 .email::-moz-placeholder { color: rgba(255,255,255,0.6);}
 .email:-ms-input-placeholder { color: rgba(255,255,255,0.6);}
+
+
+
+#tell {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 0;
+	overflow: visible;
+}
+#tell p {
+	background: var(--surface);
+	border-radius: var(--radius);
+	/* background: rgba(var(--background), 0.8);
+	border: 0.1em solid var(--text);
+	box-shadow: 0 0.5em 1em var(--surface);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px); */
+	top: -2em;
+	width: 75%;
+	padding: 1%;
+	opacity: 0;
+	visibility: hidden;
+	transition: visibility 1s, all 0.5s ease-in;
+}
+#tell .notify {
+	top: 0.25em;
+	opacity: 1;
+	visibility: visible;
+	transition: visibility 0s, all 0.25s ease-out;
+}
+
+#install {
+	display: none;
+}
+@keyframes slide {
+	0% {
+		transform: translateX(25%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+.ProseMirror {
+	position: relative;
+}
+
+.ProseMirror {
+	word-wrap: break-word;
+	white-space: pre-wrap;
+	white-space: break-spaces;
+	-webkit-font-variant-ligatures: none;
+	font-variant-ligatures: none;
+	font-feature-settings: "liga" 0; /* the above doesn't seem to work in Edge */
+}
+
+.ProseMirror pre {
+	background: var(--surface);
+	white-space: pre-wrap;
+}
+.ProseMirror code {
+	font-family: monospace;
+}
+.ProseMirror ul,
+ol {
+	margin-left: 1em;
+}
+.ProseMirror li {
+	position: relative;
+}
+.ProseMirror blockquote {
+	background: var(--surface);
+	border-left: 4px solid var(--text);
+	border-radius: var(--radius);
+	padding: 0.5em;
+}
+.ProseMirror-hideselection *::selection {
+	background: transparent;
+}
+.ProseMirror-hideselection *::-moz-selection {
+	background: transparent;
+}
+.ProseMirror-hideselection {
+	caret-color: transparent;
+}
+
+.ProseMirror-selectednode {
+	outline: 2px solid #8cf;
+}
+
+/* Make sure li selections wrap around markers */
+
+li.ProseMirror-selectednode {
+	outline: none;
+}
+
+li.ProseMirror-selectednode:after {
+	content: "";
+	position: absolute;
+	left: -32px;
+	right: -2px;
+	top: -2px;
+	bottom: -2px;
+	border: 2px solid #8cf;
+	pointer-events: none;
+}
+
+/* Protect against generic img rules */
+.ProseMirror img {
+	max-width: 100%;
+	margin: 1em;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: var(--radius);
+}
+
+img.ProseMirror-separator {
+	display: inline !important;
+	border: none !important;
+	margin: 0 !important;
+}
+li[data-type="todo_item"] {
+	display: flex;
+	flex-direction: row;
+}
+
+.todo-checkbox {
+	border: 1px solid var(--text);
+	height: 1em;
+	width: 1em;
+	box-sizing: border-box;
+	margin-top: 0.3em;
+	margin-right: 0.5em;
+	user-select: none;
+	-webkit-user-select: none;
+	cursor: pointer;
+	border-radius: var(--radius);
+}
+
+.todo-checkbox-checked {
+	background-color: var(--primary);
+}
+
+.todo-content {
+	flex: 1;
+}
+.avatar {
+  vertical-align: middle;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+}
+li[data-done="true"] {
+	text-decoration: line-through;
+}
+
+li[data-done="true"] .todo-checkbox-unchecked {
+	display: none;
+}
+
+li[data-done="false"] .todo-checkbox-checked {
+	display: none;
+}
+
+li[data-done="true"] li[data-done="false"] .todo-checkbox-checked {
+	display: inline-block;
+}
+
+li[data-done="false"] li[data-done="true"] .todo-checkbox-checked {
+	display: inline-block;
+}
+
+li[data-done="false"] {
+	text-decoration: none;
+}
+
+details > summary {
+	cursor: pointer;
+	user-select: none;
+	padding: 0.5em;
+	background: var(--surface);
+	margin: 0.5em 0;
+}
+summary {
+	display: inline;
+}
+details[open] summary {
+	font-weight: bold;
+	background: transparent;
+}
+#my {
+	/* opacity: 0; */
+	/* animation: slide 0.5s ease-in 1s; */
+}
+#loader {
+	background: var(--background);
+}
+#spinner {
+	display: block;
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	height: 50px;
+	width: 50px;
+	margin: -25px 0 0 -25px;
+	border-radius: 50%;
+}
+
+#spinner:before,
+#spinner:after {
+	content: "";
+	border: 2px solid var(--primary);
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	left: 0px;
+}
+
+#spinner:before {
+	-webkit-transform: scale(1, 1);
+	-ms-transform: scale(1, 1);
+	transform: scale(1, 1);
+	opacity: 1;
+	-webkit-animation: spWaveBe 0.6s infinite linear;
+	animation: spWaveBe 0.6s infinite linear;
+}
+
+#spinner:after {
+	-webkit-transform: scale(0, 0);
+	-ms-transform: scale(0, 0);
+	transform: scale(0, 0);
+	opacity: 0;
+	-webkit-animation: spWaveAf 0.6s infinite linear;
+	animation: spWaveAf 0.6s infinite linear;
+}
+
+@-webkit-keyframes spWaveAf {
+	from {
+		-webkit-transform: scale(0.5, 0.5);
+		transform: scale(0.5, 0.5);
+		opacity: 0;
+	}
+	to {
+		-webkit-transform: scale(1, 1);
+		transform: scale(1, 1);
+		opacity: 1;
+	}
+}
+@keyframes spWaveAf {
+	from {
+		-webkit-transform: scale(0.5, 0.5);
+		transform: scale(0.5, 0.5);
+		-webkit-transform: scale(0.5, 0.5);
+		transform: scale(0.5, 0.5);
+		opacity: 0;
+	}
+	to {
+		-webkit-transform: scale(1, 1);
+		transform: scale(1, 1);
+		-webkit-transform: scale(1, 1);
+		transform: scale(1, 1);
+		opacity: 1;
+	}
+}
+@-webkit-keyframes spWaveBe {
+	from {
+		-webkit-transform: scale(1, 1);
+		transform: scale(1, 1);
+		opacity: 1;
+	}
+	to {
+		-webkit-transform: scale(1.5, 1.5);
+		transform: scale(1.5, 1.5);
+		opacity: 0;
+	}
+}
+@keyframes spWaveBe {
+	from {
+		-webkit-transform: scale(1, 1);
+		transform: scale(1, 1);
+		opacity: 1;
+	}
+	to {
+		-webkit-transform: scale(1.5, 1.5);
+		transform: scale(1.5, 1.5);
+		opacity: 0;
+	}
+}
