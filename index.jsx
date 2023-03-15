@@ -33,7 +33,7 @@ import "./src/style/math.css";
 
 import Views from './src/views';
 import Logo from './src/components/logo';
-
+import { Account } from './src/containers/section';
 
 var log = window.log = console.log.bind(console)
 var user = JOY.user;

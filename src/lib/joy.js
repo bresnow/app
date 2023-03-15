@@ -151,6 +151,9 @@
 			}, wait || 200);
 		}
 	}
+	as.escape = function (str) {
+		return opt.match + str + opt.end;
+	}
 	as.sort = function sort(num, li) { return parseFloat(num) >= parseFloat($(li).find('.sort').text() || -Infinity) ? li : sort(num, li.prev()) }
 	let editable = [document.querySelectorAll('input'), document.querySelectorAll('textarea'), document.querySelectorAll('[contenteditable]')];
 	// editable.forEach(function (elm) {
@@ -238,7 +241,17 @@ $(function () {
 ; (function () { // need to isolate into separate module!
 	// need to isolate into separate module!
 	var joy = (window.JOY = function () { });
+	/**
+	 * Hash router that changes views/partials
+	 */
 	joy.route = as.route || $.route;
+	/**
+	 * adds the template's excape characters
+	 */
+	joy.escape = as.escape || $.escape;
+	/**
+	 * Auth
+	 */
 	joy.auth = function (k, cb, o) {
 		if (!o) {
 			o = cb;
@@ -258,11 +271,11 @@ $(function () {
 			}/${seed}.svg`;
 	};
 	joy.head = function (title, hide) {
-		$(document).ready(function () {
+		ready(function () {
 			var $head = $("header");
 			var $account = $("#account");
 			document.title = title;
-			place.textContent = title;
+			// place.textContent = title;
 			if (hide) {
 				if (hide.only) {
 					// console.log("hide.only", hide.only);
@@ -300,6 +313,7 @@ $(function () {
 	}
 	joy.css = joy.style
 	joy.router = joy.route
+	
 	// TODO: Remove  and add to chain
 	joy.download = function (filename, data, type, charset, href) {
 		let hiddenElement;

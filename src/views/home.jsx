@@ -9,16 +9,16 @@ const Home = () => {
 				<li class="boxgrid__item boxgrid__item--wide">
 					<a href="#settings" class="box box--image">
 						<img src="#" class="box__img" alt="" />
-						<p contenteditable="true">hvhghjkkv</p>
+						<p contenteditable="true"></p>
 					</a>
 				</li>
 				<li class="boxgrid__item">
 					<div id="creator_mode" class="box bg-red box--image">
-						{/* <p><span class="text--large">30°C</span><br />Sunny</p> */}
+						<p><span class="text--large">30°C</span><br />Sunny</p>
 					</div>
 				</li>
 				{/* class boxgrid__item--push */}
-				<li class="boxgrid__item ">
+				<li class="boxgrid__item boxgrid__item--wide">
 					<a href="#best" class="box box--video">
 						<img src="#" class="box__img" alt="" />
 					</a>
@@ -30,14 +30,12 @@ const Home = () => {
 				</li>
 				<li class="boxgrid__item ">
 					<a href="#profile" class="box box--image">
-						<p contenteditable="true">hvhghjkkv</p>
-						{/* <p><span class="text--large">1.366</span><br />Locations</p> */}
+						<p><span class="text--large">1.366</span><br />Locations</p>
 					</a>
 				</li>
 				<li class="boxgrid__item">
 					<a href="#best" class="box box--image">
-						<p contenteditable="true">hvhghjkkv</p>
-						{/* <p><span class="text--large">150$</span><br />Daily cost</p> */}
+						<p><span class="text--large">150$</span><br />Daily cost</p>
 					</a>
 				</li>
 				<li class="boxgrid__item">

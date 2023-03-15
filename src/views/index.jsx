@@ -10,10 +10,10 @@ import Player from "./player.jsx";
 import { NewUser } from './auth';
 import SignIn from "./create/index.jsx";
 
- const Views = () =>
-    <Section>
-        <SignIn/>
-        <NewUser/>
+const Views = () =>
+    <Section name={JOY.key ? "~"+JOY.key.pub : null}>
+        <SignIn />
+        <NewUser />
         <Home />
         <Activity />
         <Settings />
@@ -21,7 +21,7 @@ import SignIn from "./create/index.jsx";
         <Search />
         <Friends />
         <Paper />
-    <Player/>
+        <Player />
     </Section>
     ;
 export default Views;
