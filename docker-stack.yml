@@ -21,14 +21,14 @@ services:
         - traefik.http.routers.${NAME?What's the name of the app?}-https.tls.certresolver=le
         - traefik.http.services.${NAME?What's the name of the app?}.loadbalancer.server.port=5173
     volumes:
-      - luvcraft1:/usr/src/app
+      - ${PWD}:/usr/src/app
     networks:
       - traefik-public
 networks:
   traefik-public:
     external: true
-volumes:
-  luvcraft1:
-    driver: local-persist
-    driver_opts:
-      mountpoint: ${VOLUME?What's the volume?}
+# volumes:
+#   luvcraft1:
+#     driver: local-persist
+#     driver_opts:
+#       mountpoint: ${PWD}

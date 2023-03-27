@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "concurrently \"unocss ./src/**/*.jsx --out-file=./src/style/uno.css --watch\" \"node server.mjs\" \"vite --host\"",
     "dep:dev": "NAME=app VOLUME=$PWD docker stack deploy -c docker-stack.yml app",
+    "traefik": "npx zx runtime/swarm/setuptraefik.mjs",
     "build": "vite build --outDir dist/client",
     "start": "node server.mjs"
   },
