@@ -12,12 +12,12 @@ const Home = () => {
 						<p contenteditable="true"></p>
 					</a>
 				</li>
-				<li class="boxgrid__item">
+				{/* <li class="boxgrid__item">
 					<div id="creator_mode" class="box bg-red box--image">
 						<p><span class="text--large">30°C</span><br />Sunny</p>
 					</div>
 				</li>
-				{/* class boxgrid__item--push */}
+				{/* class boxgrid__item--push 
 				<li class="boxgrid__item boxgrid__item--wide">
 					<a href="#best" class="box box--video">
 						<img src="#" class="box__img" alt="" />
@@ -42,8 +42,14 @@ const Home = () => {
 					<a href="#best" class="box box--image">
 						<img src="" class="box__img" alt="" />
 					</a>
-				</li>
-			</ul>
+	</li>*/}
+				<li class="boxgrid__item">
+					<a id="logout"class="box box--image bg-red">
+						<img src="#" class="box__img" alt="" />
+						<p className='mx-auto' > <span className="text--large">LOGOUT</span> </p>
+					</a>
+				</li>		
+			</ul> 
 		</div>
 
 	)
@@ -68,8 +74,13 @@ JOY.route.page("home", function () {
 	if (!JOY.key) {
 		JOY.route("create");
 	}
-	JOY.head("Home");
-
+document.querySelector("#logout").addEventListener('click', function(e){
+	log("LEMONSQUEE")
+	JOY.user.leave();
+	localStorage.removeItem("key");
+	JOY.key = {};
+	location.reload()
+})
 	JOY.user
 		.get(`test/paper/files`)
 		.map()
