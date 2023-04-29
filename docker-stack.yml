@@ -1,4 +1,5 @@
-# this is used for local development and testing
+# this is used for development
+# docker stack deploy -c docker-stack.yml ${NAME}
 version: "3.0"
 services:
   fltngmmth_dev:
@@ -11,23 +12,23 @@ services:
         - traefik.enable=true
         - traefik.docker.network=traefik-public
         - traefik.constraint-label=traefik-public
-        - traefik.http.routers.dev-http.rule=Host(`fltngmmth.com`)
-        - traefik.http.routers.dev-http.entrypoints=http
-        - traefik.http.routers.dev-http.middlewares=https-redirect
-        - traefik.http.routers.dev-https.rule=Host(`fltngmmth.com`)
-        - traefik.http.routers.dev-https.entrypoints=https
-        - traefik.http.routers.dev-https.tls=true
-        - traefik.http.routers.dev-https.tls.certresolver=le
-        - traefik.http.services.dev.loadbalancer.server.port=5173
+        - traefik.http.routers.${NAME?What's the name of the app?}-http.rule=Host(`fltngmmth.com`)
+        - traefik.http.routers.${NAME?What's the name of the app?}-http.entrypoints=http
+        - traefik.http.routers.${NAME?What's the name of the app?}-http.middlewares=https-redirect
+        - traefik.http.routers.${NAME?What's the name of the app?}-https.rule=Host(`fltngmmth.com`)
+        - traefik.http.routers.${NAME?What's the name of the app?}-https.entrypoints=https
+        - traefik.http.routers.${NAME?What's the name of the app?}-https.tls=true
+        - traefik.http.routers.${NAME?What's the name of the app?}-https.tls.certresolver=le
+        - traefik.http.services.${NAME?What's the name of the app?}.loadbalancer.server.port=5173
     volumes:
-      - fmdev:/usr/src/app
+      - ${PWD}:/usr/src/app
     networks:
       - traefik-public
 networks:
   traefik-public:
     external: true
-volumes:
-  fmdev:
-    driver: local-persist
-    driver_opts:
-      mountpoint: /home/bresnow/apps/fltngmmth
+# volumes:
+#   luvcraft1:
+#     driver: local-persist
+#     driver_opts:
+#       mountpoint: ${PWD}
