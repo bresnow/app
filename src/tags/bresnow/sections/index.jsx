@@ -9,7 +9,7 @@ export const Preloader = () => {
 };
 export const OffCanvasMenu = () => {
   return (
-    <div name="oc-menu" class="offcanvas_menu">
+    <div name="offcanvas" class="offcanvas_menu">
       <ul class="navbar-nav side_menu">
         <li class="nav-item dropdown submenu active">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
@@ -68,7 +68,7 @@ export const MainSlider = () => {
               <div class="col-md-4 d-flex align-items-center">
                 <div class="slider_content">
                   <h2 data-animation="fadeInUp" data-delay="0.2s">Creative Marketing & Interface
-                    <span>Design</span>
+                    <span> Design</span>
                   </h2>
                   <a href="#" class="theme_btn btn_white" data-animation="fadeInUp"
                     data-delay="0.5s"></a>
@@ -98,7 +98,7 @@ export const Portfolio = () => {
       <div class="row" id="portfolio_masonry">
         <div class="col-md-2 wow fadeInDown">
           <div class="sec_title">
-            <h2>Our <span>Portfolio</span></h2>
+            <h2>My <span>Work</span></h2>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-delay="0.3s">
@@ -190,7 +190,7 @@ export const Fact = () => {
         <div class="col-lg-3 col-sm-6 wow fadeInDown" data-wow-delay="0.2s">
           <div class="fact_item">
             <div class="counter">4.2</div>K<i class="arrow_up"></i>
-            <p>Cups of coffe</p>
+            <p>Cups of coffee</p>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6 wow fadeInDown" data-wow-delay="0.4s">
@@ -210,9 +210,104 @@ export const Fact = () => {
   </section>)
 };
 export const Contact = () => {
-  return null }
+  return (<section class="contact_area black_bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5 wow fadeInDown" data-wow-delay="0.2s">
+          <div class="contact_info">
+            <h2>920 N Church St. Wilmington, De 19801, USA.</h2>
+            
+          </div>
+        </div>
+        <div class="col-lg-6 offset-lg-1 wow fadeInDown" data-wow-delay="0.3s">
+          <form action="#" class="row contact_form">
+            <div class="col-lg-6 form-group">
+              <input type="text" class="form-control" placeholder="Your email *" />
+            </div>
+            <div class="col-lg-6 form-group">
+              <input type="text" class="form-control" placeholder="Phone *" />
+            </div>
+            <div class="col-lg-12 form-group">
+              <select class="form-control" id="exampleFormControlSelect1">
+                <option>I need to do marketing for my brand</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <button type="submit" class="submit_btn">
+                Send Message
+              </button>
+            </div>
+            <div class="col-md-6">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                <label class="form-check-label" for="defaultCheck1">
+                  I agree to receive information
+                </label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="border_bottom"></div>
+    </div>
+  </section>) }
+
+  
 export const Footer = () => {
-  return null};
+  return (
+  <footer class="black_bg">
+    <div class="footer_top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-delay="0.1s">
+            <div class="f_widget about-widget">
+              <a href="#" class="f_logo"><img src="img/bresnow_logo.png" width={50} alt="" /></a>
+              <p>Our main objective is to help people achieve their business goals and make their
+                business an efficient organization from all sides.</p>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-delay="0.3s">
+            <div class="f_widget social_widget">
+              <h3 class="f_title">Follow Us On</h3>
+              <ul class="list-unstyled">
+                <li><a href="">Instagram</a></li>
+                <li><a href="">Twitter</a></li>
+                <li><a href="">Linkedin</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4 wow fadeInDown" data-wow-delay="0.5s">
+            <div class="f_widget contact_widget">
+              <h3 class="f_title">Contact Me</h3>
+              <ul class="list-unstyled">
+                  <li>Phone: 
+                    <a href="tel:13024084628">+1 302 408 4628</a>
+                </li>
+                  <li>Email: <a href="mailto:bresnow@fltngmmth.com">bresnow@fltngmmth.com</a></li>
+                <li>Address: 920 N Church St. Wilmington, De 19810</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer_bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7 col-sm-9">
+            <p>©2023<a href="#">FloatingMammoth</a></p>
+          </div>
+          <div class="col-md-5 col-sm-3 text-right">
+            <a href="#" class="go_top">go back up <i class="arrow_up"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>)};
 
 export const Header = () => {
   return (
@@ -220,8 +315,8 @@ export const Header = () => {
       <div class="container">
         <div class="d-flex align-items-center justify-content-between">
           <a href="#" class="logo">
-            {/* <img src="img/logo-w.png" alt=""/> */}
-            {/* <img src="img/logo-b.png" alt=""/> */}
+            <img  width={60} src="img/bresnow_logo.png" alt=""/>
+            <img  width={60} src="img/bresnow__logo_b.png" alt=""/>
           </a>
           <div class="right_item">
             <a href="mailto:bresnow@fltngmmth.com" class="h_contact_info">bresnow@fltngmmth.com</a>
