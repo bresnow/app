@@ -1,6 +1,8 @@
 export const scripts = [{ src: "js/bootstrap.min.js" }, { src: "js/main.min.js" }, { src: "js/slick.min.js" }]
 export const peers = ["http://0.0.0.0:3000/gun"];
-
+/**
+ * AI Image generation styles
+ */
 export const imgGenStyles = {
     ".card": { color: "#fff" },
     "#hero": {
@@ -12,7 +14,6 @@ export const imgGenStyles = {
     "#hero img": { width: "328px", height: "339px", borderRadius: "1rem" },
     ".info": { paddingTop: "2rem" },
     "#prompt": { height: "25px", width: "200px" },
-    button: { height: "30px" },
     ".lds-ring": {
         display: "inline-block",
         position: "relative",

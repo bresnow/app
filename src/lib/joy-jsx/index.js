@@ -12,7 +12,7 @@ import "gun/lib/load.js";
 import "gun/lib/open.js";
 import "gun/lib/not.js";
 import "gun/lib/axe.js";
-; (function () {
+;(function () {
 	function as(cb, opt) {
 		
 		var el = $(document);
@@ -292,7 +292,7 @@ $(function () {
 			tmp += "}\n";
 		});
 		var tag = document.createElement("style");
-		tag.innerHTML = m ? tmp + "\n}" : tmp;
+		tag.innerHTML =  tmp;
 		document.documentElement.append(tag);
 	}
 	joy.css = joy.style

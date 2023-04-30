@@ -2,10 +2,9 @@ import Script from "./components/scripts";
 import { scripts } from './utils/constants';
 import './lib/joy-jsx';
 
-
 const Index = () =>
     <div class="all">
-        <Header/>
+        <Header />
         <div id="search" class="search-form">
             <form action="dashboard.html">
                 <div class="icon-search"></div>
@@ -14,6 +13,7 @@ const Index = () =>
         </div>
         <Dash />
         <Footer />
+        <Script tag={scripts} />
     </div>;
 function Header() {
     return (
@@ -21,7 +21,7 @@ function Header() {
             <div class="header-inner">
                 <div class="header-logo"><a href="#">FLTNGMMTH</a></div>
                 <div class="header-icons">
-                <div class="burger hidden-lg hidden-md"><a href="#"><span></span><span></span><span></span></a></div>
+                    <div class="burger hidden-lg hidden-md"><a href="#"><span></span><span></span><span></span></a></div>
                 </div>
                 <div class="header-help"><a href="#help">Help</a></div>
                 <div class="header-login"><a href="#registration">New Account</a><a href="#login">Login</a></div>
@@ -36,12 +36,12 @@ function Dash({ children }) {
                 <div class="page-nav-inner">
                     <div class="header-logged"><a href="#invitation">Invite</a><a href="#members">10 Members</a><a href="dashboard-#forme">Jack M.<span class="avatar"><img src="images/image.png" alt="" /><img src="images/image.png" alt="" /></span></a></div>
                     <ul class="page-nav__list">
-                        <li class="active"><a href="#dashboard">Different</a></li>
-                        <li><a href="#dashboard">Open</a></li>
-                        <li><a href="#dashboard">In Progress</a></li>
-                        <li><a href="#dashboard">Review</a></li>
+                        <li class="active"><a href="#dashboard">Home</a></li>
+                        <li><a href="#imageGen">Image Generator</a></li>
+                        {/* <li><a href="#dashboard">In Progress</a></li> */}
+                        {/* <li><a href="#dashboard">Review</a></li>
                         <li><a href="#dashboard">Done</a></li>
-                        <li><a href="#dashboard">Ideas</a></li>
+                        <li><a href="#dashboard">Ideas</a></li> */}
                     </ul>
                     <div class="btn-group"><a href="#dashboard" class="btn btn-default active">to others</a><a href="dashboard-#forme" class="btn btn-default">for me</a>
                     </div><a href="#task-create" class="btn btn-accent hidden-xs">add task</a><a href="#task-create" class="btn btn-accent visible-xs">&plus;</a>
@@ -91,5 +91,5 @@ JOY.route.page("home", function () {
     gun.get('power').put({ recon: "FLTNGMMTH" })
 })
 export default function () {
-    return (<div ><Index /><Script tag={scripts} /></div>)
+    return (<div id="home" class="section__" ><Index /></div>)
 };
