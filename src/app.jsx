@@ -1,5 +1,5 @@
 import Script from "./components/scripts";
-import { scripts } from './utils/constants';
+import { scripts } from './lib/utils/constants';
 import './lib/joy-jsx';
 
 const Index = () =>

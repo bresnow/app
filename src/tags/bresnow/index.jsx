@@ -1,84 +1,18 @@
 
-import'./lib/joy-jsx';
-
-
+import'../../lib/joy-jsx';
+import { Header, Preloader, OffCanvasMenu, MainSlider, Portfolio, Fact, Contact ,Footer } from './sections';
 JOY.route.page('bresnow', ()=> {
-
+gun.get('preloader').put({title: location.hash.slice(1).toLocaleUpperCase()})
 });
 
 export default function Bresnow() {
     return (
-        <div id="bresnow" class="section__ body_wrapper dark_bg">
-            <div id="preloader">
-                <div class="product_name">Bresnow</div>
-            </div>
-            <header class="header_area">
-                <div class="container">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <a href="#" class="logo">
-                            {/* <img src="img/logo-w.png" alt=""/> */}
-                                {/* <img src="img/logo-b.png" alt=""/> */}
-                                </a>
-                                <div class="right_item">
-                            <a href="mailto:bresnow@fltngmmth.com" class="h_contact_info">bresnow@fltngmmth.com</a>
-                                    <div class="burger_menu">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-            </header>
-            <div class="offcanvas_menu">
-                <ul class="navbar-nav side_menu">
-                    <li class="nav-item dropdown submenu active">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Home
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home One</a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="index-2.html">Home Two</a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="index-3.html">Home
-                                Three</a></li>
-                            <li class="nav-item active"><a class="nav-link" href="index-4.html">Home Four</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">
-                            About
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="portfolio.html">
-                            Portfolio
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown submenu">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Blogs
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                            <li class="nav-item"><a href="blog-details.html" class="nav-link">Blog Details</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">
-                            Contact
-                        </a>
-                    </li>
-                </ul>
-            </div>
+        <main id="bresnow" class="section__ body_wrapper dark_bg">
+          <Preloader/>
+          <Header/> 
+<OffCanvasMenu/>
+
+
             {/* <!-- main_slider_area --> */}
             <section class="main_slider_area_three">
                 <div class="container">
@@ -330,6 +264,6 @@ export default function Bresnow() {
                 </div>
             </footer>
             {/* <!-- footer area --> */}
-        </div>
+        </main>
     )
 };

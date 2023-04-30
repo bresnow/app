@@ -12,6 +12,7 @@ import "gun/lib/load.js";
 import "gun/lib/open.js";
 import "gun/lib/not.js";
 import "gun/lib/axe.js";
+import "../chain";
 ;(function () {
 	function as(cb, opt) {
 		
@@ -87,11 +88,9 @@ import "gun/lib/axe.js";
 		as.ui = gun;
 		as.el = el || $(el);
 		if (el.data('as')) {
-			el.html(el.data('as').fresh);
+			el.html(el.data('as'));
 		} else {
-			el.data('as', {
-				fresh: el.html()
-			})
+			el.data('as', el.html())
 		}
 		el.find("[name]").each(function () {
 			if ($(this).find("[name]").length) { return }
@@ -169,17 +168,6 @@ import "gun/lib/axe.js";
 		return opt.match + str + opt.end;
 	}
 	as.sort = function sort(num, li) { return parseFloat(num) >= parseFloat($(li).find('.sort').text() || -Infinity) ? li : sort(num, li.prev()) }
-	let editable = [document.querySelectorAll('input'), document.querySelectorAll('textarea'), document.querySelectorAll('[contenteditable]')];
-	// editable.forEach(function (elm) {
-	// 	elm.forEach(function (tag) {
-	// 		let data
-	// 		if (tag.hasAttribute('value')){
-	// 			data = tag.getAttribute('value')
-	// 		}
-	// 		tag.addEventListener("")
-	// 	})
-	// })
-
 	$(document).on('keyup', 'input, textarea, [contenteditable]', function (i, elem) {
 		var el = $(this);
 		var data = (el[0] && u === el[0].value) ? el.text() : el.val();
@@ -188,7 +176,7 @@ import "gun/lib/axe.js";
 		as.lock = g;
 		g.put(data);
 	});
-	//$(document).on('submit', 'form', function(e){ e.preventDefault() });
+	$(document).on('submit', 'form', function(e){ e.preventDefault() });
 	var u;
 	window.as = as;
 	$.as = as;

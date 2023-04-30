@@ -3,8 +3,7 @@ import '../css/responsive.css'
 import '../css/style.css'
 
 import App from "./app"
-import Bresnow from './bresnow';
-import ImageGen from "./imageGen";
+import Bresnow from './tags/bresnow';
 import './lib/joy-jsx';
 
 var log = window.log = console.log.bind(console)
