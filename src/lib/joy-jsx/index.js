@@ -170,16 +170,18 @@ import "../chain";
 	}
 	as.sort = function sort(num, li) { return parseFloat(num) >= parseFloat($(li).find('.sort').text() || -Infinity) ? li : sort(num, li.prev()) }
 	//CHECKIT
-	$(document).on('keyup', 'input, textarea, [contenteditable="true"]', function (i, elem) {
+
+	$(document).on('keyup', 'input, textarea, [contenteditable]', function (i, elem) {
 		var el = $(this);
 		var data = (el[0] && u === el[0].value) ? el.text() : el.val();
+		// log(data, "CEDIT")
 		var g = el.data('gun');
 		if (!g) { return }
 		as.lock = g;
 		g.put(data);
 	});
 	// forms do as i say
-	$(document).on('submit', 'form', function (e) { e.preventDefault() });
+	// $(document).on('submit', 'form', function (e) { e.preventDefault() });
 	var u;
 	window.as = as;
 	$.as = as;

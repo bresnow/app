@@ -2,6 +2,7 @@
 import '../../lib/joy-jsx';
 
 import { Header, Preloader, OffCanvasMenu, MainSlider, Portfolio, Fact, Contact, Footer } from './sections';
+import { BlogDetail } from './sections/blog-detail';
 JOY.route.page('bresnow', () => {
     gun.get('preloader').put({ title: location.hash.slice(1).toLocaleUpperCase() })
     function navbarFixed() {
@@ -276,11 +277,11 @@ export default function Bresnow() {
             <Preloader />
             <Header />
             <OffCanvasMenu />
-            <MainSlider />
-          
+            <BlogDetail/>
+            {/* <MainSlider /> */}
             <Portfolio />
             {/* <Fact /> */}
-            <Contact />
+            {/* <Contact /> */}
             <Footer />
         </main>
     )

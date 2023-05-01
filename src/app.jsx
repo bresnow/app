@@ -88,7 +88,6 @@ function Footer() {
     )
 }
 JOY.route.page("home", function () {
-    gun.get('power').put({ recon: "FLTNGMMTH" })
 })
 export default function () {
     return (<div id="home" class="section__" ><Index /></div>)
