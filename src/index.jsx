@@ -1,3 +1,4 @@
+import './lib/joy-jsx';
 import '../css/main.css'
 import '../css/responsive.css'
 import '../css/style.css'
@@ -11,23 +12,19 @@ import "./lib/vendors/elegant-icon/style.css"
 import "./lib/vendors/animation/animate.css"
 import App from "./app"
 import Bresnow from './tags/bresnow';
-import './lib/joy-jsx';
 
-var log = window.log = console.log.bind(console)
 var user = JOY.user;
-JOY.opt.peers = ['http://0.0.0.0:3000/gun']
+// window.CONFIG.peers = ['http://0.0.0.0:3000/gun']
 
-JOY.render(<div><App/><Bresnow/></div>)
+JOY.render(<div><App /><Bresnow /></div>)
 
 
-function StyleSheets(){
-    return null
+function LoadMeta(obj) {
+    Object.entries(obj).forEach(key => {
+        let meta = document.createElement('meta');
+        let head = document.getElementsByTagName('head')[0];
+        meta.setAttribute('name', key[0]);
+        meta.setAttribute('content', key[1]);
+        head.appendChild(meta);
+    })
 }
-
-
-
-
-
-
-
-gun.get('power').put({recon: "MONEY & POWER"})

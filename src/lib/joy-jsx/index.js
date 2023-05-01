@@ -12,11 +12,11 @@ import "gun/lib/load.js";
 import "gun/lib/open.js";
 import "gun/lib/not.js";
 import "gun/lib/axe.js";
-import "gun/lib/meta.js";
+// import "gun/lib/meta.js";
 import "../chain";
-;(function () {
+; (function () {
 	function as(cb, opt) {
-		
+
 		var el = $(document);
 		if (!el.length) { return }
 
@@ -179,7 +179,7 @@ import "../chain";
 		g.put(data);
 	});
 	// forms do as i say
-	$(document).on('submit', 'form', function(e){ e.preventDefault() });
+	$(document).on('submit', 'form', function (e) { e.preventDefault() });
 	var u;
 	window.as = as;
 	$.as = as;
@@ -249,9 +249,9 @@ $(function () {
 	$(JOY.start = JOY.start || function () { $.as((a, b, c) => { console.log(a, b, c, "ABC") }) });
 });
 
-; (function () { 
+; (function () {
 
-	var joy = window.JOY = ()=>{};
+	var joy = window.JOY = () => { };
 	/**
 	 * Hash router that changes views/partials
 	 */
@@ -280,7 +280,7 @@ $(function () {
 
 	joy.style = function (css) {
 		var style = css
-		var tmp =  "";
+		var tmp = "";
 		$.each(style, function (c, r) {
 			tmp += c + " {\n";
 			$.each(r, function (k, v) {
@@ -289,12 +289,12 @@ $(function () {
 			tmp += "}\n";
 		});
 		var tag = document.createElement("style");
-		tag.innerHTML =  tmp;
+		tag.innerHTML = tmp;
 		document.documentElement.append(tag);
 	}
 	joy.css = joy.style
 	joy.router = joy.route
-	
+
 	// TODO: Remove  and add to chain
 	joy.download = function (filename, data, type, charset, href) {
 		let hiddenElement;
@@ -313,7 +313,7 @@ $(function () {
 	// Renders jsx to index.html. 
 	joy.render = jsxRender;
 
-	var opt = (joy.opt = window.CONFIG || { localStorage:false }),
+	var opt = (joy.opt = window.CONFIG || { localStorage: false }),
 		peers;
 	$("link[type=peer]").each(function () {
 		(peers || (peers = [])).push($(this).attr("href"));
@@ -327,6 +327,7 @@ $(function () {
 	joy.get = gun.get;
 	window.joy = joy;
 
+	window.log = console.log.bind(console)
 }());
 $(function () {
 	$(".section__").not(":first").fadeOut();
@@ -345,9 +346,9 @@ function camelToKebab(string) {
 	return string.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, "$1-$2").toLowerCase();
 }
 function jsxRender(jsx, id = null) {
-	id? document.getElementById(id).innerHTML = (
+	id ? document.getElementById(id).innerHTML = (
 		jsx
-	): document.body.innerHTML = (jsx)
+	) : document.body.innerHTML = (jsx)
 }
 function ready(fn) {
 	if (document.readyState !== 'loading') {
