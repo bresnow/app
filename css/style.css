@@ -129,7 +129,7 @@ h6 {
   border: 0px;
   height: 1px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.0);
   transition: all 1.5s;
 }
 
@@ -171,7 +171,7 @@ h6 {
   left: 0;
   height: 50vh;
   width: 100%;
-  background: #333333;
+  background: #000;
   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
 }
 

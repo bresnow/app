@@ -1,5 +1,6 @@
 
 import '../../lib/joy-jsx';
+
 import { Header, Preloader, OffCanvasMenu, MainSlider, Portfolio, Fact, Contact, Footer } from './sections';
 JOY.route.page('bresnow', () => {
     gun.get('preloader').put({ title: location.hash.slice(1).toLocaleUpperCase() })
@@ -263,6 +264,10 @@ JOY.route.page('bresnow', () => {
         $("#preloader").addClass("load_coplate");
         $(".product_name").addClass("load_coplate");
     });
+
+
+    let offcanvas = gun.get('bresnow').get("offcanvas").get("menu");
+offcanvas.set({menu_item:"HOME"})//
 });
 
 export default function Bresnow() {
@@ -272,6 +277,7 @@ export default function Bresnow() {
             <Header />
             <OffCanvasMenu />
             <MainSlider />
+          
             <Portfolio />
             {/* <Fact /> */}
             <Contact />

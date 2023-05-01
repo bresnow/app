@@ -8,54 +8,26 @@ export const Preloader = () => {
   );
 };
 export const OffCanvasMenu = () => {
+let routes = {home: 'Home', about: 'About', contact: 'Contact'};
+  let menu = gun.get("bresnow").get('offcanvas').get('navigation_menu');
+  menu.map().map().once((d) => {
+log(d)
+    // $(".nav-link").text(item).attr('href', href)
+  })
   return (
     <div name="offcanvas" class="offcanvas_menu">
-      <ul class="navbar-nav side_menu">
-        <li class="nav-item dropdown submenu active">
+      <ul name="navigation_menu" class="navbar-nav side_menu">
+        <li name="#" class="nav-item dropdown submenu active">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            Home
           </a>
-          <ul class="dropdown-menu">
-            <li class="nav-item"><a class="nav-link" href="index.html">Home One</a>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="index-2.html">Home Two</a>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="index-3.html">Home
-              Three</a></li>
-            <li class="nav-item active"><a class="nav-link" href="index-4.html">Home Four</a>
+          <ul name="#" class="dropdown-menu">
+            <li  class="nav-item"><a class="nav-link" href="#"></a>
             </li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about.html">
-            About
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="portfolio.html">
-            Portfolio
-          </a>
-        </li>
-        <li class="nav-item dropdown submenu">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Blogs
-          </a>
-          <ul class="dropdown-menu">
-            <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-            <li class="nav-item"><a href="blog-details.html" class="nav-link">Blog Details</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="contact.html">
-            Contact
-          </a>
         </li>
       </ul>
     </div>
-
   )
 };
 export const MainSlider = () => {
@@ -67,8 +39,8 @@ export const MainSlider = () => {
             <div class="row">
               <div class="col-md-4 d-flex align-items-center">
                 <div class="slider_content">
-                  <h2 data-animation="fadeInUp" data-delay="0.2s">Creative Marketing & Interface
-                    <span> Design</span>
+                  <h2  data-animation="fadeInUp" data-delay="0.2s">Bresnow<br/>
+                    <span class="small"> Interface Designer</span>
                   </h2>
                   <a href="#" class="theme_btn btn_white" data-animation="fadeInUp"
                     data-delay="0.5s"></a>
@@ -77,13 +49,15 @@ export const MainSlider = () => {
               <div class="col-md-8">
                 <div class="slider_img_info">
                   <div class="slider_img" data-animation="fadeInRight" data-delay="0.2s">
-                    <img src="img/home-three/01.jpg" alt="" />
+                    {/* <video id="videoPlayer" width="640" height="360" controls>
+                      <source id="video_source" src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+                    </video> */}
+                    <img src="img/jack_of_trade.gif" alt="" />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
         <div class="slider_nav">
           <a href="#" class="prev"><i class="arrow_left"></i></a>
@@ -93,12 +67,13 @@ export const MainSlider = () => {
     </section>)
 };
 export const Portfolio = () => {
-  return (<section class="portfolio_area_three">
+  return (
+  <section class="portfolio_area_three">
     <div class="container">
       <div class="row" id="portfolio_masonry">
         <div class="col-md-2 wow fadeInDown">
           <div class="sec_title">
-            <h2>My <span>Work</span></h2>
+            <h2>Portfolio</h2>
           </div>
         </div>
         <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-delay="0.3s">
@@ -116,9 +91,9 @@ export const Portfolio = () => {
           <div class="portfolio_item_three pr">
             <div class="img"><img src="img/home-three/pr_2.jpg" alt="" /></div>
             <div class="content">
-              <div class="category">Branding</div>
-              <a href="#">
-                <h3>Natural and creative cover<br /> for Boots</h3>
+                <div class="category" contenteditable="true">Branding</div>
+              <a >
+                  <h3 >Natural and creative cover<br /> for Boots</h3>
               </a>
             </div>
           </div>
@@ -210,113 +185,130 @@ export const Fact = () => {
   </section>)
 };
 export const Contact = () => {
-  return (<section class="contact_area black_bg">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-5 wow fadeInDown" data-wow-delay="0.2s">
-          <div class="contact_info">
-            <h2>920 N Church St. Wilmington, De 19801, USA.</h2>
-            
+  return (
+    <section class="contact_area black_bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-5 wow fadeInDown" data-wow-delay="0.2s">
+            <div class="contact_info">
+              <h2>920 N Church St. Wilmington, De 19801, USA.</h2>
+
+            </div>
+          </div>
+          <div class="col-lg-6 offset-lg-1 wow fadeInDown" data-wow-delay="0.3s">
+            <form action="#" class="row contact_form">
+              <div class="col-lg-6 form-group">
+                <input type="text" class="form-control" placeholder="Your email *" />
+              </div>
+              <div class="col-lg-6 form-group">
+                <input type="text" class="form-control" placeholder="Phone *" />
+              </div>
+              <div class="col-lg-12 form-group">
+                <select class="form-control" id="exampleFormControlSelect1">
+                  <option>I need to do marketing for my brand</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <button type="submit" class="submit_btn">
+                  Send Message
+                </button>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                  <label class="form-check-label" for="defaultCheck1">
+                    I agree to receive information
+                  </label>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
-        <div class="col-lg-6 offset-lg-1 wow fadeInDown" data-wow-delay="0.3s">
-          <form action="#" class="row contact_form">
-            <div class="col-lg-6 form-group">
-              <input type="text" class="form-control" placeholder="Your email *" />
-            </div>
-            <div class="col-lg-6 form-group">
-              <input type="text" class="form-control" placeholder="Phone *" />
-            </div>
-            <div class="col-lg-12 form-group">
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>I need to do marketing for my brand</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
-            <div class="col-md-6">
-              <button type="submit" class="submit_btn">
-                Send Message
-              </button>
-            </div>
-            <div class="col-md-6">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
-                <label class="form-check-label" for="defaultCheck1">
-                  I agree to receive information
-                </label>
-              </div>
-            </div>
-          </form>
-        </div>
+        <div class="border_bottom"></div>
       </div>
-      <div class="border_bottom"></div>
-    </div>
-  </section>) }
+    </section>)
+}
 
-  
+
 export const Footer = () => {
   return (
-  <footer class="black_bg">
-    <div class="footer_top">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-delay="0.1s">
-            <div class="f_widget about-widget">
-              <a href="#" class="f_logo"><img src="img/bresnow_logo.png" width={50} alt="" /></a>
-              <p>Our main objective is to help people achieve their business goals and make their
-                business an efficient organization from all sides.</p>
+    <footer class="black_bg">
+      <div class="footer_top">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-delay="0.1s">
+              <div class="f_widget about-widget">
+                <a href="#" class="f_logo"><img src="img/bresnow_logo.png" width={50} alt="" /></a>
+                <p>Our main objective is to help people achieve their business goals and make their
+                  business an efficient organization from all sides.</p>
+              </div>
             </div>
-          </div>
-          <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-delay="0.3s">
-            <div class="f_widget social_widget">
-              <h3 class="f_title">Follow Us On</h3>
-              <ul class="list-unstyled">
-                <li><a href="">Instagram</a></li>
-                <li><a href="">Twitter</a></li>
-                <li><a href="">Linkedin</a></li>
-              </ul>
+            <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-delay="0.3s">
+              <div class="f_widget social_widget">
+                <h3 class="f_title">Follow Us On</h3>
+                <ul class="list-unstyled">
+                  <li><a href="">Instagram</a></li>
+                  <li><a href="">Twitter</a></li>
+                  <li><a href="">Linkedin</a></li>
+                </ul>
+              </div>
             </div>
-          </div>
-          <div class="col-md-4 wow fadeInDown" data-wow-delay="0.5s">
-            <div class="f_widget contact_widget">
-              <h3 class="f_title">Contact Me</h3>
-              <ul class="list-unstyled">
-                  <li>Phone: 
+            <div class="col-md-4 wow fadeInDown" data-wow-delay="0.5s">
+              <div class="f_widget contact_widget">
+                <h3 class="f_title">Contact Me</h3>
+                <ul class="list-unstyled">
+                  <li>Phone:
                     <a href="tel:13024084628">+1 302 408 4628</a>
-                </li>
+                  </li>
                   <li>Email: <a href="mailto:bresnow@fltngmmth.com">bresnow@fltngmmth.com</a></li>
-                <li>Address: 920 N Church St. Wilmington, De 19810</li>
-              </ul>
+                  <li>Address: 920 N Church St. Wilmington, De 19810</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer_bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-7 col-sm-9">
-            <p>©2023<a href="#">FloatingMammoth</a></p>
-          </div>
-          <div class="col-md-5 col-sm-3 text-right">
-            <a href="#" class="go_top">go back up <i class="arrow_up"></i></a>
+      <div class="footer_bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-7 col-sm-9">
+              <p>©2023<a href="#">FloatingMammoth</a></p>
+            </div>
+            <div class="col-md-5 col-sm-3 text-right">
+              <a href="#" class="go_top">go back up <i class="arrow_up"></i></a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </footer>)};
+    </footer>)
+};
+export const Video = () => {
 
+  return (
+    <section >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>)
+}
 export const Header = () => {
   return (
     <header class="header_area">
       <div class="container">
         <div class="d-flex align-items-center justify-content-between">
           <a href="#" class="logo">
-            <img  width={60} src="img/bresnow_logo.png" alt=""/>
-            <img  width={60} src="img/bresnow__logo_b.png" alt=""/>
+            <img width={60} src="img/bresnow_logo.png" alt="" />
+            <img width={60} src="img/bresnow__logo_b.png" alt="" />
           </a>
           <div class="right_item">
             <a href="mailto:bresnow@fltngmmth.com" class="h_contact_info">bresnow@fltngmmth.com</a>

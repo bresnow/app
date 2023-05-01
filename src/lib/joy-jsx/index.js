@@ -12,6 +12,7 @@ import "gun/lib/load.js";
 import "gun/lib/open.js";
 import "gun/lib/not.js";
 import "gun/lib/axe.js";
+import "gun/lib/meta.js";
 import "../chain";
 ;(function () {
 	function as(cb, opt) {
@@ -121,7 +122,6 @@ import "../chain";
 			}
 
 			ref.get(function (at) {
-				console.log(at, "ATT")
 				var data = at.put, key = at.get, gui = at.gun || at.$, ui = name, back;
 				if (model) {
 					ui = model.has[(gui._).id];
@@ -132,7 +132,7 @@ import "../chain";
 							if (!(back._).get) { return }
 							ui = (model.has[(back._).id] = model.$.clone(true).prependTo(model.on));
 						}
-						ui = ui.find("[name='" + key + "']").first();
+						ui = ui.find("[name=" + key + "]").first();
 						model.has[(gui._).id] = ui;
 					}
 				}
@@ -164,11 +164,13 @@ import "../chain";
 			}, wait || 200);
 		}
 	}
+	// TODO:  Delete
 	as.escape = function (str) {
 		return opt.match + str + opt.end;
 	}
 	as.sort = function sort(num, li) { return parseFloat(num) >= parseFloat($(li).find('.sort').text() || -Infinity) ? li : sort(num, li.prev()) }
-	$(document).on('keyup', 'input, textarea, [contenteditable]', function (i, elem) {
+	//CHECKIT
+	$(document).on('keyup', 'input, textarea, [contenteditable="true"]', function (i, elem) {
 		var el = $(this);
 		var data = (el[0] && u === el[0].value) ? el.text() : el.val();
 		var g = el.data('gun');
@@ -176,6 +178,7 @@ import "../chain";
 		as.lock = g;
 		g.put(data);
 	});
+	// forms do as i say
 	$(document).on('submit', 'form', function(e){ e.preventDefault() });
 	var u;
 	window.as = as;
@@ -183,6 +186,11 @@ import "../chain";
 }());
 
 ; (function () {
+	/**
+	 * Links from a and button tags disabled unless external href
+	 * 
+	 * TODO: Page routing with hash routing
+	 */
 	let cliq = [document.querySelectorAll('a'), document.querySelectorAll('button')];//, document.querySelectorAll('button')
 	cliq.forEach(function (ls) {
 		ls.forEach(function (tag) {
@@ -208,6 +216,7 @@ import "../chain";
 	};
 	router.page = function (h, cb) {
 		ready(function () {
+			// TODO: Do i need it to be case sensitive?
 			h = h.toLowerCase()
 			router.page[h] = router.page[h] || { on: cb };
 		})
@@ -225,7 +234,7 @@ import "../chain";
 		return $data;
 	}
 	window.onhashchange = function () {
-		$('.section__').fadeOut();
+		$('.section__').fadeOut().remove();
 		window.location.reload(true)
 		router(location.hash.slice(1))
 	};
@@ -240,9 +249,9 @@ $(function () {
 	$(JOY.start = JOY.start || function () { $.as((a, b, c) => { console.log(a, b, c, "ABC") }) });
 });
 
-; (function () { // need to isolate into separate module!
-	// need to isolate into separate module!
-	var joy = (window.JOY = function () { });
+; (function () { 
+
+	var joy = window.JOY = ()=>{};
 	/**
 	 * Hash router that changes views/partials
 	 */
@@ -315,6 +324,8 @@ $(function () {
 			peers);
 	window.gun = window.gun || Gun(opt);
 	joy.user = gun.user();
+	joy.get = gun.get;
+	window.joy = joy;
 
 }());
 $(function () {
@@ -329,7 +340,6 @@ $(function () {
 	);
 });
 ;
-
 
 function camelToKebab(string) {
 	return string.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, "$1-$2").toLowerCase();

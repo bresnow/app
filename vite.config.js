@@ -1,9 +1,6 @@
 // vite.config.ts
-import Unocss from 'unocss/vite';
 import Inspect from 'vite-plugin-inspect';
 import { defineConfig } from 'vite';
-import { presetAttributify } from 'unocss'
-import transformerAttributifyJsx from '@unocss/transformer-attributify-jsx'
 
 export default defineConfig({
     esbuild: {
@@ -13,17 +10,6 @@ export default defineConfig({
     },
     plugins: [
         Inspect(),
-        Unocss({
-            presets: [
-                presetAttributify({
-                    ignoreAttributes: [
-                        'node'
-                    ]
-                }),
-            ],
-            transformers: [
-                transformerAttributifyJsx(), // <--
-            ],
-        })
-    ],
+        
+    ]
 })
