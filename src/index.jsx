@@ -15,11 +15,13 @@ import Bresnow from './apps/bresnow';
 import Wallet from './apps/wallet';
 import Pager from './apps/pager';
 import Cards from './apps/cards';
+import Stopwatch from './apps/stopwatch';
 
 var user = JOY.user;
-window.CONFIG = {peers :['http://0.0.0.0:3000/gun'], radisk: true, localStorage:false}
-
-JOY.render(<div><App /><Bresnow /><Wallet/><Pager/><Cards/></div>)
+if(location.hash.slice(1).length < 2){
+    JOY.route('bresnow');
+}
+JOY.render(<div ><App /><Bresnow /><Wallet/><Pager/><Cards/><Stopwatch/></div>)
 
 
 function LoadHead(tag,obj) {

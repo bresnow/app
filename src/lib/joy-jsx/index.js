@@ -12,7 +12,6 @@ import "gun/lib/load.js";
 import "gun/lib/open.js";
 import "gun/lib/not.js";
 import "gun/lib/axe.js";
-// import "gun/lib/meta.js";
 import "../chain";
 ; (function () {
 	function as(cb, opt) {
@@ -118,6 +117,7 @@ import "../chain";
 			many = (0 < ++many) ? many : false;
 			if (many) {
 				model = name.closest("[name='#']");
+				// what is this?
 				model = model.data('model') || model.data('model', { $: model.clone(), on: model.parent(), has: {} }).hide().data('model');
 			}
 
@@ -231,7 +231,7 @@ import "../chain";
 		);
 		$.each(data, function (field, val) {
 			if ($.isPlainObject(val)) { return }
-			$data.find("[name='" + field + "']").val(val).text(val);
+			$data.find("[name=\"" + field + "\"]").val(val).text(val);
 		});
 		return $data;
 	}

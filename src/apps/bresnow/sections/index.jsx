@@ -8,25 +8,23 @@ export const Preloader = () => {
   );
 };
 export const OffCanvasMenu = () => {
-let routes = {home: 'Home', about: 'About', contact: 'Contact'};
-  let menu = gun.get("bresnow").get('offcanvas').get('navigation_menu');
-  menu.map().map().once((d) => {
-log(d)
-    // $(".nav-link").text(item).attr('href', href)
-  })
   return (
-    <div name="offcanvas" class="offcanvas_menu">
-      <ul name="navigation_menu" class="navbar-nav side_menu">
-        <li name="#" class="nav-item dropdown submenu active">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-          </a>
-          <ul name="#" class="dropdown-menu">
-            <li  class="nav-item"><a class="nav-link" href="#"></a>
+    <div name="offcanvas" class="offcanvas_menu overflow-y-scroll" >
+      <div className="blog_right_sidebar ">
+        <div class="sidebar_widget instagram_widget">
+          <ul class="list-unstyled">
+            <li>
+              <div class="media">
+                <img src="/img/blog/sidebar_post_3.jpg" alt="" />
+                <div class="media-body pl-2">
+                  <a href="#" class="theme_btn">Project Portfolio</a>
+                  <div class="date text-primary">3 mins ago</div>
+                </div>
+              </div>
             </li>
           </ul>
-        </li>
-      </ul>
+        </div>
+        </div>
     </div>
   )
 };
@@ -39,20 +37,26 @@ export const MainSlider = () => {
             <div class="row">
               <div class="col-md-4 d-flex align-items-center">
                 <div class="slider_content">
-                  <h2  data-animation="fadeInUp" data-delay="0.2s">Bresnow<br/>
-                    <span class="small"> Interface Designer</span>
-                  </h2>
+                  <blockquote class="text-white" data-animation="fadeInUp" data-delay="0.2s"><h2>Bresnow<br />
+                    <span class="small text-secondary">Interface Designer</span></h2>
+                  </blockquote>
+                  <div class="flex-col">
+                    <div class="blog_single_info" name="description" contentEditable="false">
+                      <p name>As an interface designer, Bresnow is responsible for the planning and creation of interactive products and services. 
+                          with network of creatives and organizations that forms The Floating Mammoth Collective.</p>
+                      </div>
                   <a href="#" class="theme_btn btn_white" data-animation="fadeInUp"
-                    data-delay="0.5s"></a>
+                    data-delay="0.5s">More Info</a>
+                  </div>
                 </div>
               </div>
               <div class="col-md-8">
                 <div class="slider_img_info">
-                  <div class="slider_img" data-animation="fadeInRight" data-delay="0.2s">
+                  <div class="slider_img pr" data-animation="fadeInRight" data-delay="0.2s">
                     {/* <video id="videoPlayer" width="640" height="360" controls>
-                      <source id="video_source" src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+                      <source id="video_source" src="/img/card_transparent.gif" type="video/mp4" />
                     </video> */}
-                    <img src="img/jack_of_trade.gif" alt="" />
+                    <img src="/img/card_transparent.gif" alt="" />
                   </div>
                 </div>
               </div>
@@ -64,6 +68,7 @@ export const MainSlider = () => {
           <a href="#" class="next"><i class="arrow_right"></i></a>
         </div>
       </div>
+      
     </section>)
 };
 export const Portfolio = () => {
@@ -301,6 +306,15 @@ export const Video = () => {
       </div>
     </section>)
 }
+export const BurgerMenu = () => 
+<div class="burger_menu">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 export const Header = () => {
   return (
     <header class="header_area">
@@ -308,18 +322,11 @@ export const Header = () => {
         <div class="d-flex align-items-center justify-content-between">
           <a href="#" class="logo">
             <img width={60} src="img/bresnow_logo.png" alt="" />
-            <img width={60} src="img/bresnow__logo_b.png" alt="" />
+            <img width={60} src="img/fm_logo.jpg" alt="" />
           </a>
           <div class="right_item">
             <a href="mailto:bresnow@fltngmmth.com" class="h_contact_info">bresnow@fltngmmth.com</a>
-            <div class="burger_menu">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
+  <BurgerMenu/>
           </div>
         </div>
       </div>

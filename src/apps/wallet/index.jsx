@@ -17,11 +17,11 @@ JOY.css({
 export default function Wallet() {
     return (
         <div id="wallet" class="section__">
-<JacartaHeader/>
+<secondaryHeader/>
 
             <main class="pt-[5.5rem] lg:pt-24">
                 <section
-                    class="after:bg-jacarta-900/60 relative bg-cover bg-center bg-no-repeat py-24 after:absolute after:inset-0"
+                    class="after:bg-secondary-900/60 relative bg-cover bg-center bg-no-repeat py-24 after:absolute after:inset-0"
                     style="background-image: url('/img/wallet/page-title/wallet_banner.jpg')"
                 >
                     <div class="container relative z-10">
@@ -29,7 +29,7 @@ export default function Wallet() {
                     </div>
                 </section>
 
-                <section class="dark:bg-jacarta-800 relative pb-20 pt-28">
+                <section class="dark:bg-secondary-800 relative pb-20 pt-28">
                     <picture class="pointer-events-none absolute inset-0 -z-10 dark:hidden">
                         <img src="/img/wallet/gradient_light.jpg" alt="gradient" class="h-full w-full" />
                     </picture>
@@ -37,90 +37,90 @@ export default function Wallet() {
                         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-[1.875rem]">
                             <a
                                 href="#"
-                                class="dark:bg-jacarta-700 dark:border-jacarta-600 border-jacarta-100 rounded-2.5xl mb-8 border bg-white p-8 text-center transition-shadow hover:shadow-lg"
+                                class="dark:bg-secondary-700 dark:border-secondary-600 border-secondary-100 rounded-2.5xl mb-8 border bg-white p-8 text-center transition-shadow hover:shadow-lg"
                             >
                                 <img
                                     src="img/wallet/wallets/metamask.svg"
-                                    class="dark:border-jacarta-600 dark:bg-jacarta-700 border-jacarta-100 mx-auto mb-7 -mt-[3.5rem] h-[5.5rem] w-[5.5rem] rounded-full border bg-white"
+                                    class="dark:border-secondary-600 dark:bg-secondary-700 border-secondary-100 mx-auto mb-7 -mt-[3.5rem] h-[5.5rem] w-[5.5rem] rounded-full border bg-white"
                                     alt="wallet"
                                 />
-                                <h3 class="font-display text-jacarta-700 text-md mb-3 dark:text-white">Metamask</h3>
-                                <p class="dark:text-jacarta-300">
+                                <h3 class="font-display text-secondary-700 text-md mb-3 dark:text-white">Metamask</h3>
+                                <p class="dark:text-secondary-300">
                                     Start exploring blockchain applications in seconds. Trusted by over 1 million users worldwide.
                                 </p>
                             </a>
 
                             <a
                                 href="#"
-                                class="dark:bg-jacarta-700 dark:border-jacarta-600 border-jacarta-100 rounded-2.5xl mb-8 border bg-white p-8 text-center transition-shadow hover:shadow-lg"
+                                class="dark:bg-secondary-700 dark:border-secondary-600 border-secondary-100 rounded-2.5xl mb-8 border bg-white p-8 text-center transition-shadow hover:shadow-lg"
                             >
                                 <img
                                     src="img/wallet/wallets/coinbase.svg"
-                                    class="dark:border-jacarta-600 dark:bg-jacarta-700 border-jacarta-100 mx-auto mb-7 -mt-[3.5rem] h-[5.5rem] w-[5.5rem] rounded-full border bg-white"
+                                    class="dark:border-secondary-600 dark:bg-secondary-700 border-secondary-100 mx-auto mb-7 -mt-[3.5rem] h-[5.5rem] w-[5.5rem] rounded-full border bg-white"
                                     alt="wallet"
                                 />
-                                <h3 class="font-display text-jacarta-700 text-md mb-3 dark:text-white">Coinbase</h3>
-                                <p class="dark:text-jacarta-300">
+                                <h3 class="font-display text-secondary-700 text-md mb-3 dark:text-white">Coinbase</h3>
+                                <p class="dark:text-secondary-300">
                                     The easiest and most secure crypto wallet. ... No Coinbase account required.
                                 </p>
                             </a>
 
                             <a
                                 href="#"
-                                class="dark:bg-jacarta-700 dark:border-jacarta-600 border-jacarta-100 rounded-2.5xl mb-8 border bg-white p-8 text-center transition-shadow hover:shadow-lg"
+                                class="dark:bg-secondary-700 dark:border-secondary-600 border-secondary-100 rounded-2.5xl mb-8 border bg-white p-8 text-center transition-shadow hover:shadow-lg"
                             >
                                 <img
                                     src="img/wallet/wallets/bitski.svg"
-                                    class="dark:border-jacarta-600 dark:bg-jacarta-700 border-jacarta-100 mx-auto mb-7 -mt-[3.5rem] h-[5.5rem] w-[5.5rem] rounded-full border bg-white"
+                                    class="dark:border-secondary-600 dark:bg-secondary-700 border-secondary-100 mx-auto mb-7 -mt-[3.5rem] h-[5.5rem] w-[5.5rem] rounded-full border bg-white"
                                     alt="wallet"
                                 />
-                                <h3 class="font-display text-jacarta-700 text-md mb-3 dark:text-white">Bitski</h3>
-                                <p class="dark:text-jacarta-300">
+                                <h3 class="font-display text-secondary-700 text-md mb-3 dark:text-white">Bitski</h3>
+                                <p class="dark:text-secondary-300">
                                     Bitski connects communities, creators and brands through unique, ownable digital content.
                                 </p>
                             </a>
 
                             <a
                                 href="#"
-                                class="dark:bg-jacarta-700 dark:border-jacarta-600 border-jacarta-100 rounded-2.5xl mb-8 border bg-white p-8 text-center transition-shadow hover:shadow-lg"
+                                class="dark:bg-secondary-700 dark:border-secondary-600 border-secondary-100 rounded-2.5xl mb-8 border bg-white p-8 text-center transition-shadow hover:shadow-lg"
                             >
                                 <img
                                     src="img/wallet/wallets/fortmatic.svg"
-                                    class="dark:border-jacarta-600 dark:bg-jacarta-700 border-jacarta-100 mx-auto mb-7 -mt-[3.5rem] h-[5.5rem] w-[5.5rem] rounded-full border bg-white"
+                                    class="dark:border-secondary-600 dark:bg-secondary-700 border-secondary-100 mx-auto mb-7 -mt-[3.5rem] h-[5.5rem] w-[5.5rem] rounded-full border bg-white"
                                     alt="wallet"
                                 />
-                                <h3 class="font-display text-jacarta-700 text-md mb-3 dark:text-white">Fortmatic</h3>
-                                <p class="dark:text-jacarta-300">
+                                <h3 class="font-display text-secondary-700 text-md mb-3 dark:text-white">Fortmatic</h3>
+                                <p class="dark:text-secondary-300">
                                     Let users access your Ethereum app from anywhere. No more browser extensions.
                                 </p>
                             </a>
 
                             <a
                                 href="#"
-                                class="dark:bg-jacarta-700 dark:border-jacarta-600 border-jacarta-100 rounded-2.5xl mb-8 border bg-white p-8 text-center transition-shadow hover:shadow-lg"
+                                class="dark:bg-secondary-700 dark:border-secondary-600 border-secondary-100 rounded-2.5xl mb-8 border bg-white p-8 text-center transition-shadow hover:shadow-lg"
                             >
                                 <img
                                     src="img/wallet/wallets/torus.svg"
-                                    class="dark:border-jacarta-600 dark:bg-jacarta-700 border-jacarta-100 mx-auto mb-7 -mt-[3.5rem] h-[5.5rem] w-[5.5rem] rounded-full border bg-white"
+                                    class="dark:border-secondary-600 dark:bg-secondary-700 border-secondary-100 mx-auto mb-7 -mt-[3.5rem] h-[5.5rem] w-[5.5rem] rounded-full border bg-white"
                                     alt="wallet"
                                 />
-                                <h3 class="font-display text-jacarta-700 text-md mb-3 dark:text-white">Torus</h3>
-                                <p class="dark:text-jacarta-300">
+                                <h3 class="font-display text-secondary-700 text-md mb-3 dark:text-white">Torus</h3>
+                                <p class="dark:text-secondary-300">
                                     Open source protocol for connecting decentralised applications to mobile wallets.
                                 </p>
                             </a>
 
                             <a
                                 href="#"
-                                class="dark:bg-jacarta-700 dark:border-jacarta-600 border-jacarta-100 rounded-2.5xl mb-8 border bg-white p-8 text-center transition-shadow hover:shadow-lg"
+                                class="dark:bg-secondary-700 dark:border-secondary-600 border-secondary-100 rounded-2.5xl mb-8 border bg-white p-8 text-center transition-shadow hover:shadow-lg"
                             >
                                 <img
                                     src="img/wallet/wallets/wallet_connect.svg"
-                                    class="dark:border-jacarta-600 dark:bg-jacarta-700 border-jacarta-100 mx-auto mb-7 -mt-[3.5rem] h-[5.5rem] w-[5.5rem] rounded-full border bg-white"
+                                    class="dark:border-secondary-600 dark:bg-secondary-700 border-secondary-100 mx-auto mb-7 -mt-[3.5rem] h-[5.5rem] w-[5.5rem] rounded-full border bg-white"
                                     alt="wallet"
                                 />
-                                <h3 class="font-display text-jacarta-700 text-md mb-3 dark:text-white">Wallet Connect</h3>
-                                <p class="dark:text-jacarta-300">
+                                <h3 class="font-display text-secondary-700 text-md mb-3 dark:text-white">Wallet Connect</h3>
+                                <p class="dark:text-secondary-300">
                                     Open source protocol for connecting decentralised applications to mobile wallets.
                                 </p>
                             </a>
@@ -140,7 +140,7 @@ export default function Wallet() {
                                     viewBox="0 0 24 24"
                                     width="24"
                                     height="24"
-                                    class="fill-jacarta-700 h-6 w-6 dark:fill-white"
+                                    class="fill-secondary-700 h-6 w-6 dark:fill-white"
                                 >
                                     <path fill="none" d="M0 0h24v24H0z" />
                                     <path
@@ -266,7 +266,7 @@ export default function Wallet() {
                                     viewBox="0 0 24 24"
                                     width="24"
                                     height="24"
-                                    class="fill-jacarta-700 h-6 w-6 dark:fill-white"
+                                    class="fill-secondary-700 h-6 w-6 dark:fill-white"
                                 >
                                     <path fill="none" d="M0 0h24v24H0z" />
                                     <path
@@ -278,22 +278,22 @@ export default function Wallet() {
 
                         <div class="modal-body p-6">
                             <div class="mb-2 flex items-center justify-between">
-                                <span class="font-display text-jacarta-700 text-sm font-semibold dark:text-white">Item</span>
-                                <span class="font-display text-jacarta-700 text-sm font-semibold dark:text-white">Subtotal</span>
+                                <span class="font-display text-secondary-700 text-sm font-semibold dark:text-white">Item</span>
+                                <span class="font-display text-secondary-700 text-sm font-semibold dark:text-white">Subtotal</span>
                             </div>
 
-                            <div class="dark:border-jacarta-600 border-jacarta-100 relative flex items-center border-t border-b py-4">
+                            <div class="dark:border-secondary-600 border-secondary-100 relative flex items-center border-t border-b py-4">
                                 <figure class="mr-5 self-start">
                                     <img src="img/wallet/avatars/avatar_2.jpg" alt="avatar 2" class="rounded-2lg" loading="lazy" />
                                 </figure>
 
                                 <div>
                                     <a href="collection.html" class="text-accent text-sm">Elon Musk #709</a>
-                                    <h3 class="font-display text-jacarta-700 mb-1 text-base font-semibold dark:text-white">
+                                    <h3 class="font-display text-secondary-700 mb-1 text-base font-semibold dark:text-white">
                                         Lazyone Panda
                                     </h3>
                                     <div class="flex flex-wrap items-center">
-                                        <span class="dark:text-jacarta-300 text-jacarta-500 mr-1 block text-sm">Creator Earnings: 5%</span>
+                                        <span class="dark:text-secondary-300 text-secondary-500 mr-1 block text-sm">Creator Earnings: 5%</span>
                                         <span
                                             data-tippy-content="The creator of this collection will receive 5% of the sale total from future sales of this item."
                                         >
@@ -302,7 +302,7 @@ export default function Wallet() {
                                                 viewBox="0 0 24 24"
                                                 width="24"
                                                 height="24"
-                                                class="dark:fill-jacarta-300 fill-jacarta-700 h-4 w-4"
+                                                class="dark:fill-secondary-300 fill-secondary-700 h-4 w-4"
                                             >
                                                 <path fill="none" d="M0 0h24v24H0z" />
                                                 <path
@@ -332,16 +332,16 @@ export default function Wallet() {
                                                 <path fill="#62688F" d="M959.8 1397.6v441.7l540.1-760.6z"></path>
                                             </svg>
                                         </span>
-                                        <span class="dark:text-jacarta-100 text-sm font-medium tracking-tight">1.55 ETH</span>
+                                        <span class="dark:text-secondary-100 text-sm font-medium tracking-tight">1.55 ETH</span>
                                     </span>
-                                    <div class="dark:text-jacarta-300 text-right text-sm">$130.82</div>
+                                    <div class="dark:text-secondary-300 text-right text-sm">$130.82</div>
                                 </div>
                             </div>
 
                             <div
-                                class="dark:border-jacarta-600 border-jacarta-100 mb-2 flex items-center justify-between border-b py-2.5"
+                                class="dark:border-secondary-600 border-secondary-100 mb-2 flex items-center justify-between border-b py-2.5"
                             >
-                                <span class="font-display text-jacarta-700 font-semibold dark:text-white">Total</span>
+                                <span class="font-display text-secondary-700 font-semibold dark:text-white">Total</span>
                                 <div class="ml-auto">
                                     <span class="flex items-center whitespace-nowrap">
                                         <span data-tippy-content="ETH">
@@ -363,7 +363,7 @@ export default function Wallet() {
                                         </span>
                                         <span class="text-green font-medium tracking-tight">1.55 ETH</span>
                                     </span>
-                                    <div class="dark:text-jacarta-300 text-right">$130.82</div>
+                                    <div class="dark:text-secondary-300 text-right">$130.82</div>
                                 </div>
                             </div>
 
@@ -371,9 +371,9 @@ export default function Wallet() {
                                 <input
                                     type="checkbox"
                                     id="buyNowTerms"
-                                    class="checked:bg-accent dark:bg-jacarta-600 text-accent border-jacarta-200 focus:ring-accent/20 dark:border-jacarta-500 h-5 w-5 self-start rounded focus:ring-offset-0"
+                                    class="checked:bg-accent dark:bg-secondary-600 text-accent border-secondary-200 focus:ring-accent/20 dark:border-secondary-500 h-5 w-5 self-start rounded focus:ring-offset-0"
                                 />
-                                <label for="buyNowTerms" class="dark:text-jacarta-200 text-sm"
+                                <label for="buyNowTerms" class="dark:text-secondary-200 text-sm"
                                 >By checking this box, I agree to Xhibiter's <a href="#" class="text-accent">Terms of Service</a></label
                                 >
                             </div>
@@ -393,7 +393,7 @@ export default function Wallet() {
                 </div>
             </div>
 
-            <footer class="dark:bg-jacarta-900 page-footer bg-white">
+            <footer class="dark:bg-secondary-900 page-footer bg-white">
                 <div class="container">
                     <div class="grid grid-cols-6 gap-x-7 gap-y-14 pt-24 pb-12 md:grid-cols-12">
                         <div class="col-span-3 md:col-span-4">
@@ -401,7 +401,7 @@ export default function Wallet() {
                                 <img src="img/wallet/logo.png" class="max-h-7 dark:hidden" alt="Xhibiter | NFT Marketplace" />
                                 <img src="img/wallet/logo_white.png" class="hidden max-h-7 dark:block" alt="Xhibiter | NFT Marketplace" />
                             </a> */}
-                            <p class="dark:text-jacarta-300 mb-12">
+                            <p class="dark:text-secondary-300 mb-12">
                                 Create, sell and collect truly rare digital artworks. Powered by blockchain technology.
                             </p>
                             <div class="flex space-x-5">
@@ -411,7 +411,7 @@ export default function Wallet() {
                                         focusable="false"
                                         data-prefix="fab"
                                         data-icon="facebook"
-                                        class="group-hover:fill-accent fill-jacarta-300 h-5 w-5 dark:group-hover:fill-white"
+                                        class="group-hover:fill-accent fill-secondary-300 h-5 w-5 dark:group-hover:fill-white"
                                         role="img"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 512 512"
@@ -427,7 +427,7 @@ export default function Wallet() {
                                         focusable="false"
                                         data-prefix="fab"
                                         data-icon="twitter"
-                                        class="group-hover:fill-accent fill-jacarta-300 h-5 w-5 dark:group-hover:fill-white"
+                                        class="group-hover:fill-accent fill-secondary-300 h-5 w-5 dark:group-hover:fill-white"
                                         role="img"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 512 512"
@@ -443,7 +443,7 @@ export default function Wallet() {
                                         focusable="false"
                                         data-prefix="fab"
                                         data-icon="discord"
-                                        class="group-hover:fill-accent fill-jacarta-300 h-5 w-5 dark:group-hover:fill-white"
+                                        class="group-hover:fill-accent fill-secondary-300 h-5 w-5 dark:group-hover:fill-white"
                                         role="img"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 640 512"
@@ -459,7 +459,7 @@ export default function Wallet() {
                                         focusable="false"
                                         data-prefix="fab"
                                         data-icon="instagram"
-                                        class="group-hover:fill-accent fill-jacarta-300 h-5 w-5 dark:group-hover:fill-white"
+                                        class="group-hover:fill-accent fill-secondary-300 h-5 w-5 dark:group-hover:fill-white"
                                         role="img"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 448 512"
@@ -475,7 +475,7 @@ export default function Wallet() {
                                         focusable="false"
                                         data-prefix="fab"
                                         data-icon="tiktok"
-                                        class="group-hover:fill-accent fill-jacarta-300 h-5 w-5 dark:group-hover:fill-white"
+                                        class="group-hover:fill-accent fill-secondary-300 h-5 w-5 dark:group-hover:fill-white"
                                         role="img"
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 448 512"
@@ -489,8 +489,8 @@ export default function Wallet() {
                         </div>
 
                         <div class="col-span-full sm:col-span-3 md:col-span-2 md:col-start-7">
-                            <h3 class="font-display text-jacarta-700 mb-6 text-sm dark:text-white">Marketplace</h3>
-                            <ul class="dark:text-jacarta-300 flex flex-col space-y-1">
+                            <h3 class="font-display text-secondary-700 mb-6 text-sm dark:text-white">Marketplace</h3>
+                            <ul class="dark:text-secondary-300 flex flex-col space-y-1">
                                 <li><a href="#" class="hover:text-accent dark:hover:text-white">All NFTs</a></li>
                                 <li><a href="#" class="hover:text-accent dark:hover:text-white">Art</a></li>
                                 <li><a href="#" class="hover:text-accent dark:hover:text-white">Music</a></li>
@@ -501,8 +501,8 @@ export default function Wallet() {
                         </div>
 
                         <div class="col-span-full sm:col-span-3 md:col-span-2">
-                            <h3 class="font-display text-jacarta-700 mb-6 text-sm dark:text-white">Company</h3>
-                            <ul class="dark:text-jacarta-300 flex flex-col space-y-1">
+                            <h3 class="font-display text-secondary-700 mb-6 text-sm dark:text-white">Company</h3>
+                            <ul class="dark:text-secondary-300 flex flex-col space-y-1">
                                 <li><a href="#" class="hover:text-accent dark:hover:text-white">Explore</a></li>
                                 <li><a href="#" class="hover:text-accent dark:hover:text-white">About</a></li>
                                 <li><a href="#" class="hover:text-accent dark:hover:text-white">Contact Us</a></li>
@@ -512,8 +512,8 @@ export default function Wallet() {
                         </div>
 
                         <div class="col-span-full sm:col-span-3 md:col-span-2">
-                            <h3 class="font-display text-jacarta-700 mb-6 text-sm dark:text-white">My Account</h3>
-                            <ul class="dark:text-jacarta-300 flex flex-col space-y-1">
+                            <h3 class="font-display text-secondary-700 mb-6 text-sm dark:text-white">My Account</h3>
+                            <ul class="dark:text-secondary-300 flex flex-col space-y-1">
                                 <li><a href="#" class="hover:text-accent dark:hover:text-white">Authors</a></li>
                                 <li><a href="#" class="hover:text-accent dark:hover:text-white">Collection</a></li>
                                 <li><a href="#" class="hover:text-accent dark:hover:text-white">Author Profile</a></li>
@@ -522,14 +522,14 @@ export default function Wallet() {
                         </div>
                     </div>
                     <div class="flex flex-col items-center justify-between space-y-2 py-8 sm:flex-row sm:space-y-0">
-                        <span class="dark:text-jacarta-400 text-sm"
+                        <span class="dark:text-secondary-400 text-sm"
                         >&copy;
                             <script>
                                 document.write(new Date().getFullYear())
                             </script>
 Designed By:
                             <a href="https://fltngmmth.com" class="hover:text-accent dark:hover:text-white">Bresnow</a></span>
-                        <ul class="dark:text-jacarta-400 flex flex-wrap space-x-4 text-sm">
+                        <ul class="dark:text-secondary-400 flex flex-wrap space-x-4 text-sm">
                             <li><a href="#" class="hover:text-accent dark:hover:text-white">Terms and conditions</a></li>
                             <li><a href="#" class="hover:text-accent dark:hover:text-white">Privacy policy</a></li>
                         </ul>
@@ -542,9 +542,9 @@ Designed By:
     )
 }
 
-export function JacartaHeader () {
+export function secondaryHeader () {
     return (
-        <header name="jacarta_header" class="js-page-header fixed top-0 z-20 w-full backdrop-blur transition-colors">
+        <header name="secondary_header" class="js-page-header fixed top-0 z-20 w-full backdrop-blur transition-colors">
             <div class="flex items-center px-6 py-6 xl:px-24">
                 <a href="" class="shrink-0">
                         <img src="img/fm_logo.jpg" class="max-h-7 dark:hidden" alt="" />
@@ -555,7 +555,7 @@ export function JacartaHeader () {
                     <input
                         name="input.search.content"
                         type="search"
-                        class="text-jacarta-700 placeholder-jacarta-500 focus:ring-accent border-jacarta-100 w-full rounded-2xl border py-[0.6875rem] px-4 pl-10 dark:border-transparent dark:bg-white/[.15] dark:text-white dark:placeholder-white"
+                        class="text-secondary-700 placeholder-secondary-500 focus:ring-accent border-secondary-100 w-full rounded-2xl border py-[0.6875rem] px-4 pl-10 dark:border-transparent dark:bg-white/[.15] dark:text-white dark:placeholder-white"
                         placeholder=" Search"
                     />
                     <span class="absolute left-0 top-0 flex h-full w-12 items-center justify-center rounded-2xl">
@@ -564,7 +564,7 @@ export function JacartaHeader () {
                             viewBox="0 0 24 24"
                             width="24"
                             height="24"
-                            class="fill-jacarta-500 h-4 w-4 dark:fill-white"
+                            class="fill-secondary-500 h-4 w-4 dark:fill-white"
                         >
                             <path fill="none" d="M0 0h24v24H0z" />
                             <path
@@ -575,10 +575,10 @@ export function JacartaHeader () {
                 </form>
 
                 <div
-                    class="js-mobile-menu dark:bg-jacarta-800 invisible fixed inset-0 z-10 ml-auto items-center bg-white opacity-0 lg:visible lg:relative lg:inset-auto lg:flex lg:bg-transparent lg:opacity-100 dark:lg:bg-transparent"
+                    class="js-mobile-menu dark:bg-secondary-800 invisible fixed inset-0 z-10 ml-auto items-center bg-white opacity-0 lg:visible lg:relative lg:inset-auto lg:flex lg:bg-transparent lg:opacity-100 dark:lg:bg-transparent"
                 >
                     <div
-                        class="t-0 dark:bg-jacarta-800 fixed left-0 z-10 flex w-full items-center justify-between bg-white p-6 lg:hidden"
+                        class="t-0 dark:bg-secondary-800 fixed left-0 z-10 flex w-full items-center justify-between bg-white p-6 lg:hidden"
                     >
                         <a href="index.html" class="shrink-0">
                             <img src="img/wallet/logo.png" class="max-h-7 dark:hidden" alt="Xhibiter | NFT Marketplace" />
@@ -586,7 +586,7 @@ export function JacartaHeader () {
                         </a>
 
                         <button
-                            class="js-mobile-close border-jacarta-100 hover:bg-accent focus:bg-accent group dark:hover:bg-accent ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
+                            class="js-mobile-close border-secondary-100 hover:bg-accent focus:bg-accent group dark:hover:bg-accent ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
                             aria-label="close mobile menu"
                         >
                             <svg
@@ -594,7 +594,7 @@ export function JacartaHeader () {
                                 viewBox="0 0 24 24"
                                 width="24"
                                 height="24"
-                                class="fill-jacarta-700 h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:fill-white"
+                                class="fill-secondary-700 h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:fill-white"
                             >
                                 <path fill="none" d="M0 0h24v24H0z" />
                                 <path
@@ -607,7 +607,7 @@ export function JacartaHeader () {
                     <form action="search" class="relative mt-24 mb-8 w-full lg:hidden">
                         <input
                             type="search"
-                            class="text-jacarta-700 placeholder-jacarta-500 focus:ring-accent border-jacarta-100 w-full rounded-2xl border py-3 px-4 pl-10 dark:border-transparent dark:bg-white/[.15] dark:text-white dark:placeholder-white"
+                            class="text-secondary-700 placeholder-secondary-500 focus:ring-accent border-secondary-100 w-full rounded-2xl border py-3 px-4 pl-10 dark:border-transparent dark:bg-white/[.15] dark:text-white dark:placeholder-white"
                             placeholder="Search"
                         />
                         <span class="absolute left-0 top-0 flex h-full w-12 items-center justify-center rounded-2xl">
@@ -616,7 +616,7 @@ export function JacartaHeader () {
                                 viewBox="0 0 24 24"
                                 width="24"
                                 height="24"
-                                class="fill-jacarta-500 h-4 w-4 dark:fill-white"
+                                class="fill-secondary-500 h-4 w-4 dark:fill-white"
                             >
                                 <path fill="none" d="M0 0h24v24H0z" />
                                 <path
@@ -631,7 +631,7 @@ export function JacartaHeader () {
                             <li class="js-nav-dropdown group relative">
                                 <a
                                     href="#"
-                                    class="dropdown-toggle text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5"
+                                    class="dropdown-toggle text-secondary-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5"
                                     id="navDropdown-1"
                                     aria-expanded="false"
                                     role="button"
@@ -651,31 +651,31 @@ export function JacartaHeader () {
                                     </i>
                                 </a>
                                 <ul
-                                    class="dropdown-menu dark:bg-jacarta-800 left-0 top-[85%] z-10 hidden min-w-[200px] gap-x-4 whitespace-nowrap rounded-xl bg-white transition-all will-change-transform group-hover:visible group-hover:opacity-100 lg:invisible lg:absolute lg:grid lg:translate-y-4 lg:py-4 lg:px-2 lg:opacity-0 lg:shadow-2xl lg:group-hover:translate-y-2"
+                                    class="dropdown-menu dark:bg-secondary-800 left-0 top-[85%] z-10 hidden min-w-[200px] gap-x-4 whitespace-nowrap rounded-xl bg-white transition-all will-change-transform group-hover:visible group-hover:opacity-100 lg:invisible lg:absolute lg:grid lg:translate-y-4 lg:py-4 lg:px-2 lg:opacity-0 lg:shadow-2xl lg:group-hover:translate-y-2"
                                     aria-labelledby="navDropdown-1"
                                 >
                                     <li>
                                         <a
                                             href="index.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Home 1</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Home 1</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="home-2.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Home 2</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Home 2</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="home-3.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Home 3</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Home 3</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -683,7 +683,7 @@ export function JacartaHeader () {
                             <li class="js-nav-dropdown group relative">
                                 <a
                                     href="#"
-                                    class="dropdown-toggle text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5"
+                                    class="dropdown-toggle text-secondary-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5"
                                     id="navDropdown-2"
                                     aria-expanded="false"
                                     role="button"
@@ -703,112 +703,112 @@ export function JacartaHeader () {
                                     </i>
                                 </a>
                                 <ul
-                                    class="dropdown-menu dark:bg-jacarta-800 left-0 top-[85%] z-10 hidden min-w-[200px] gap-x-4 whitespace-nowrap rounded-xl bg-white transition-all will-change-transform group-hover:visible group-hover:opacity-100 lg:invisible lg:absolute lg:grid lg:translate-y-4 lg:py-4 lg:px-2 lg:opacity-0 lg:shadow-2xl lg:group-hover:translate-y-2"
+                                    class="dropdown-menu dark:bg-secondary-800 left-0 top-[85%] z-10 hidden min-w-[200px] gap-x-4 whitespace-nowrap rounded-xl bg-white transition-all will-change-transform group-hover:visible group-hover:opacity-100 lg:invisible lg:absolute lg:grid lg:translate-y-4 lg:py-4 lg:px-2 lg:opacity-0 lg:shadow-2xl lg:group-hover:translate-y-2"
                                     aria-labelledby="navDropdown-2"
                                 >
                                     <li>
                                         <a
                                             href="item.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Item Details</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Item Details</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="collections.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Explore Collections</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Explore Collections</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="collection.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Collection</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Collection</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="activity.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Activity</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Activity</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="rankings.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Rankings</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Rankings</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="user.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">User</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">User</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="edit-profile.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Edit Profile</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Edit Profile</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="about.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">About</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">About</span>
                                         </a>
                                     </li>
 
                                     <li>
                                         <a
                                             href="contact.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Contact</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Contact</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="wallet.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Wallet</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Wallet</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="login.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Login</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Login</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="404.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Page 404</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Page 404</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="tos.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Terms of Service</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Terms of Service</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -816,7 +816,7 @@ export function JacartaHeader () {
                             <li class="js-nav-dropdown nav-item dropdown group relative">
                                 <a
                                     href="collections.html"
-                                    class="dropdown-toggle text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5"
+                                    class="dropdown-toggle text-secondary-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5"
                                     id="navDropdown-3"
                                     aria-expanded="false"
                                     role="button"
@@ -836,13 +836,13 @@ export function JacartaHeader () {
                                     </i>
                                 </a>
                                 <ul
-                                    class="dropdown-menu dark:bg-jacarta-800 -left-6 top-[85%] z-10 hidden grid-flow-col grid-rows-5 gap-x-4 whitespace-nowrap rounded-xl bg-white transition-all will-change-transform group-hover:visible group-hover:opacity-100 lg:invisible lg:absolute lg:!grid lg:translate-y-4 lg:py-8 lg:px-5 lg:opacity-0 lg:shadow-2xl lg:group-hover:translate-y-2"
+                                    class="dropdown-menu dark:bg-secondary-800 -left-6 top-[85%] z-10 hidden grid-flow-col grid-rows-5 gap-x-4 whitespace-nowrap rounded-xl bg-white transition-all will-change-transform group-hover:visible group-hover:opacity-100 lg:invisible lg:absolute lg:!grid lg:translate-y-4 lg:py-8 lg:px-5 lg:opacity-0 lg:shadow-2xl lg:group-hover:translate-y-2"
                                     aria-labelledby="navDropdown-1"
                                 >
                                     <li>
                                         <a
                                             href="collections.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
                                             <span class="bg-light-base mr-3 rounded-xl p-[0.375rem]">
                                                 <svg
@@ -850,7 +850,7 @@ export function JacartaHeader () {
                                                     viewBox="0 0 24 24"
                                                     width="24"
                                                     height="24"
-                                                    class="fill-jacarta-700 h-4 w-4"
+                                                    class="fill-secondary-700 h-4 w-4"
                                                 >
                                                     <path fill="none" d="M0 0h24v24H0z" />
                                                     <path
@@ -858,13 +858,13 @@ export function JacartaHeader () {
                                                     />
                                                 </svg>
                                             </span>
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">All NFTs</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">All NFTs</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="collections.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
                                             <span class="mr-3 rounded-xl bg-[#E4FCF4] p-[0.375rem]">
                                                 <svg
@@ -880,13 +880,13 @@ export function JacartaHeader () {
                                                     />
                                                 </svg>
                                             </span>
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Art</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Art</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="collections.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
                                             <span class="mr-3 rounded-xl bg-[#FDF7EE] p-[0.375rem]">
                                                 <svg
@@ -902,13 +902,13 @@ export function JacartaHeader () {
                                                     />
                                                 </svg>
                                             </span>
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Collectibles</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Collectibles</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="collections.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
                                             <span class="mr-3 rounded-xl bg-[#F2EEFF] p-[0.375rem]">
                                                 <svg
@@ -924,13 +924,13 @@ export function JacartaHeader () {
                                                     />
                                                 </svg>
                                             </span>
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Domain Names</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Domain Names</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="collections.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
                                             <span class="mr-3 rounded-xl bg-[#FFEEFA] p-[0.375rem]">
                                                 <svg
@@ -944,13 +944,13 @@ export function JacartaHeader () {
                                                     <path d="M12 13.535V3h8v3h-6v11a4 4 0 1 1-2-3.465z" />
                                                 </svg>
                                             </span>
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Music</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Music</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="collections.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
                                             <span class="mr-3 rounded-xl bg-[#EAF2FE] p-[0.375rem]">
                                                 <svg
@@ -966,13 +966,13 @@ export function JacartaHeader () {
                                                     />
                                                 </svg>
                                             </span>
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Photography</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Photography</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="collections.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
                                             <span class="mr-3 rounded-xl bg-[#EBEDFF] p-[0.375rem]">
                                                 <svg
@@ -988,13 +988,13 @@ export function JacartaHeader () {
                                                     />
                                                 </svg>
                                             </span>
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Sports</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Sports</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="collections.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
                                             <span class="mr-3 rounded-xl bg-[#F5FFED] p-[0.375rem]">
                                                 <svg
@@ -1010,13 +1010,13 @@ export function JacartaHeader () {
                                                     />
                                                 </svg>
                                             </span>
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Trading Cards</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Trading Cards</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="collections.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
                                             <span class="mr-3 rounded-xl bg-[#FFEEEE] p-[0.375rem]">
                                                 <svg
@@ -1032,13 +1032,13 @@ export function JacartaHeader () {
                                                     />
                                                 </svg>
                                             </span>
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Utility</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Utility</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="collections.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
                                             <span class="mr-3 rounded-xl bg-[#EEFCFF] p-[0.375rem]">
                                                 <svg
@@ -1054,7 +1054,7 @@ export function JacartaHeader () {
                                                     />
                                                 </svg>
                                             </span>
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Virtual Worlds</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Virtual Worlds</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -1062,7 +1062,7 @@ export function JacartaHeader () {
                             <li class="js-nav-dropdown group relative">
                                 <a
                                     href="#"
-                                    class="dropdown-toggle text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5"
+                                    class="dropdown-toggle text-secondary-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5"
                                     id="navDropdown-4"
                                     aria-expanded="false"
                                     role="button"
@@ -1082,55 +1082,55 @@ export function JacartaHeader () {
                                     </i>
                                 </a>
                                 <ul
-                                    class="dropdown-menu dark:bg-jacarta-800 left-0 top-[85%] z-10 hidden min-w-[200px] gap-x-4 whitespace-nowrap rounded-xl bg-white transition-all will-change-transform group-hover:visible group-hover:opacity-100 lg:invisible lg:absolute lg:grid lg:translate-y-4 lg:py-4 lg:px-2 lg:opacity-0 lg:shadow-2xl lg:group-hover:translate-y-2"
+                                    class="dropdown-menu dark:bg-secondary-800 left-0 top-[85%] z-10 hidden min-w-[200px] gap-x-4 whitespace-nowrap rounded-xl bg-white transition-all will-change-transform group-hover:visible group-hover:opacity-100 lg:invisible lg:absolute lg:grid lg:translate-y-4 lg:py-4 lg:px-2 lg:opacity-0 lg:shadow-2xl lg:group-hover:translate-y-2"
                                     aria-labelledby="navDropdown-4"
                                 >
                                     <li>
                                         <a
                                             href="help-center.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Help Center</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Help Center</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="platform-status.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Platform Status</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Platform Status</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="partners.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Partners</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Partners</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="blog.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Blog</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Blog</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="single-post.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Single Post</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Single Post</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a
                                             href="newsletter.html"
-                                            class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center rounded-xl px-5 py-2 transition-colors"
+                                            class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center rounded-xl px-5 py-2 transition-colors"
                                         >
-                                            <span class="font-display text-jacarta-700 text-sm dark:text-white">Newsletter</span>
+                                            <span class="font-display text-secondary-700 text-sm dark:text-white">Newsletter</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -1138,7 +1138,7 @@ export function JacartaHeader () {
                             <li class="group">
                                 <a
                                     href="create.html"
-                                    class="text-jacarta-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5"
+                                    class="text-secondary-700 font-display hover:text-accent focus:text-accent dark:hover:text-accent dark:focus:text-accent flex items-center justify-between py-3.5 text-base dark:text-white lg:px-5"
                                 >Create</a
                                 >
                             </li>
@@ -1155,7 +1155,7 @@ export function JacartaHeader () {
                             Connect Wallet
                         </a>
 
-                        <hr class="dark:bg-jacarta-600 bg-jacarta-100 my-5 h-px border-0" />
+                        <hr class="dark:bg-secondary-600 bg-secondary-100 my-5 h-px border-0" />
 
                         <div class="flex items-center justify-center space-x-5">
                             <a href="#" class="group">
@@ -1164,7 +1164,7 @@ export function JacartaHeader () {
                                     focusable="false"
                                     data-prefix="fab"
                                     data-icon="facebook"
-                                    class="group-hover:fill-accent fill-jacarta-300 h-5 w-5 dark:group-hover:fill-white"
+                                    class="group-hover:fill-accent fill-secondary-300 h-5 w-5 dark:group-hover:fill-white"
                                     role="img"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 512 512"
@@ -1180,7 +1180,7 @@ export function JacartaHeader () {
                                     focusable="false"
                                     data-prefix="fab"
                                     data-icon="twitter"
-                                    class="group-hover:fill-accent fill-jacarta-300 h-5 w-5 dark:group-hover:fill-white"
+                                    class="group-hover:fill-accent fill-secondary-300 h-5 w-5 dark:group-hover:fill-white"
                                     role="img"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 512 512"
@@ -1196,7 +1196,7 @@ export function JacartaHeader () {
                                     focusable="false"
                                     data-prefix="fab"
                                     data-icon="discord"
-                                    class="group-hover:fill-accent fill-jacarta-300 h-5 w-5 dark:group-hover:fill-white"
+                                    class="group-hover:fill-accent fill-secondary-300 h-5 w-5 dark:group-hover:fill-white"
                                     role="img"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 640 512"
@@ -1212,7 +1212,7 @@ export function JacartaHeader () {
                                     focusable="false"
                                     data-prefix="fab"
                                     data-icon="instagram"
-                                    class="group-hover:fill-accent fill-jacarta-300 h-5 w-5 dark:group-hover:fill-white"
+                                    class="group-hover:fill-accent fill-secondary-300 h-5 w-5 dark:group-hover:fill-white"
                                     role="img"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 448 512"
@@ -1228,7 +1228,7 @@ export function JacartaHeader () {
                                     focusable="false"
                                     data-prefix="fab"
                                     data-icon="tiktok"
-                                    class="group-hover:fill-accent fill-jacarta-300 h-5 w-5 dark:group-hover:fill-white"
+                                    class="group-hover:fill-accent fill-secondary-300 h-5 w-5 dark:group-hover:fill-white"
                                     role="img"
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 448 512"
@@ -1244,7 +1244,7 @@ export function JacartaHeader () {
                     <div class="ml-8 hidden lg:flex xl:ml-12">
                         <a
                             href="#"
-                            class="js-wallet border-jacarta-100 hover:bg-accent focus:bg-accent group dark:hover:bg-accent flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
+                            class="js-wallet border-secondary-100 hover:bg-accent focus:bg-accent group dark:hover:bg-accent flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
                             data-bs-toggle="modal"
                             data-bs-target="#walletModal"
                             aria-label="wallet"
@@ -1254,7 +1254,7 @@ export function JacartaHeader () {
                                 viewBox="0 0 24 24"
                                 width="24"
                                 height="24"
-                                class="fill-jacarta-700 h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:fill-white"
+                                class="fill-secondary-700 h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:fill-white"
                             >
                                 <path fill="none" d="M0 0h24v24H0z" />
                                 <path
@@ -1265,7 +1265,7 @@ export function JacartaHeader () {
 
                         <div class="js-nav-dropdown group-dropdown relative">
                             <button
-                                class="dropdown-toggle border-jacarta-100 hover:bg-accent focus:bg-accent group dark:hover:bg-accent ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
+                                class="dropdown-toggle border-secondary-100 hover:bg-accent focus:bg-accent group dark:hover:bg-accent ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
                                 id="profileDropdown"
                                 aria-expanded="false"
                                 data-bs-toggle="dropdown"
@@ -1276,7 +1276,7 @@ export function JacartaHeader () {
                                     viewBox="0 0 24 24"
                                     width="24"
                                     height="24"
-                                    class="fill-jacarta-700 h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:fill-white"
+                                    class="fill-secondary-700 h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:fill-white"
                                 >
                                     <path fill="none" d="M0 0h24v24H0z" />
                                     <path
@@ -1285,11 +1285,11 @@ export function JacartaHeader () {
                                 </svg>
                             </button>
                             <div
-                                class="dropdown-menu dark:bg-jacarta-800 group-dropdown-hover:opacity-100 group-dropdown-hover:visible !-right-4 !top-[85%] !left-auto z-10 hidden min-w-[14rem] whitespace-nowrap rounded-xl bg-white transition-all will-change-transform before:absolute before:-top-3 before:h-3 before:w-full lg:invisible lg:absolute lg:grid lg:!translate-y-4 lg:py-4 lg:px-2 lg:opacity-0 lg:shadow-2xl"
+                                class="dropdown-menu dark:bg-secondary-800 group-dropdown-hover:opacity-100 group-dropdown-hover:visible !-right-4 !top-[85%] !left-auto z-10 hidden min-w-[14rem] whitespace-nowrap rounded-xl bg-white transition-all will-change-transform before:absolute before:-top-3 before:h-3 before:w-full lg:invisible lg:absolute lg:grid lg:!translate-y-4 lg:py-4 lg:px-2 lg:opacity-0 lg:shadow-2xl"
                                 aria-labelledby="profileDropdown"
                             >
                                 <button
-                                    class="js-copy-clipboard font-display text-jacarta-700 my-4 flex select-none items-center whitespace-nowrap px-5 leading-none dark:text-white"
+                                    class="js-copy-clipboard font-display text-secondary-700 my-4 flex select-none items-center whitespace-nowrap px-5 leading-none dark:text-white"
                                     data-tippy-content="Copy"
                                 >
                                     <span class="max-w-[10rem] overflow-hidden text-ellipsis"
@@ -1300,7 +1300,7 @@ export function JacartaHeader () {
                                         viewBox="0 0 24 24"
                                         width="24"
                                         height="24"
-                                        class="dark:fill-jacarta-300 fill-jacarta-500 ml-1 mb-px h-4 w-4"
+                                        class="dark:fill-secondary-300 fill-secondary-500 ml-1 mb-px h-4 w-4"
                                     >
                                         <path fill="none" d="M0 0h24v24H0z" />
                                         <path
@@ -1309,8 +1309,8 @@ export function JacartaHeader () {
                                     </svg>
                                 </button>
 
-                                <div class="dark:border-jacarta-600 border-jacarta-100 mx-5 mb-6 rounded-lg border p-4">
-                                    <span class="dark:text-jacarta-200 text-sm font-medium tracking-tight">Balance</span>
+                                <div class="dark:border-secondary-600 border-secondary-100 mx-5 mb-6 rounded-lg border p-4">
+                                    <span class="dark:text-secondary-200 text-sm font-medium tracking-tight">Balance</span>
                                     <div class="flex items-center">
                                         <svg
                                             version="1.1"
@@ -1332,71 +1332,71 @@ export function JacartaHeader () {
                                 </div>
                                 <a
                                     href="user.html"
-                                    class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center space-x-2 rounded-xl px-5 py-2 transition-colors"
+                                    class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center space-x-2 rounded-xl px-5 py-2 transition-colors"
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
                                         width="24"
                                         height="24"
-                                        class="fill-jacarta-700 h-4 w-4 transition-colors dark:fill-white"
+                                        class="fill-secondary-700 h-4 w-4 transition-colors dark:fill-white"
                                     >
                                         <path fill="none" d="M0 0h24v24H0z"></path>
                                         <path
                                             d="M11 14.062V20h2v-5.938c3.946.492 7 3.858 7 7.938H4a8.001 8.001 0 0 1 7-7.938zM12 13c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6z"
                                         ></path>
                                     </svg>
-                                    <span class="font-display text-jacarta-700 mt-1 text-sm dark:text-white">My Profile</span>
+                                    <span class="font-display text-secondary-700 mt-1 text-sm dark:text-white">My Profile</span>
                                 </a>
                                 <a
                                     href="edit-profile.html"
-                                    class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center space-x-2 rounded-xl px-5 py-2 transition-colors"
+                                    class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center space-x-2 rounded-xl px-5 py-2 transition-colors"
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
                                         width="24"
                                         height="24"
-                                        class="fill-jacarta-700 h-4 w-4 transition-colors dark:fill-white"
+                                        class="fill-secondary-700 h-4 w-4 transition-colors dark:fill-white"
                                     >
                                         <path fill="none" d="M0 0h24v24H0z" />
                                         <path
                                             d="M9.954 2.21a9.99 9.99 0 0 1 4.091-.002A3.993 3.993 0 0 0 16 5.07a3.993 3.993 0 0 0 3.457.261A9.99 9.99 0 0 1 21.5 8.876 3.993 3.993 0 0 0 20 12c0 1.264.586 2.391 1.502 3.124a10.043 10.043 0 0 1-2.046 3.543 3.993 3.993 0 0 0-3.456.261 3.993 3.993 0 0 0-1.954 2.86 9.99 9.99 0 0 1-4.091.004A3.993 3.993 0 0 0 8 18.927a3.993 3.993 0 0 0-3.457-.26A9.99 9.99 0 0 1 2.5 15.121 3.993 3.993 0 0 0 4 11.999a3.993 3.993 0 0 0-1.502-3.124 10.043 10.043 0 0 1 2.046-3.543A3.993 3.993 0 0 0 8 5.071a3.993 3.993 0 0 0 1.954-2.86zM12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"
                                         />
                                     </svg>
-                                    <span class="font-display text-jacarta-700 mt-1 text-sm dark:text-white">Edit Profile</span>
+                                    <span class="font-display text-secondary-700 mt-1 text-sm dark:text-white">Edit Profile</span>
                                 </a>
                                 <a
                                     href="#"
-                                    class="dark:hover:bg-jacarta-600 hover:text-accent focus:text-accent hover:bg-jacarta-50 flex items-center space-x-2 rounded-xl px-5 py-2 transition-colors"
+                                    class="dark:hover:bg-secondary-600 hover:text-accent focus:text-accent hover:bg-secondary-50 flex items-center space-x-2 rounded-xl px-5 py-2 transition-colors"
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
                                         width="24"
                                         height="24"
-                                        class="fill-jacarta-700 h-4 w-4 transition-colors dark:fill-white"
+                                        class="fill-secondary-700 h-4 w-4 transition-colors dark:fill-white"
                                     >
                                         <path fill="none" d="M0 0h24v24H0z" />
                                         <path
                                             d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zM7 11V8l-5 4 5 4v-3h8v-2H7z"
                                         />
                                     </svg>
-                                    <span class="font-display text-jacarta-700 mt-1 text-sm dark:text-white">Sign out</span>
+                                    <span class="font-display text-secondary-700 mt-1 text-sm dark:text-white">Sign out</span>
                                 </a>
                             </div>
                         </div>
 
                         <a
                             href="#"
-                            class="border-jacarta-100 hover:bg-accent focus:bg-accent group dark:hover:bg-accent js-dark-mode-trigger ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
+                            class="border-secondary-100 hover:bg-accent focus:bg-accent group dark:hover:bg-accent js-dark-mode-trigger ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                                 width="24"
                                 height="24"
-                                class="fill-jacarta-700 dark-mode-light h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:hidden"
+                                class="fill-secondary-700 dark-mode-light h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:hidden"
                             >
                                 <path fill="none" d="M0 0h24v24H0z" />
                                 <path
@@ -1408,7 +1408,7 @@ export function JacartaHeader () {
                                 viewBox="0 0 24 24"
                                 width="24"
                                 height="24"
-                                class="fill-jacarta-700 dark-mode-dark hidden h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:block dark:fill-white"
+                                class="fill-secondary-700 dark-mode-dark hidden h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:block dark:fill-white"
                             >
                                 <path fill="none" d="M0 0h24v24H0z" />
                                 <path
@@ -1422,7 +1422,7 @@ export function JacartaHeader () {
                 <div class="ml-auto flex lg:hidden">
                     <a
                         href="edit-profile.html"
-                        class="border-jacarta-100 hover:bg-accent focus:bg-accent group dark:hover:bg-accent ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
+                        class="border-secondary-100 hover:bg-accent focus:bg-accent group dark:hover:bg-accent ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
                         aria-label="profile"
                     >
                         <svg
@@ -1430,7 +1430,7 @@ export function JacartaHeader () {
                             viewBox="0 0 24 24"
                             width="24"
                             height="24"
-                            class="fill-jacarta-700 h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:fill-white"
+                            class="fill-secondary-700 h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:fill-white"
                         >
                             <path fill="none" d="M0 0h24v24H0z" />
                             <path
@@ -1441,14 +1441,14 @@ export function JacartaHeader () {
 
                     <a
                         href="#"
-                        class="js-dark-mode-trigger border-jacarta-100 hover:bg-accent dark:hover:bg-accent focus:bg-accent group ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
+                        class="js-dark-mode-trigger border-secondary-100 hover:bg-accent dark:hover:bg-accent focus:bg-accent group ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             width="24"
                             height="24"
-                            class="fill-jacarta-700 dark-mode-light h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:hidden"
+                            class="fill-secondary-700 dark-mode-light h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:hidden"
                         >
                             <path fill="none" d="M0 0h24v24H0z" />
                             <path
@@ -1460,7 +1460,7 @@ export function JacartaHeader () {
                             viewBox="0 0 24 24"
                             width="24"
                             height="24"
-                            class="fill-jacarta-700 dark-mode-dark hidden h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:block dark:fill-white"
+                            class="fill-secondary-700 dark-mode-dark hidden h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:block dark:fill-white"
                         >
                             <path fill="none" d="M0 0h24v24H0z" />
                             <path
@@ -1470,7 +1470,7 @@ export function JacartaHeader () {
                     </a>
 
                     <button
-                        class="js-mobile-toggle border-jacarta-100 hover:bg-accent dark:hover:bg-accent focus:bg-accent group ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
+                        class="js-mobile-toggle border-secondary-100 hover:bg-accent dark:hover:bg-accent focus:bg-accent group ml-2 flex h-10 w-10 items-center justify-center rounded-full border bg-white transition-colors hover:border-transparent focus:border-transparent dark:border-transparent dark:bg-white/[.15]"
                         aria-label="open mobile menu"
                     >
                         <svg
@@ -1478,7 +1478,7 @@ export function JacartaHeader () {
                             viewBox="0 0 24 24"
                             width="24"
                             height="24"
-                            class="fill-jacarta-700 h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:fill-white"
+                            class="fill-secondary-700 h-4 w-4 transition-colors group-hover:fill-white group-focus:fill-white dark:fill-white"
                         >
                             <path fill="none" d="M0 0h24v24H0z" />
                             <path d="M18 18v2H6v-2h12zm3-7v2H3v-2h18zm-3-7v2H6V4h12z" />

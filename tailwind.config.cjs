@@ -6,7 +6,7 @@ module.exports = {
       sm: "575px",
       md: "768px",
       lg: "1025px",
-      xl: "1202px"
+      xl: "1920px"
     },
     fontFamily: {
       display: ['"CalSans-SemiBold"', "sans-serif"],
@@ -29,7 +29,7 @@ module.exports = {
       orange: "#FEB240",
       red: "#EF4444",
       blue: "#428AF8",
-      jacarta: {
+      secondary: {
         base: "#5A5D79",
         50: "#F4F4F6",
         100: "#E7E8EC",
