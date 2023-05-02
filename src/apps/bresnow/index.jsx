@@ -1,5 +1,5 @@
 
-import '../../lib/joy-jsx';
+import '../../lib/joy-as';
 
 import { Header, Preloader, OffCanvasMenu, MainSlider, Portfolio, Fact, Contact, Footer } from './sections';
 import {  PageDetail } from './sections/blog-detail';
