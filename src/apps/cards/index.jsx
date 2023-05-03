@@ -1,4 +1,4 @@
-import '../../lib/joy-jsx';
+import '../../lib/joy-as';
 
 JOY.router.page("cards", () => {
 

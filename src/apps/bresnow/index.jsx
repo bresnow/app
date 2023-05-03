@@ -1,6 +1,6 @@
 
 import '../../lib/joy-as';
-
+import "https://unpkg.com/tippy.js@4";
 import { Header, Preloader, OffCanvasMenu, MainSlider, Portfolio, Fact, Contact, Footer } from './sections';
 import {  PageDetail } from './sections/blog-detail';
 JOY.route.page('bresnow', () => {
@@ -18,6 +18,12 @@ JOY.route.page('bresnow', () => {
         }
     }
     navbarFixed();
+    tippy('.link', {
+        placement: 'bottom'
+    })
+
+    //Toggle mode
+   
 
     /*--------------- mobile dropdown js--------*/
     function active_dropdown2() {
@@ -265,10 +271,6 @@ JOY.route.page('bresnow', () => {
         $("#preloader").addClass("load_coplate");
         $(".product_name").addClass("load_coplate");
     });
-
-
-    let offcanvas = gun.get('bresnow').get("offcanvas").get("menu");
-offcanvas.set({menu_item:"HOME"})//
 });
 
 export default function Bresnow() {
@@ -279,9 +281,6 @@ export default function Bresnow() {
             <MainSlider />
             <OffCanvasMenu />
             <PageDetail/>
-            {/* <Portfolio /> */}
-            {/* <Fact /> */}
-            {/* <Contact /> */}
             <Footer />
         </main>
     )

@@ -1,4 +1,3 @@
-import { Template } from ".";
 export function SideBar() {
     return (
         <div class="col-lg-4">
@@ -90,27 +89,31 @@ export function SideBar() {
                 </div>
             </div>
         </div>)
-}
-export function PageDetail(params) {
+};
+
+
+export function PageDetail() {
     return (
-        <section class="blog_details_area">
+        <section name="page_detail" class="blog_details_area">
             <div class="container">
                 <div class="row">
-                    <img class="single_post_one w-3/4" src="/img/brand_dev/staencide_product_photo.jpg" alt="" />
+                    <img name="image_01" class="single_post_one w-3/4" src="/img/brand_dev/staencide_product_photo.jpg" alt="" />
                     <div class="col-lg-8">
-                        <div class="blog_single_info"  name="blogpost" >
-                            <blockquote class="text-white">
-                                I collaborate with a network of creative professionals to maximize the advantage of human communication. There's an immediate leverage as there is multiple disciplined perspectives. It's done when we're all satisfied.
-                                <div class="name">Bresnow</div>
+                        <div class="blog_single_info" name="blogpost" >
+                            <blockquote name="blockquote" class="text-white">
+                                I collaborate with a network of creative professionals to maximize the advantage of human communication. There's an immediate leverage as there is multiple disciplined perspectives. 
+                                It's done when we're all satisfied.
+                                <div name="quote_name"class="name">– Bresnow</div>
                             </blockquote>
                             <p></p>
                             <h3 class="text-white">Brand Identity</h3>
-                            <p>Bresnow works closely with copywriters and other content creators to develop a clear messaging strategy. This strategy is used to design logos, icons, color schemes, typography, and other visual elements that align with and communicate the brand's core values and target audience</p>
+                            <p>Bresnow works closely with copywriters and other content creators to develop a clear messaging strategy. 
+                                This strategy is used to design logos, icons, color schemes, typography, and other visual elements that align with and communicate the brand's core values and target audience</p>
                             <h3 class="text-white">Product Development</h3>
                             <p>By partnering with developers, manufacturers, marketers, retailers, supply chain managers, and more during the conceptualization process, Bresnow thrives in the midst of fresh perspectives and expert insights into the fold. This results in attractive packaging, informative instruction manuals, innovative advertising campaigns, interactive demonstrations, smartphone apps, ecommerce sites, and loyalty programs among other assets essential for commercial success.</p>
                             <h3 class="text-white">Event Coordination</h3>
                             <p>Combining his skills with experts who excel at event execution and coordination ensures successful occasions. A well-designed event logo, promotional materials, signage, lighting displays, social media graphics, web landing pages, email invitations & reminders, and mobile apps (if relevant) harmonize under one consistent theme reflecting organizational message while providing necessary functional components. As details come together prior to launch, everyone involved reviews proposals considering practicality, budget constraints, timeliness, and visual appeal before making final selections.</p>
-                            <img class="single_post_two" src="/img/brand_dev/tank_mockup.JPG"  alt="" />
+                            <img class="single_post_two" src="/img/brand_dev/tank_mockup.JPG" alt="" />
                             <div class="post_share">
                                 Shared:
                                 <ul class="list-unstyled">
@@ -119,38 +122,45 @@ export function PageDetail(params) {
                                     <li><a href="#"><i class="social_linkedin"></i></a></li>
                                 </ul>
                             </div>
-
-                            {/* <div class="comment_area">
-                                    <h2 class="blog_post_title">Leave a comment</h2>
-                                    <form action="#" class="row contact_us_form">
-                                        <div class="col-lg-6 form-group">
-                                            <input type="text" id="name" class="form-control" name="name"
-                                                placeholder="Name *" />
-                                        </div>
-                                        <div class="col-lg-6 form-group">
-                                            <input type="email" id="email" class="form-control" name="email"
-                                                placeholder="Your email *" />
-                                        </div>
-                                        <div class="col-lg-12 form-group">
-                                            <textarea class="form-control" name="message" id="message" cols="30" rows="10"
-                                                placeholder="Write your comment"></textarea>
-                                        </div>
-                                        <div class="form-group col-md-12">
-                                            <button type="submit" value="submit" class="submit_btn">
-                                                Send comment
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div> */}
-                        </div><RecentPost />
+                        </div>
+                        <RecentPost />
                         <Testimonial />
                     </div>
                 </div>
             </div>
         </section>)
 };
+
+
+export function CommentArea() {
+    return (
+        <div class="comment_area">
+            <h2 class="blog_post_title">Leave a comment</h2>
+            <form action="#" class="row contact_us_form">
+                <div class="col-lg-6 form-group">
+                    <input type="text" id="name" class="form-control" name="name"
+                        placeholder="Name *" />
+                </div>
+                <div class="col-lg-6 form-group">
+                    <input type="email" id="email" class="form-control" name="email"
+                        placeholder="Your email *" />
+                </div>
+                <div class="col-lg-12 form-group">
+                    <textarea class="form-control" name="message" id="message" cols="30" rows="10"
+                        placeholder="Write your comment"></textarea>
+                </div>
+                <div class="form-group col-md-12">
+                    <button type="submit" value="submit" class="submit_btn">
+                        Send comment
+                    </button>
+                </div>
+            </form>
+        </div>
+    )
+}
 export function RecentPost() {
-    return (<div class="recent_post ">
+    return (
+    <div class="recent_post ">
         <h2 class="blog_post_title text-white">Development</h2>
         <div class="recent_post_info">
             <div class="recent_blog_item">
@@ -166,7 +176,8 @@ export function RecentPost() {
                 </a>
             </div>
         </div>
-    </div>)
+    </div>
+    )
 }
 export function Testimonial() {
     return (<div class="s_comment_list">

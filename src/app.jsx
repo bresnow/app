@@ -1,6 +1,6 @@
 import Script from "./components/scripts";
 import { scripts } from './lib/utils/constants';
-import './lib/joy-jsx';
+import './lib/joy-as';
 
 const Index = () =>
     <div class="all">

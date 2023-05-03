@@ -1,4 +1,4 @@
-import './lib/joy-jsx';
+import './lib/joy-as';
 import '../css/main.css'
 import '../css/responsive.css'
 import '../css/style.css'
@@ -13,18 +13,26 @@ import "./lib/vendors/animation/animate.css"
 import App from "./app"
 import Bresnow from './apps/bresnow';
 import Wallet from './apps/wallet';
-import Pager from './apps/pager';
 import Cards from './apps/cards';
 import Stopwatch from './apps/stopwatch';
+import Pager from './apps/pager';
 
 var user = JOY.user;
-if(location.hash.slice(1).length < 2){
+if (location.hash.slice(1).length < 2) {
     JOY.route('bresnow');
 }
-JOY.render(<div ><App /><Bresnow /><Wallet/><Pager/><Cards/><Stopwatch/></div>)
+JOY.render(
+    <div>
+        <App />
+        <Bresnow />
+        <Wallet />
+        <Cards />
+        <Stopwatch />
+        <Pager/>
+    </div>)
 
 
-function LoadHead(tag,obj) {
+function LoadHead(tag, obj) {
     Object.entries(obj).forEach(key => {
         let meta = document.createElement(tag);
         let head = document.getElementsByTagName('head')[0];

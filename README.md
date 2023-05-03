@@ -7,13 +7,14 @@
 Joy-As is a reactive jsx framework that runs apps in the client. Application state is represented and manipulated through distributed graph data storage (aka: Gun.js).
 App navigation occurs by rendering sections of the DOM as the ``` location.hash ``` changes.
 Joy-As applications can communicate with other JOY-As applications via peer Websocket connections.
-Jquery & Gun available for use globally
+Jquery & Gun available for use globally.
 ## Notes
 
 ### TODO: 
     - Reduce the code base by consolidating 
         - src/lib/vendors 
         - src/lib/chain ==> src/lib/joy-as
+        - get index.html as empty as humanly possible
     - Css
         - apply tailwind rules to [src/styles/input.css]
         - tweak tailwind.config.cjs
@@ -33,5 +34,6 @@ Jquery & Gun available for use globally
                 - dev/ hot reload
                 - config
                 - GUN relay
+                - inject Joy-As during build
     - Video 
     - LLM incorporation
