@@ -1,12 +1,9 @@
-import Pager from './views/pager';
+import Demo from './views/demo';
 
 if (location.hash.slice(1).length < 2) {
-    JOY.route('demo');
+    JOY.route('joyjsx');
 }
-JOY.render(
-    <div>
-        <Pager/>
-    </div>)
+JOY.render(<Demo />)
 
 
 function LoadHead(tag, obj) {

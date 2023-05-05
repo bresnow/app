@@ -1526,10 +1526,10 @@ jiti@^1.18.2:
   resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.18.2.tgz#80c3ef3d486ebf2450d9335122b32d121f2a83cd"
   integrity sha512-QAdOptna2NYiSSpv0O/BwoHBSmz4YhpzJHyi+fnMRTXFjp7B8i/YG5Z8IfusxB1ufjcD2Sre1F3R+nX3fvy7gg==
 
-joy-jsx@^1.0.16:
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/joy-jsx/-/joy-jsx-1.0.16.tgz#8732f00885fcd731b0a9f1d92fa3dad9dba3236e"
-  integrity sha512-tLjSnE4E4IfXI0hj1GTyl7oHX4+UHyPQBCDOJLf67TwLrue+uOEkeA+Q1FeAv8/5MJ5VGzVwqncCxMNzddaF9A==
+joy-jsx@^1.0.20:
+  version "1.0.20"
+  resolved "https://registry.yarnpkg.com/joy-jsx/-/joy-jsx-1.0.20.tgz#9dc20a57e22418550ca717d0d75c620314fb0d57"
+  integrity sha512-JGibwb68tLVkL9OgQEi5bKnY6dzMoZ1Bi6x1FoZVazC+JhdjE1TrqkP2jCBaC8GJJ4aYFT4sKO5tntOLIVln/g==
   dependencies:
     Buffer "^0.0.0"
     gun "^0.2020.1239"

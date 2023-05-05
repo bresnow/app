@@ -1,8 +1,3 @@
-    // withBorder?: boolean;
-    // withInfo?: boolean;
-    // img?: string;
-    // size?: 'small' | 'normal' | 'big' | 'monster';
-    // type?: 'square' | 'rounded' | 'full';
 const Avatar = ({ withBorder, size, withInfo, type, img }) => {
     let sizeClasses = 'h-16 w-16';
     if (size && size !== 'normal') {
@@ -17,10 +12,10 @@ const Avatar = ({ withBorder, size, withInfo, type, img }) => {
         roundedClasses = type === 'square' ? '' : 'rounded-lg';
     }
     return (
-        <a name="avatar_component" href="#" className="block relative">
+        <a name="avatar" href="#" className="block relative">
             <img
                 alt="profil"
-                src={img || "%-- img_src --%"}
+                src={img || "%-- image_src --%"}
                 className={`mx-auto object-cover ${roundedClasses} ${sizeClasses} ${withBorder ? ' border-2 border-white dark:border-gray-800' : ''
                     }`}
             />
