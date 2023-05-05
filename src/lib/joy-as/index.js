@@ -12,7 +12,7 @@ import "gun/lib/load.js";
 import "gun/lib/open.js";
 import "gun/lib/not.js";
 import "gun/lib/axe.js";
-import "../chain";
+import "./runtime/chain";
 ; (function () {
 	function as(cb, opt) {
 

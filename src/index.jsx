@@ -1,33 +1,10 @@
-import './lib/joy-as';
-import '../css/main.css'
-import '../css/responsive.css'
-import '../css/style.css'
-import './lib/vendors/bootstrap/css/bootstrap.min.css'
-import "./lib/vendors/nice-select/css/nice-select.css"
-import "./lib/vendors/spilitting/splitting.css"
-import "./lib/vendors/slick/slick-theme.css"
-import "./lib/vendors/slick/slick.css"
-import "./lib/vendors/spilitting/splitting.css"
-import "./lib/vendors/elegant-icon/style.css"
-import "./lib/vendors/animation/animate.css"
-import App from "./app"
-import Bresnow from './apps/bresnow';
-import Wallet from './apps/wallet';
-import Cards from './apps/cards';
-import Stopwatch from './apps/stopwatch';
-import Pager from './apps/pager';
+import Pager from './views/pager';
 
-var user = JOY.user;
 if (location.hash.slice(1).length < 2) {
-    JOY.route('bresnow');
+    JOY.route('demo');
 }
 JOY.render(
     <div>
-        <App />
-        <Bresnow />
-        <Wallet />
-        <Cards />
-        <Stopwatch />
         <Pager/>
     </div>)
 
