@@ -1,4 +1,4 @@
-# Prototype Using the Joy-As Framework
+# Prototype Using the Joy-Jsx Framework
 
 ## Preface
 - Protocol: a defined set of rules and regulations that determine how data is transmitted between interfaces.
@@ -6,7 +6,7 @@
 ## What Is This
 Joy-As is a reactive jsx framework that runs apps in the client. Application state is represented and manipulated through distributed graph data storage (aka: Gun.js).
 App navigation occurs by rendering sections of the DOM as the ``` location.hash ``` changes.
-Joy-As applications can communicate with other JOY-As applications via peer Websocket connections.
+Joy-As applications can communicate with other Joy-Jsx applications via peer Websocket connections.
 Jquery & Gun available for use globally.
 ## Notes
 
@@ -18,7 +18,7 @@ Jquery & Gun available for use globally.
     - Css
         - apply tailwind rules to [src/styles/input.css]
         - tweak tailwind.config.cjs
-    - Joy-As/ JS
+    - Joy-Jsx/ JS
         - Migrate from vite to esbuild.
         - JSDoc comments for intellisense
         - Base jsx components 
@@ -34,6 +34,6 @@ Jquery & Gun available for use globally.
                 - dev/ hot reload
                 - config
                 - GUN relay
-                - inject Joy-As during build
+                - inject Joy-Jsx during build
     - Video 
     - LLM incorporation

@@ -15,10 +15,10 @@ const colors = {
  * @returns JSX.Element
  */
 export const Button = (props) => {
-    
-    props.onClick && $()
+
     return (
         <button
+            name="button000"
             type={props.submit ? 'submit' : 'button'}
             disabled={props.disabled}
             className={`${props.isFat ? 'py-4 px-6 ' : 'py-2 px-4 '}${props.icon ? 'flex justify-center items-center ' : ''
