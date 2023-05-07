@@ -1,6 +1,6 @@
 export default function RightCol() {
     var src = "https://source.unsplash.com/random/900×700/?computer"
-    let rcol = gun.get('hash-route-joyjsx').get('right_column01')
+    let rcol = gun.get('hash-route').get('joyjsx').get('right_column01')
     rcol.once(data => {
         log(data, "data")
         if (!data) {
