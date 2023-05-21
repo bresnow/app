@@ -1,9 +1,9 @@
 import Escape from '../../../components/joy-jsx/escape';
-export let MAIN = gun.get('hash-route').get('joyjsx').get("main_component_080");
+export let MAIN = gun.get('hash-route').get('bresnow').get("main_component_080");
 export default function Main() {
+    
     let editClass = "focus:outline-none focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
-
-    return (
+return (
         <div name="main_component_080" class="container pt-24 md:pt-36 mx-auto flex flex-wrap flex-col items-center">
 
             <div class="flex flex-col w-full xl:w-3/4 justify-center lg:items-start overflow-y">
