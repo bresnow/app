@@ -34,7 +34,7 @@
     "gun": "^0.2020.1239",
     "html2canvas": "^1.4.1",
     "ip": "^1.1.8",
-    "joy-jsx": "^1.0.21",
+    "joy-jsx": "1.0.20",
     "jquery": "^3.6.4",
     "lz-string": "^1.5.0",
     "tailwindcss-named-groups": "^0.0.5",

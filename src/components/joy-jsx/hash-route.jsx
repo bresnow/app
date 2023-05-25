@@ -8,19 +8,19 @@ export default function HashRoute({ className, route, children, ...attr }) {
         </div>
     )
 };
-export const routeCheck = (fallback) => {
+export const hashCheck = (fallback) => {
     let node = 'hash-routes_v0.0.1_JOY-JSX';
     fallback = fallback.replace('#', "")
-    gun.get(node).on(routes => {
-        let hash = location.hash.replace('#', "");
-        if (routes[hash] !== "true") {
-            let [_fb,] = Object.entries(routes).find(val => {
-                if (val[1] === "true") return val[0]
-            });
-            routes[fallback] !== "true" ? fallback = _fb : fallback = fallback;
+    let hash = location.hash.slice(1);
+    gun.get(node).once(routes => {
+        delete routes._
+        if (!routes[hash]) {
             console.log("Redirecting to available route " + fallback)
             JOY.route(fallback)
-
+        };
+        if (routes[hash] === "false"){
+            hash = fallback;
+            JOY.route(hash);
         }
     })
 }

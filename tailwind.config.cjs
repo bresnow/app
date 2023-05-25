@@ -9,7 +9,7 @@ module.exports = {
       xl: "1920px"
     },
     fontFamily: {
-      display: ['"CalSans-SemiBold"', "sans-serif"],
+      display: ['CalSans-SemiBold', "sans-serif"],
       body: ['"DM Sans"', "sans-serif"]
     },
     container: {

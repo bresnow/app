@@ -1,12 +1,13 @@
 import Demo from './views/demo';
-import { routeCheck } from './components/joy-jsx/hash-route';
+import { hashCheck } from './components/joy-jsx/hash-route';
 
-routeCheck("bresnow")
+hashCheck("bresnow")
 var storedTheme =
     localStorage.getItem("theme") ||
     (window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "night"
         : "day");
+
 var storedKey = localStorage.getItem("key");
 
 if (storedTheme) document.documentElement.setAttribute("theme", storedTheme);
