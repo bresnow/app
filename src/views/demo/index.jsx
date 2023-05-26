@@ -38,7 +38,7 @@ export const Avatar = ({
             xs: "w-1/2 h-1/2",
             sm: "w-9.5 h-9.5",
             md: "w-12 h-12",
-            lg: "w-14.5 h-14.5",
+            lg: "w-13 h-13",
             xl: "w-33 h-33",
         },
     };
@@ -77,6 +77,10 @@ export default function () {
         <HashRoute route={"bresnow"} class={$class}>
             {/* <Header src={"/img/bresnowLogo.png"}/> */}
                 <SubscribeSection/>
+            <div class="container font-sans bg-green-100 rounded p-4 md:p-24 text-center">
+                <h2 class="font-bold break-normal text-2xl md:text-4xl">Case Study</h2>
+                <h3 class="font-bold break-normal font-normal text-gray-600 text-base md:text-xl">Description</h3>
+            </div>
             <ContentCard />
             <IframeCard />
         </HashRoute>
@@ -106,8 +110,8 @@ export function ContentCard({ route, iframe, src }) {
                     </div>
                     <div class="mb-3 flex items-center justify-between px-1 md:items-start">
                         <div class="mb-2">
-                            <p class="text-xl font-bold text-navy-700"> {<Esc name="title" />}</p>
-                            <p class="mt-1 text-sm font-medium text-gray-600 md:mt-2">Created By: {<Esc name="creator" />}</p>
+                            <h2 class="text-xl font-bold text-navy-700"> {<Esc name="title" />}</h2>
+                            <h3 class="mt-1 text-sm font-medium text-gray-600 md:mt-2">Created By: {<Esc name="creator" />}</h3>
                         </div>
                     </div>
 
@@ -136,7 +140,7 @@ export function IframeCard() {
             <div class="!z-5 relative flex flex-col rounded-[20px] max-w-[300px] bg-white bg-clip-border shadow-3xl shadow-shadow-500 flex flex-col w-full !p-4 3xl:p-![18px] bg-white undefined">
                 <div class="h-full w-full">
                     <div class="relative w-full">
-                        <iframe class="w-full h-screen" src="%-- url --%" />
+                        <iframe class="w-full h-screen" src={<Esc name="url"/>} />
                     </div>
 
                 </div>
@@ -223,14 +227,24 @@ function HalfColumn({ children }) {
 function AuthorSection(params) {
     return (
         <div class="flex w-full items-center font-sans p-8 md:p-24">
-            <Avatar/>
+            <Avatar  />
             <div class="flex-1">
-                <p class="text-base font-bold text-base md:text-xl leading-none">Bresnow</p>
-                <p class="text-gray-600 text-xs md:text-base">Interface Designer</p>
+                <h2 class="text-base font-bold text-base md:text-xl leading-none">Bresnow</h2>
+                <h3 class="text-gray-600 text-base md:text-base">Interface Designer</h3>
+                <div class="w-full text-center pt-4">
+                    <div class="max-w-xl mx-auto p-1 pr-0 gap-2 flex flex-wrap items-center">
+                        <button type="submit" class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-green-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-green-400">Subscribe</button>
+                        <button type="submit" class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-green-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-green-400">Subscribe</button>
+                        <button type="submit" class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-green-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-green-400">Subscribe</button>
+                        {/* <input type="email" placeholder="youremail@example.com" class="flex-1 appearance-none rounded shadow p-3 text-gray-600 mr-2 focus:outline-none" /> */}
+                        <button type="submit" class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-green-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-green-400">Subscribe</button>
+                    </div>
             </div>
-            <div class="justify-end">
+            </div>
+            
+            {/* <div class="justify-end">
                 <button class="bg-transparent border border-gray-500 hover:border-green-500 text-xs text-gray-500 hover:text-green-500 font-bold py-2 px-4 rounded-full">Read More</button>
-            </div>
+            </div> */}
         </div>
     )
 };
@@ -272,21 +286,9 @@ function FooterSection() {
 // Welcome to JoyJSX - the revolutionary Javascript UI Framework for building Reactive Progressive Web Apps!
 function SubscribeSection() {
     return (
-        <div class="container font-sans bg-green-100 rounded p-4 md:p-24 text-center">
+        <div class="container font-sans bg-green-100 rounded p-4 md:p-24 text-center bg-cover" style={`background-image:url('${"public/img/wallet/gradient_dark.jpg"}'); height: 60vh; max-height:460px;`}>
             <AuthorSection/>
-            <h2 class="font-bold break-normal text-2xl md:text-4xl">Subscribe to Floating Mammoth</h2>
-            <h3 class="font-bold break-normal font-normal text-gray-600 text-base md:text-xl">Get the latest posts delivered right to your inbox</h3>
-            <div class="w-full text-center pt-4">
-                <form action="#">
-                    <div class="max-w-xl mx-auto p-1 pr-0 gap-2 flex flex-wrap items-center">
-                        <button type="submit" class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-green-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-green-400">Subscribe</button>
-                        <button type="submit" class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-green-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-green-400">Subscribe</button>
-                        <button type="submit" class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-green-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-green-400">Subscribe</button>
-                        <input type="email" placeholder="youremail@example.com" class="flex-1 appearance-none rounded shadow p-3 text-gray-600 mr-2 focus:outline-none" />
-                        <button type="submit" class="flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-green-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-green-400">Subscribe</button>
-                    </div>
-                </form>
-            </div>
+            
         </div>
     )
 };
