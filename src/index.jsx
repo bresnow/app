@@ -1,7 +1,8 @@
-import Demo from './views/demo';
+import Root from './views/demo';
 import { hashCheck } from './components/joy-jsx/hash-route';
 
 hashCheck("bresnow")
+gun.opt({peers: ["https://relay.fltngmmth.com/gun"]})
 var storedTheme =
     localStorage.getItem("theme") ||
     (window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -25,6 +26,6 @@ gun.on("auth", async function (ack) {
     );
     console.log("Your namespace is publicly available at", ack.soul);
 });
-JOY.render(<Demo />)
+JOY.render(<Root />)
 
 

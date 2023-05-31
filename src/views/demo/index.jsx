@@ -1,11 +1,13 @@
 import HashRoute from "../../components/joy-jsx/hash-route"
+import Landing from "../../components/landing";
 import Audio from "./components/audio";
-import Heitur from "./components/heitur";
-import Main, { MAIN } from "./components/main"
 // MUST Use JOY.route.page to add/remove events in the dom. 
 // Otherwise Ui manipulation and data models can be run in JOY.route.page or in any component function
 function handleFiles(files) {
-    let hashRoute = gun.get('hash-route').get("bresnow"), card = hashRoute.get("card"), likes = hashRoute.get("card").get("likes")
+    let hashRoute = gun.get('hash-route').get("bresnow"), 
+    card = hashRoute.get("card"), 
+    likes = hashRoute.get("card").get("likes"),
+    uiModel = hashRoute.get("ui-model"); 
     for (let i = 0; i < files.length; i++) {
         const file = files[i];
         // if (!file.type.startsWith("image/")) {
@@ -69,26 +71,20 @@ JOY.route.page("bresnow", () => {
     like_button.on("click", function (e) {
         console.log("clicked");
     })
+    log("jkasfgjkbd")
+    document.querySelector(".tester").innerHTML = "Hello    "
 })
 
 export default function () {
-    const $class = "w-full lg:w-2/3 lg:mx-auto leading-normal tracking-normal text-indigo-400 h-full bg-slate"
     return (
-        <HashRoute route={"bresnow"} class={$class}>
-            {/* <Header src={"/img/bresnowLogo.png"}/> */}
-                <SubscribeSection/>
-            <div class="container font-sans bg-green-100 rounded p-4 md:p-24 text-center">
-                <h2 class="font-bold break-normal text-2xl md:text-4xl">Case Study</h2>
-                <h3 class="font-bold break-normal font-normal text-gray-600 text-base md:text-xl">Description</h3>
-            </div>
-            <ContentCard />
-            <IframeCard />
-        </HashRoute>
+     <Landing route={"bresnow"}/>
     )
 };
 export function Esc({ name }) {
     return `%-- ${name} --%`
 }
+
+
 
 export function ContentCard({ route, iframe, src }) {
     let hashRoute = gun.get('hash-route').get(route ?? "bresnow"), card = hashRoute.get("card"), likes = hashRoute.get("card").get("likes")

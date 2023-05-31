@@ -19,7 +19,18 @@ services:
         - traefik.http.routers.${NAME?What's the name of the app?}-https.entrypoints=https
         - traefik.http.routers.${NAME?What's the name of the app?}-https.tls=true
         - traefik.http.routers.${NAME?What's the name of the app?}-https.tls.certresolver=le
+        - traefik.http.routers.${NAME?What's the name of the app?}-https.service=${NAME?What's the name of the app?}
         - traefik.http.services.${NAME?What's the name of the app?}.loadbalancer.server.port=5173
+
+        - traefik.http.routers.${NAME?What's the name of the app?}relay-http.rule=Host(`relay.fltngmmth.com`)
+        - traefik.http.routers.${NAME?What's the name of the app?}relay-http.entrypoints=http
+        - traefik.http.routers.${NAME?What's the name of the app?}relay-http.middlewares=https-redirect
+        - traefik.http.routers.${NAME?What's the name of the app?}relay-https.rule=Host(`relay.fltngmmth.com`)
+        - traefik.http.routers.${NAME?What's the name of the app?}relay-https.entrypoints=https
+        - traefik.http.routers.${NAME?What's the name of the app?}relay-https.tls=true
+        - traefik.http.routers.${NAME?What's the name of the app?}relay-https.tls.certresolver=le
+        - traefik.http.routers.${NAME?What's the name of the app?}relay-https.service=${NAME?What's the name of the app?}relay
+        - traefik.http.services.${NAME?What's the name of the app?}relay.loadbalancer.server.port=3369
     volumes:
       - ${PWD}:/usr/src/app
     networks:

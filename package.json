@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"tailwindcss -i ./src/styles/input.css -o ./public/style.css --watch\" \"node server.mjs\" \"vite --host\"",
+    "dev": "concurrently \"tailwindcss -i ./src/styles/input.css -o ./public/style.css --watch\" \"nodemon server.mjs -w src/**/*\" \"vite --host\"",
     "deploy": "NAME=fltngmmth VOLUME=$PWD docker stack deploy -c docker-stack.yml fltngmmth",
     "traefik": "npx zx runtime/swarm/setuptraefik.mjs",
     "build": "vite build --outDir dist/client",
