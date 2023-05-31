@@ -3,7 +3,11 @@ import HashRoute from "./joy-jsx/hash-route"
 
 export default function ({ route }) {
     const $class = "w-full lg:w-2/3 lg:mx-auto leading-normal tracking-normal text-indigo-400 h-full bg-slate"
-    gun.get("Tester").on(data=>log(data))
+    JOY.route.page(route, () => {
+
+        console.log("jkasfgjkbd")
+
+    })
 
     return (
         <HashRoute route={route} class={$class}>

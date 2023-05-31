@@ -62,18 +62,6 @@ export const Avatar = ({
 
 
 
-JOY.route.page("bresnow", () => {
-    document.getElementById('uploader').addEventListener("change", function (e) {
-        handleFiles(e.target.files)
-    });
-
-    let like_button = $('#likeButton');
-    like_button.on("click", function (e) {
-        console.log("clicked");
-    })
-    log("jkasfgjkbd")
-    document.querySelector(".tester").innerHTML = "Hello    "
-})
 
 export default function () {
     return (
