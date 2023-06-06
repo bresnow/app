@@ -1,7 +1,7 @@
 import Root from './views/demo';
 import { hashCheck } from './components/joy-jsx/hash-route';
 
-hashCheck("bresnow")
+// hashCheck("app")
 gun.opt({peers: ["https://relay.fltngmmth.com/gun"]})
 var storedTheme =
     localStorage.getItem("theme") ||

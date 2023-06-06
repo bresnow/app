@@ -3,7 +3,7 @@ import Landing from "../../components/landing";
 import Audio from "./components/audio";
 // MUST Use JOY.route.page to add/remove events in the dom. 
 // Otherwise Ui manipulation and data models can be run in JOY.route.page or in any component function
-function handleFiles(files) {
+export function handleFiles(files) {
     let hashRoute = gun.get('hash-route').get("bresnow"), 
     card = hashRoute.get("card"), 
     likes = hashRoute.get("card").get("likes"),
@@ -60,20 +60,15 @@ export const Avatar = ({
     );
 };
 
-
-
-
 export default function () {
+    let hash = location.hash.substring(1)
     return (
-     <Landing route={"bresnow"}/>
+            <Landing route={hash}/>
     )
 };
 export function Esc({ name }) {
     return `%-- ${name} --%`
 }
-
-
-
 export function ContentCard({ route, iframe, src }) {
     let hashRoute = gun.get('hash-route').get(route ?? "bresnow"), card = hashRoute.get("card"), likes = hashRoute.get("card").get("likes")
 
@@ -112,15 +107,12 @@ export function ContentCard({ route, iframe, src }) {
     )
 
 };
-export function IframeCard() {
-    let hashRoute = gun.get('hash-route').get("bresnow"), iframeCard = hashRoute.get("iframeCard")
-    iframeCard.put({ url: "https://checkit.16score13.com" })
+export function IframeCard({src , label}) {
+    let hashRoute = gun.get('hash-route').get("bresnow"), iframeCard = hashRoute.get("iframeCard" + "/" + label)
+    iframeCard.put({ url: src ?? "https://checkit.16score13.com" })
     return (
-        <div name="iframeCard" class="flex flex-col justify-center items-center h-[100vh]">
-            <div class="container font-sans bg-green-100 rounded p-4 md:p-24 text-center">
-            <h2 class="font-bold break-normal text-2xl md:text-4xl">Collaborative File Sharing</h2>
-            <h3 class="font-bold break-normal font-normal text-gray-600 text-base md:text-xl">If you are a client of Bresnow's or collaborator in The Floating Mammoth Collective sign in below to upload and share.</h3>
-            </div>
+        <div name={"iframeCard" + "/" +label} class="flex flex-col justify-center items-center h-[100vh]">
+      
             <div class="!z-5 relative flex flex-col rounded-[20px] max-w-[300px] bg-white bg-clip-border shadow-3xl shadow-shadow-500 flex flex-col w-full !p-4 3xl:p-![18px] bg-white undefined">
                 <div class="h-full w-full">
                     <div class="relative w-full">
@@ -144,15 +136,15 @@ function Uploader() {
     return (
         <form class="border-4 border-blue-200 border-dashed  hover:border-green-300 transform transition hover:scale-105 duration-300 ease-in-out bg-gray-900 opacity-75  w-full shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4">
             <div class="flex items-center justify-center mb-4 w-full">
-                <label class="flex flex-col w-full h-32 ">
+                <label class="flex flex-col w-full h-32">
                     <div class="flex flex-col items-center justify-center pt-7">
                         <p id="uploader_p" class="pt-1 text-sm tracking-wider text-gray-400 group-hover:text-gray-600">
                             Upload Image</p>
                         <input id="uploader" type="file" class="opacity-0" />
                     </div>
                 </label>
-            </div >
-        </form >
+            </div>
+        </form>
     )
 };
 function Likes() {
@@ -172,7 +164,7 @@ function Likes() {
                     d="M352.92 80C288 80 256 144 256 144s-32-64-96.92-64c-52.76 0-94.54 44.14-95.08 96.81-1.1 109.33 86.73 187.08 183 252.42a16 16 0 0018 0c96.26-65.34 184.09-143.09 183-252.42-.54-52.67-42.32-96.81-95.08-96.81z"></path></svg>
         </div>
         <div class="flex">
-            <p class="!mb-0 text-md font-bold text-brand-500 p-2">333</p>
+            <p id="likeCount" class="!mb-0 text-md font-bold text-brand-500 p-2">333</p>
         </div>
     </button>)
 };

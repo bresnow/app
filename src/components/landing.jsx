@@ -1,110 +1,103 @@
-import { Esc } from "../views/demo"
+import { ContentCard, Esc, IframeCard } from "../views/demo"
 import HashRoute from "./joy-jsx/hash-route"
-
+import { handleFiles } from "../views/demo"
 export default function ({ route }) {
     const $class = "w-full lg:w-2/3 lg:mx-auto leading-normal tracking-normal text-indigo-400 h-full bg-slate"
     JOY.route.page(route, () => {
-
-        console.log("jkasfgjkbd")
-
-    })
-
+        let $likes = $("#likeButton"), $likeCount = $("#likeCount");
+        document.getElementById('uploader').addEventListener("change", function (e) {
+            handleFiles(e.target.files)
+        });
+        $likes.on("click", function () {
+            console.log("Likes button clicked")
+            $likeCount.text("334")
+        });
+        ////
+        let routeNode = gun.get("hash-route").get(route), header_ = routeNode.get("PageHeader1"), $pageHeaderH1 = $("#pageheaderH1");
+        header_.on(data => {
+            if (data.title) {
+                header_.put({
+                    "title": "Im Bresnow. My friends call me Steve. Im an interface designer in Wilmington, Delaware. I can make your ideas come to life!",
+                    "subtitle": "Portfolio In Development",
+                    "image": "assets/img/page-header/ph-6.jpg"
+                })
+            };
+        })
+    });
     return (
         <HashRoute route={route} class={$class}>
             <div id="body-inner">
                 <div id="scroll-container">
                     <StickyHeader />
-                    <ContentWrap route={route}/>
+                    <ContentWrap route={route} />
                 </div>
             </div>
         </HashRoute>
     )
 };
+function Logo(){
+    return (
+        <div class="tt-logo">
+            <a href="#">
+                {/* <!-- Hint: You may need to change the img height to match your logo type. You can do this from the "theme.css" file (find: ".tt-logo img"). --> */}
+                <img src="assets/img/FMLogoWhite.png" class="tt-logo-light magnetic-item" alt="Logo" />
+                {/* <!-- logo light --> */}
+                <img src="assets/img/FMLogoWhite.png" class="tt-logo-dark magnetic-item" alt="Logo" />
+                {/* <!-- logo dark --> */}
+            </a>
+        </div>
+    )
+}
 function StickyHeader() {
     return (
         <header id="tt-header" class="tt-header-fixed">
             <div class="tt-header-inner">
-                {/* <!-- add/remove class "tt-wrap" to enable/disable element boxed layout (class "tt-boxed" is required in <body> tag!). Note: additionally you can use prepared helper class "max-width-*" to add custom width to "tt-wrap". Example: "max-width-1500" (class "tt-wrap" is still required!). More info about helper classes can be found in the file "helper.css". --> */}
-
-                <div class="tt-header-col">
-
-                    {/* <!-- Begin logo =========== --> */}
-                    <div class="tt-logo">
-                        <a href="#">
-                            {/* <!-- Hint: You may need to change the img height to match your logo type. You can do this from the "theme.css" file (find: ".tt-logo img"). --> */}
-                            <img src="assets/img/FMLogoWhite.png" class="tt-logo-light magnetic-item" alt="Logo" />
-                            {/* <!-- logo light --> */}
-                            <img src="assets/img/FMLogoWhite.png" class="tt-logo-dark magnetic-item" alt="Logo" />
-                            {/* <!-- logo dark --> */}
-                        </a>
-                    </div>
-                    {/* <!-- End logo --> */}
-
+                 <div class="tt-header-col">
+                 <Logo/>
                 </div>
-                {/* <!-- /.tt-header-col --> */}
-
                 <div class="tt-header-col">
-
-
-                    {/* <!-- Begin overlay menu */}
-                    {/* ========================
-                            * Use class "tt-ol-menu-center" to align menu to center.
-                            * Use class "tt-ol-menu-count" to enable menu counter.
-		--> */}
-
-                    {/* <!-- End overlay menu --> */}
-
                 </div>
-                {/* <!-- /.header-col --> */}
             </div>
-            {/* <!-- /.header-inner --> */}
         </header>
     )
 }
 function PageHeader() {
     return (
-        <div id="page-header" class="ph-full ph-cap-sm ph-image-cropped ph-image-cover-3 ph-content-parallax">
+        <div name="PageHeader1" id="page-header" class="ph-full ph-cap-sm ph-image-cropped ph-image-cover-3 ph-content-parallax">
             <div class="page-header-inner tt-wrap">
-
-                {/* <!-- Begin page header image ======================== --> */}
                 <div class="ph-image">
                     <div class="ph-image-inner">
                         <img src="assets/img/page-header/ph-6.jpg" alt="Image" />
                     </div>
                 </div>
-                {/* <!-- End page header image --> */}
-
-                {/* <!-- Begin page header caption */}
-                {/* ===============================
-                                Use class "max-width-*" to set caption max width if needed. For example "max-width-1000". More info about helper classes can be found in the file "helper.css".
-		--> */}
                 <div class="ph-caption max-width-1000">
-                    <h1 class="ph-caption-title ph-appear font-normal"><em>Hail The Floating Mammoth!</em><br /> We are a creative design agency based in Wilmington, Delaware. We bring your <em><u>ideas</u></em> to life.</h1>
-                    
-                    {/* <!-- <div class="ph-caption-subtitle ph-appear">Subtitle</div> --> */}
+                    <h1 id="pageheaderH1" class="ph-caption-title ph-appear font-normal"><Esc name="title" /></h1>
+                    <div s="ph-caption-subtitle ph-appear"><Esc name="subtitle" /></div>
                 </div>
-                {/* <!-- End page header caption --> */}
-
+            {/* <!-- End page header caption --> */}
             </div>
             {/* <!-- /.page-header-inner --> */}
-
             {/* <!-- Begin scroll down circle (you can change "data-offset" to set scroll top offset) ======================== --> */}
-            <a href="#page-content" class="scroll-down-circle" data-offset="30">
-                <div class="sdc-inner ph-appear">
-                    <div class="sdc-icon"><i class="fas fa-chevron-down"></i></div>
-                    <svg viewBox="0 0 500 500">
-                        <defs>
-                            <path d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250" id="textcircle"></path>
-                        </defs>
-                        <text dy="30">
-                            <textPath xlink:href="#textcircle">Scroll down - Scroll down -</textPath>
-                        </text>
-                    </svg>
-                </div>
-                {/* <!-- /.sdc-inner --> */}
-            </a>
+            <ScrollDownCircle />
             {/* <!-- End scroll down circle --> */}
-
+        </div>
+    )
+};
+function ScrollDownCircle() {
+    return (
+        <div class="scroll-down-circle" data-offset="30">
+            <div class="sdc-inner ph-appear">
+                <div class="sdc-icon"><i class="fas fa-chevron-down"></i></div>
+                <svg viewBox="0 0 500 500">
+                    <defs>
+                        <path d="M50,250c0-110.5,89.5-200,200-200s200,89.5,200,200s-89.5,200-200,200S50,360.5,50,250" id="textcircle"></path>
+                    </defs>
+                    <text dy="30">
+                        <textPath xlink:href="#textcircle">Scroll Down - View Content</textPath>
+                    </text>
+                </svg>
+            </div>
+            {/* <!-- /.sdc-inner --> */}
         </div>
     )
 }
@@ -315,20 +308,18 @@ function Portfolio() {
         </div>
     )
 }
-function Heading({name}) {
+function Heading({ name }) {
     return (
-        <div name={name+"/heading"}class="tt-heading tt-heading-lg tt-heading-center margin-bottom-10-p anim-fadeinup">
-            <h3 class="tt-heading-subtitle text-gray-500"><Esc  name={"subtitle"}/></h3>
-            <h2 class="tt-heading-title"><Esc name={"title"}/></h2>
+        <div name={name + "/heading"} class="tt-heading tt-heading-lg tt-heading-center margin-bottom-10-p anim-fadeinup">
+            <h3 class="tt-heading-subtitle text-gray-500"><Esc name={"subtitle"} /></h3>
+            <h2 class="tt-heading-title"><Esc name={"title"} /></h2>
         </div>
     )
 }
-function ContentWrap({route}) {
-    gun.get("hash-route").get(route).get("WhatWeDo/heading").put({ title: "Services", subtitle:"What We Do"})
+function ContentWrap({ route }) {
+    gun.get("hash-route").get(route).get("WhatWeDo/heading").put({ title: "Services", subtitle: "What We Do" })
     return (
         <div id="content-wrap">
-
-
             {/* <!-- ======================== */}
             {/* ///// Begin page header /////
                         =============================
@@ -344,15 +335,13 @@ function ContentWrap({route}) {
                         * Use class "ph-stroke" to enable caption title stroke style.
 --> */}
             <PageHeader />
-
+            {/* <FollowFooter/> */}
+            <SupportModule/>
             {/* <!-- End page header --> */}
-
-
             {/* <!-- ************************************* */}
             {/* *********** Begin page content *********** 
 					************************************** --> */}
             <div id="page-content">
-
                 {/* <!-- ======================= */}
                 {/* ///// Begin tt-section /////
                             ============================
@@ -360,7 +349,6 @@ function ContentWrap({route}) {
 	--> */}
                 <div class="tt-section no-padding-bottom">
                     <div class="tt-section-inner">
-
                         {/* <!-- Begin tt-Heading */}
                         {/* ======================
                                     * Use class "tt-heading-xsm", "tt-heading-sm", "tt-heading-lg", "tt-heading-xlg" or "tt-heading-xxlg" to set caption size (no class = default size).
@@ -368,10 +356,7 @@ function ContentWrap({route}) {
                                     * Use class "tt-heading-center" to align tt-Heading to center.
                                     * Use prepared helper class "max-width-*" to add custom width if needed. Example: "max-width-800". More info about helper classes can be found in the file "helper.css".
 			--> */}
-
                         {/* <!-- End tt-Heading --> */}
-
-
                         {/* <!-- Begin portfolio grid (works combined with tt-Ggrid!) */}
                         {/* ==========================
                                     * Use class "pgi-hover" to enable portfolio grid item hover effect (behavior depends on "ttgr-gap-*" classes below!).
@@ -379,15 +364,11 @@ function ContentWrap({route}) {
                                     * Use class "pgi-cap-center" to position portfolio grid item caption to center.
                                     * Use class "pgi-cap-inside" to position portfolio grid item caption to inside.
 			--> */}
-
                         {/* <!-- End portfolio grid --> */}
-
                     </div>
                     {/* <!-- /.tt-section-inner --> */}
                 </div>
                 {/* <!-- End tt-section --> */}
-
-
                 {/* <!-- ======================= */}
                 {/* ///// Begin tt-section /////
                             ============================
@@ -395,7 +376,6 @@ function ContentWrap({route}) {
 	--> */}
                 <div class="tt-section padding-bottom-xlg-150 padding-left-sm-3-p padding-right-sm-3-p">
                     <div class="tt-section-inner tt-wrap max-width-1100">
-
                         {/* <!-- Begin tt-Heading */}
                         {/* ======================
                                     * Use class "tt-heading-xsm", "tt-heading-sm", "tt-heading-lg", "tt-heading-xlg" or "tt-heading-xxlg" to set caption size (no class = default size).
@@ -403,27 +383,20 @@ function ContentWrap({route}) {
                                     * Use class "tt-heading-center" to align tt-Heading to center.
                                     * Use prepared helper class "max-width-*" to add custom width if needed. Example: "max-width-800". More info about helper classes can be found in the file "helper.css".
 			--> */}
-           <Heading name="WhatWeDo"/>
+                        <Heading name="WhatWeDo" />
                         {/* <!-- End tt-Heading --> */}
-
                         {/* <!-- Begin accordion */}
                         {/* =====================
                                     * Use class "tt-ac-sm", "tt-ac-lg", "tt-ac-xlg" or "tt-ac-xxlg" to set accordion size.
                                     * Use class "tt-ac-borders" to enable borders.
                                     * Add class "is-open" to the "tt-accordion-content" to make this content open by default.
 			--> */}
-<Accordian/>
+                        <Accordian />
                         {/* <!-- End accordion --> */}
-
                     </div>
                     {/* <!-- /.tt-section-inner --> */}
                 </div>
                 {/* <!-- End tt-section --> */}
-
-
-
-
-
                 {/* <!-- =======================
                             ///// Begin tt-section /////
                             ============================
@@ -431,7 +404,6 @@ function ContentWrap({route}) {
 	--> */}
                 <div class="tt-section padding-top-xlg-150 padding-bottom-xlg-150 padding-left-sm-3-p padding-right-sm-3-p bg-white-accent-3">
                     <div class="tt-section-inner tt-wrap max-width-900">
-
                         {/* <!-- Begin tt-Heading
                                     ======================
                                     * Use class "tt-heading-xsm", "tt-heading-sm", "tt-heading-lg", "tt-heading-xlg" or "tt-heading-xxlg" to set caption size (no class = default size).
@@ -439,101 +411,76 @@ function ContentWrap({route}) {
                                     * Use class "tt-heading-center" to align tt-Heading to center.
                                     * Use prepared helper class "max-width-*" to add custom width if needed. Example: "max-width-800". More info about helper classes can be found in the file "helper.css".
 			--> */}
-                        <div class="tt-heading tt-heading-lg margin-bottom-10-p anim-fadeinup">
-                            <h3 class="tt-heading-subtitle text-gray">Get in Touch</h3>
-                            <h2 class="tt-heading-title">Drop Us<br /> a Line</h2>
-                        </div>
                         {/* <!-- End tt-Heading --> */}
-
-                        {/* <!-- Begin form
-                                    ================
-                                    * Use class "tt-form-filled" or "tt-form-minimal" to change form style.
-                                    * Use class "tt-form-sm" or "tt-form-lg" to change form size (no class = default size).
-				--> */}
-                        <form id="tt-contact-form" class="tt-form-minimal anim-fadeinup">
-
-                            {/* <!-- Begin hidden required fields (https://github.com/agragregra/uniMail) --> */}
-                            <input type="hidden" name="project_name" value="yourwebsiteaddress.com" />
-                            {/* <!-- Change value to your site name --> */}
-                            <input type="hidden" name="admin_email" value="your@email.com" />
-                            {/* <!-- Change value to your valid email address (where a message will be sent) --> */}
-                            <input type="hidden" name="form_subject" value="Message from yourwebsiteaddress.com" />
-                            {/* <!-- Change value to your own message subject --> */}
-                            {/* <!-- End Hidden Required Fields --> */}
-
-                            <div class="tt-row">
-                                <div class="tt-col-md-6">
-
-                                    <div class="tt-form-group">
-                                        <label>Name <span class="required">*</span></label>
-                                        <input class="tt-form-control" type="text" name="Name" placeholder="" required />
-                                    </div>
-
-                                </div>
-                                {/* <!-- /.tt-col --> */}
-
-                                <div class="tt-col-md-6">
-
-                                    <div class="tt-form-group">
-                                        <label>Email address <span class="required">*</span></label>
-                                        <input class="tt-form-control" type="email" name="Email" placeholder="" required />
-                                    </div>
-
-                                </div>
-                                {/* <!-- /.tt-col --> */}
-                            </div>
-                            {/* <!-- /.tt-row --> */}
-
-                            <div class="tt-form-group">
-                                <label>Subject <span class="required">*</span></label>
-                                <input class="tt-form-control" type="text" name="Subject" placeholder="" required />
-                            </div>
-
-                            <div class="tt-form-group">
-                                <label>Select an option <span class="required">*</span></label>
-                                <select class="tt-form-control" name="option" required>
-                                    <option value="" disabled selected>Please choose an option</option>
-                                    <option value="Say Hello">Say hello</option>
-                                    <option value="New Project">New project</option>
-                                    <option value="Feedback">Feedback</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-
-                            <div class="tt-form-group">
-                                <label>Message <span class="required">*</span></label>
-                                <textarea class="tt-form-control" rows="6" name="Message" placeholder="" required></textarea>
-                            </div>
-
-                            <small class="tt-form-text"><em>Fields marked with an asterisk (*) are required!</em></small>
-
-                            <div class="tt-btn tt-btn-light-outline margin-top-40">
-                                <button type="submit" data-hover="Send Message">Send Message</button>
-                            </div>
-                        </form>
-                        {/* <!-- End form --> */}
-
+                                  {/* <!-- End form --> */}
                     </div>
                     {/* <!-- /.tt-section-inner --> */}
                 </div>
                 {/* <!-- End tt-section --> */}
-
-
             </div>
-            {/* <!-- End page content --> */}
-
-
-            {/* <!-- ====================== */}
-            {/* ///// Begin tt-footer /////==================== --> */}
-  <Footer/>
+            <Footer />
             {/* <!-- End tt-footer --> */}
-
-
         </div>
     )
 }
-function Accordian (){
-    const Item = ({title, subtitle})=> {
+function ContactForm(){
+    return(
+        <form id="tt-contact-form" class="tt-form-minimal anim-fadeinup">
+            {/* <!-- Begin hidden required fields (https://github.com/agragregra/uniMail) --> */}
+            <input type="hidden" name="project_name" value="yourwebsiteaddress.com" />
+            {/* <!-- Change value to your site name --> */}
+            <input type="hidden" name="admin_email" value="your@email.com" />
+            {/* <!-- Change value to your valid email address (where a message will be sent) --> */}
+            <input type="hidden" name="form_subject" value="Message from yourwebsiteaddress.com" />
+            {/* <!-- Change value to your own message subject --> */}
+            {/* <!-- End Hidden Required Fields --> */}
+            <div class="tt-row">
+                <div class="tt-col-md-6">
+                    <div class="tt-form-group">
+                        <label>Name <span class="required">*</span></label>
+                        <input class="tt-form-control" type="text" name="Name" placeholder="" required />
+                    </div>
+                </div>
+                <div class="tt-col-md-6">
+                    <div class="tt-form-group">
+                        <label>Email address <span class="required">*</span></label>
+                        <input class="tt-form-control" type="email" name="Email" placeholder="" required />
+                    </div>
+                </div>
+                {/* <!-- /.tt-col --> */}
+            </div>
+            {/* <!-- /.tt-row --> */}
+            <div class="tt-form-group">
+                <label>Subject <span class="required">*</span></label>
+                <input class="tt-form-control" type="text" name="Subject" placeholder="" required />
+            </div>
+
+            <div class="tt-form-group">
+                <label>Select an option <span class="required">*</span></label>
+                <select class="tt-form-control" name="option" required>
+                    <option value="" disabled selected>Please choose an option</option>
+                    <option value="Say Hello">Say hello</option>
+                    <option value="New Project">New project</option>
+                    <option value="Feedback">Feedback</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="tt-form-group">
+                <label>Message <span class="required">*</span></label>
+                <textarea class="tt-form-control" rows="6" name="Message" placeholder="" required></textarea>
+            </div>
+
+            <small class="tt-form-text"><em>Fields marked with an asterisk (*) are required!</em></small>
+
+            <div class="tt-btn tt-btn-light-outline margin-top-40">
+                <button type="submit" data-hover="Send Message">Send Message</button>
+            </div>
+        </form>
+    )
+}
+function Accordian() {
+    const Item = ({ title, subtitle }) => {
         return (
             <div class="tt-accordion-item anim-fadeinup">
                 <div class="tt-accordion-heading">
@@ -549,76 +496,90 @@ function Accordian (){
     }
     return (
         <div class="tt-accordion tt-ac-xlg tt-ac-borders">
-
             {/* <!-- /.tt-accordion-item --> */}
-<Item title={"Brand Development"}/>
-<Item title={"Digital Marketing"}/>
-<Item title={"Content Creation"}/>
-<Item title={"Digital Product Research / Strategy"}/>
+            <Item title={"Interface Design"} />
+            <ContentCard />
+            <Item title={"Collaborative File Sharing"} subtitle={"If you are a client or collaborator sign in to upload and share files."} />
+            <IframeCard label="checkit" />
+            {/* <Item title={"CryptoCurrency Asset Generation"} /> */}
+            {/* <IframeCard src={"https://stellar-nft.vercel.app/"} label="stellarWallet" />
+            <Item title={"Digital Product Research / Strategy"} /> */}
             {/* <!-- /.tt-accordion-item --> */}
-
         </div>
     )
 }
-function Footer(){
-    return (<footer id="tt-footer">
+function Footer() {
+    return (
+    <footer id="tt-footer">
         <div class="tt-footer-inner">
-
             {/* <!-- Begin footer column ==================== --> */}
             <div class="footer-col tt-align-center-left">
                 <div class="footer-col-inner">
-
                     {/* <!-- You can use whatever button or link here --> */}
                     <div class="tt-btn tt-btn-link">
                         <a href="#" class="scroll-to-top" data-hover="Back to top">Back to top</a>
                     </div>
-
                 </div>
                 {/* <!-- /.footer-col-inner --> */}
             </div>
             {/* <!-- Begin footer column --> */}
-
             {/* <!-- Begin footer column ==================== --> */}
             <div class="footer-col tt-align-center order-m-last">
                 <div class="footer-col-inner">
-
                     <div class="tt-copyright">
-                        © Copyright - <a href="https://themetorium.net" target="_blank" rel="noopener" class="tt-link">The Floating Mammoth Collective</a>
+                        © Copyright - <a href="https://fltngmmth.com/#bresnow" target="_blank" rel="noopener" class="tt-link">The Floating Mammoth Collective</a>
                     </div>
-
                 </div>
                 {/* <!-- /.footer-col-inner --> */}
             </div>
             {/* <!-- Begin footer column --> */}
-
             {/* <!-- Begin footer column ==================== --> */}
-
             {/* <!-- Begin footer column --> */}
-
         </div>
         {/* <!-- /.tt-section-inner --> */}
     </footer>)
 }
-function FollowFooter(){
-    return(
+function SupportModule() {
+    return (
         <div class="footer-col tt-align-center-right">
             <div class="footer-col-inner">
-
                 <div class="footer-social">
-                    <div class="footer-social-text"><span>Follow</span><i class="fas fa-share-alt"></i></div>
+                    {/* <div class="footer-social-text"><span>Support</span><i class="fas fa-share-alt"></i></div> */}
                     <div class="social-buttons">
                         <ul>
-                            <li><a href="https://www.facebook.com/themetorium" class="magnetic-item" target="_blank" rel="noopener">Fb.</a></li>
-                            <li><a href="https://twitter.com/Themetorium" class="magnetic-item" target="_blank" rel="noopener">Tw.</a></li>
-                            <li><a href="https://www.youtube.com/" class="magnetic-item" target="_blank" rel="noopener">Yt.</a></li>
-                            <li><a href="https://dribbble.com/Themetorium" class="magnetic-item" target="_blank" rel="noopener">Dr.</a></li>
-                            <li><a href="https://www.behance.net/Themetorium" class="magnetic-item" target="_blank" rel="noopener">Be.</a></li>
+                            <li><a href="#" class="magnetic-item" target="_blank" rel="noopener"><img src={"icons/cashapp.svg"} /></a></li>
+                            <li><a href="#" class="magnetic-item" target="_blank" rel="noopener"><img src={"icons/venmo.svg"} /></a></li>
+                            <li><a href="#" class="magnetic-item" target="_blank" rel="noopener"><img src={"icons/youtube.svg"} /></a></li>
+                            <li><a href="https://twitter.com/bresnow"  class="magnetic-item" target="_blank" rel="noopener"><img src={"icons/twitter.svg"}/></a></li>
+                            <li><a href="https://www.facebook.com/bresnow" class="magnetic-item" target="_blank" rel="noopener"><img class="w-6" src={"icons/facebook.svg"}/></a></li>
                         </ul>
                     </div>
                     {/* <!-- /.social-buttons --> */}
                 </div>
                 {/* <!-- /.footer-social --> */}
-
+            </div>
+            {/* <!-- /.footer-col-inner --> */}
+        </div>
+    )
+}
+function FollowFooter() {
+    return (
+        <div class="footer-col tt-align-center-right">
+            <div class="footer-col-inner">
+                <div class="footer-social">
+                    <div class="footer-social-text"><span>Follow</span><i class="fas fa-share-alt"></i></div>
+                    <div class="social-buttons">
+                        <ul>
+                            <li><a href="https://www.facebook.com/bresnow" class="magnetic-item" target="_blank" rel="noopener">Fb.</a></li>
+                            <li><a href="https://twitter.com/bresnow" class="magnetic-item" target="_blank" rel="noopener">Tw.</a></li>
+                            <li><a href="https://www.youtube.com/@fltngmmth" class="magnetic-item" target="_blank" rel="noopener">Yt.</a></li>
+                            {/* <li><a href="https://dribbble.com/bresnow" class="magnetic-item" target="_blank" rel="noopener">Dr.</a></li> */}
+                            {/* <li><a href="https://www.behance.net/bresnow" class="magnetic-item" target="_blank" rel="noopener">Be.</a></li> */}
+                        </ul>
+                    </div>
+                    {/* <!-- /.social-buttons --> */}
+                </div>
+                {/* <!-- /.footer-social --> */}
             </div>
             {/* <!-- /.footer-col-inner --> */}
         </div>
