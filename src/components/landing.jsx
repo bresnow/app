@@ -1,21 +1,49 @@
 import { ContentCard, Esc, IframeCard } from "../views/demo"
 import HashRoute from "./joy-jsx/hash-route"
 import { handleFiles } from "../views/demo"
+function showHideMobMenu(e) {
+    $('.main-menu').slideToggle();
+}
+
+function hideMobMenuItemClick(e) {
+    if ($('.mob-menu').is(':visible')) {
+        $('.main-menu').slideUp();
+    }
+}
+
+function is_touch_device() {
+    return !!('ontouchstart' in window);
+}
+
+function isValidEmailAddress(emailAddress) {
+    var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+    return pattern.test(emailAddress);
+}
 export default function ({ route }) {
     const $class = "w-full lg:w-2/3 lg:mx-auto leading-normal tracking-normal text-indigo-400 h-full bg-slate"
     JOY.route.page(route, () => {
+         
         let $likes = $("#likeButton"), $likeCount = $("#likeCount");
         document.getElementById('uploader').addEventListener("change", function (e) {
             handleFiles(e.target.files)
         });
+        let likeNode = gun.get("hash-route").get(route).get("likes")
+        likeNode.on(function (data, key) {
+            if(!data.count){
+                data.count = 0
+            }
+            $likeCount.text(data.count)
+        })
         $likes.on("click", function () {
             console.log("Likes button clicked")
-            $likeCount.text("334")
+            likeNode.put({
+                count: parseInt($likeCount.text()) + 1
+            })
         });
         ////
         let routeNode = gun.get("hash-route").get(route), header_ = routeNode.get("PageHeader1"), $pageHeaderH1 = $("#pageheaderH1");
         header_.on(data => {
-            if (data.title) {
+            if (!data.title) {
                 header_.put({
                     "title": "Im Bresnow. My friends call me Steve. Im an interface designer in Wilmington, Delaware. I can make your ideas come to life!",
                     "subtitle": "Portfolio In Development",
@@ -23,6 +51,9 @@ export default function ({ route }) {
                 })
             };
         })
+
+
+
     });
     return (
         <HashRoute route={route} class={$class}>
@@ -67,7 +98,7 @@ function PageHeader() {
             <div class="page-header-inner tt-wrap">
                 <div class="ph-image">
                     <div class="ph-image-inner">
-                        <img src="assets/img/page-header/ph-6.jpg" alt="Image" />
+                        <img src="folio/3370.jpg" alt="Image" />
                     </div>
                 </div>
                 <div class="ph-caption max-width-1000">
@@ -115,7 +146,7 @@ function Portfolio() {
                                         * Use class "ttgr-not-cropped" to enable not cropped mode (effect only with classes "ttgr-layout-2", "ttgr-layout-3" and "ttgr-layout-4").
                                         * Use class "ttgr-shifted" to enable shifted layout (effect only with classes "ttgr-layout-2", "ttgr-layout-3" and "ttgr-layout-4").
 				--> */}
-            <div class="tt-grid ttgr-layout-creative-2 ttgr-not-cropped ttgr-gap-4">
+            <div class="tt-grid ttgr-layout-1-2 ttgr-gap-4">
 
                 {/* <!-- Begin tt-Grid items wrap ============================ --> */}
                 <div class="tt-grid-items-wrap isotope-items-wrap">
@@ -129,12 +160,12 @@ function Portfolio() {
                                                         * Use class "pgi-image-is-light" if needed, it makes the caption visible better if you use light image (only effect if "pgi-cap-inside" is enabled on "portfolio-grid"! Also no effect on small screens!).
 								--> */}
                             <div class="portfolio-grid-item">
-                                <a href="single-project-1.html" class="pgi-image-wrap" data-cursor="View<br>Project">
+                                <a href="folio/01.PNG" class="pgi-image-wrap" data-cursor="View<br>Project">
                                     {/* <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". --> */}
                                     <div class="pgi-image-holder cover-opacity-2">
                                         <div class="pgi-image-inner anim-zoomin">
                                             <figure class="pgi-image ttgr-height">
-                                                <img src="assets/img/portfolio/portfolio-1.jpg" alt="image" />
+                                                <img src="folio/01.PNG" alt="image" />
                                             </figure>
                                             {/* <!-- /.pgi-image --> */}
                                         </div>
@@ -146,9 +177,9 @@ function Portfolio() {
 
                                 <div class="pgi-caption">
                                     <div class="pgi-caption-inner">
-                                        <h2 class="pgi-title">Victorian Girls</h2>
+                                        <h2 class="pgi-title">test</h2>
                                         <div class="pgi-categories-wrap">
-                                            <div class="pgi-category">People</div>
+                                            <div class="pgi-category">One</div>
                                             {/* <!-- <div class="pgi-category">Varia</div> --> */}
                                         </div>
                                         {/* <!-- /.pli-categories-wrap --> */}
@@ -173,12 +204,12 @@ function Portfolio() {
                                                         * Use class "pgi-image-is-light" if needed, it makes the caption visible better if you use light image (only effect if "pgi-cap-inside" is enabled on "portfolio-grid"!).
 								--> */}
                             <div class="portfolio-grid-item anim-parallax">
-                                <a href="single-project-2.html" class="pgi-image-wrap" data-cursor="View<br>Project">
+                                <a href="folio/03.JPG" class="pgi-image-wrap" data-cursor="View<br>Project">
                                     {/* <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". --> */}
                                     <div class="pgi-image-holder cover-opacity-2">
                                         <div class="pgi-image-inner anim-zoomin">
                                             <figure class="pgi-image ttgr-height">
-                                                <img src="assets/img/portfolio/portfolio-2.jpg" alt="image" />
+                                                <img src="folio/03.JPG" alt="image" />
                                             </figure>
                                             {/* <!-- /.pgi-image --> */}
                                         </div>
@@ -217,14 +248,14 @@ function Portfolio() {
                                                         * Use class "pgi-image-is-light" if needed, it makes the caption visible better if you use light image (only effect if "pgi-cap-inside" is enabled on "portfolio-grid"!).
 								--> */}
                             <div class="portfolio-grid-item">
-                                <a href="single-project-3.html" class="pgi-image-wrap" data-cursor="View<br>Project">
+                                <a href="folio/02.jpg" class="pgi-image-wrap" data-cursor="View<br>Project">
                                     {/* <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". --> */}
                                     <div class="pgi-image-holder cover-opacity-2">
                                         <div class="pgi-image-inner anim-zoomin">
                                             <figure class="pgi-video-wrap ttgr-height">
                                                 <video class="pgi-video" loop muted preload="metadata" poster="assets/vids/fashion-week.jpg">
-                                                    <source src="assets/vids/fashion-week.mp4" type="video/mp4" />
-                                                    <source src="assets/vids/fashion-week.webm" type="video/webm" />
+                                                    <source src="folio/04.JPG" type="video/mp4" />
+                                                    <source src="folio/04.JPG" type="video/webm" />
                                                 </video>
                                             </figure>
                                             {/* <!-- /.pgi-video-wrap --> */}
@@ -264,12 +295,12 @@ function Portfolio() {
                                                         * Use class "pgi-image-is-light" if needed, it makes the caption visible better if you use light image (only effect if "pgi-cap-inside" is enabled on "portfolio-grid"!).
 								--> */}
                             <div class="portfolio-grid-item">
-                                <a href="single-project-4.html" class="pgi-image-wrap" data-cursor="View<br>Project">
+                                <a href="folio/05.JPG" class="pgi-image-wrap" data-cursor="View<br>Project">
                                     {/* <!-- Use class "cover-opacity-*" to set image overlay if needed. For example "cover-opacity-2". Useful if class "pgi-cap-inside" is enabled on "portfolio-grid". Note: It is individual and depends on the image you use. More info about helper classes in file "helper.css". --> */}
                                     <div class="pgi-image-holder cover-opacity-2">
                                         <div class="pgi-image-inner anim-zoomin">
                                             <figure class="pgi-image ttgr-height">
-                                                <img src="assets/img/portfolio/portfolio-3.jpg" alt="image" />
+                                                <img src="folio/05.JPG" alt="image" />
                                             </figure>
                                             {/* <!-- /.pgi-image --> */}
                                         </div>
@@ -392,6 +423,7 @@ function ContentWrap({ route }) {
                                     * Add class "is-open" to the "tt-accordion-content" to make this content open by default.
 			--> */}
                         <Accordian />
+                        <Portfolio/>
                         {/* <!-- End accordion --> */}
                     </div>
                     {/* <!-- /.tt-section-inner --> */}
@@ -400,8 +432,7 @@ function ContentWrap({ route }) {
                 {/* <!-- =======================
                             ///// Begin tt-section /////
                             ============================
-                            * You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css".
-	--> */}
+                            * You can use padding classes if needed. For example "padding-top-xlg-150", "padding-bottom-xlg-150", "no-padding-top", "no-padding-bottom", etc. Note that each situation may be different and each section may need different classes according to your needs. More info about helper classes can be found in the file "helper.css". --> */}
                 <div class="tt-section padding-top-xlg-150 padding-bottom-xlg-150 padding-left-sm-3-p padding-right-sm-3-p bg-white-accent-3">
                     <div class="tt-section-inner tt-wrap max-width-900">
                         {/* <!-- Begin tt-Heading
@@ -479,7 +510,7 @@ function ContactForm(){
         </form>
     )
 }
-function Accordian() {
+function Accordian(){
     const Item = ({ title, subtitle }) => {
         return (
             <div class="tt-accordion-item anim-fadeinup">
@@ -499,9 +530,11 @@ function Accordian() {
             {/* <!-- /.tt-accordion-item --> */}
             <Item title={"Interface Design"} />
             <ContentCard />
-            <Item title={"Collaborative File Sharing"} subtitle={"If you are a client or collaborator sign in to upload and share files."} />
-            <IframeCard label="checkit" />
-            {/* <Item title={"CryptoCurrency Asset Generation"} /> */}
+            {/* <Item title={"Collaborative File Sharing"} subtitle={"If you are a client or collaborator sign in to upload and share files."} /> */}
+            {/* <IframeCard label="checkit" /> */}
+            {/* <Item title={"Test"} /> */}
+              
+
             {/* <IframeCard src={"https://stellar-nft.vercel.app/"} label="stellarWallet" />
             <Item title={"Digital Product Research / Strategy"} /> */}
             {/* <!-- /.tt-accordion-item --> */}
@@ -537,7 +570,8 @@ function Footer() {
             {/* <!-- Begin footer column --> */}
         </div>
         {/* <!-- /.tt-section-inner --> */}
-    </footer>)
+    </footer>
+    )
 }
 function SupportModule() {
     return (
